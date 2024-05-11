@@ -20,8 +20,14 @@ var cb = lv_checkbox_create(active);
 lv_checkbox_set_text(cb, "Apple");
 
 var button = lv_button_create(active);
-lv_obj_set_size(button, 100, 50);
 var label = lv_label_create(button);
+var i = 0;
+lv_obj_set_size(button, 100, 50);
+lv_obj_add_event_cb(button, e =>
+{
+    i++;
+    lv_label_set_text(label, $"Click {i}");
+}, lv_event_code_t.LV_EVENT_CLICKED, IntPtr.Zero);
 lv_label_set_text(label, "Button");
 lv_obj_center(label);
 
