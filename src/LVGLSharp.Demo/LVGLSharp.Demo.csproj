@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PublishAot>true</PublishAot>
+		<InvariantGlobalization>true</InvariantGlobalization>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LVGLSharp.Native.Windows\LVGLSharp.Native.Windows.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(PlatformTarget)' == 'x64'">
+		<PackageReference Include="PublishAotCompressed" Version="1.0.3" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(PlatformTarget)' == 'x64'">
+		<PublishLzmaCompressed>true</PublishLzmaCompressed>
+	</PropertyGroup>
+
+	<ItemGroup Condition="$(RuntimeIdentifier.StartsWith('win')) And '$(PlatformTarget)' == 'x64'">
+		<DirectPInvoke Include="Lvgl" />
+		<NativeLibrary Include="..\LVGLSharp.Native.Windows.x64\Lvgl.lib" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(RuntimeIdentifier.StartsWith('win')) And '$(PlatformTarget)' == 'x86'">
+		<DirectPInvoke Include="Lvgl" />
+		<NativeLibrary Include="..\LVGLSharp.Native.Windows.x86\Lvgl.lib" />
+	</ItemGroup>
+
+	<Target Name="CustomLinkerArg" AfterTargets="SetupOSSpecificProps" Condition="$(RuntimeIdentifier.StartsWith('win'))">
+		<ItemGroup>
+			<LinkerArg Include="gdi32.lib" />
+		</ItemGroup>
+	</Target>
+
+</Project>
