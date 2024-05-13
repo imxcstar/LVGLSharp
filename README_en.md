@@ -3,7 +3,7 @@
 [中文](./README.md) | English
 
 ## ToDo
-- [ ] LVGL Windows Api Binding
+- [ ] LVGL Windows, Linux, Mac, ... Api Binding
 - [ ] LVGLSharp Abstract Library Encapsulation
 
 ## The following is a preview of an x64 application that has undergone AOT and compression (without dependencies)

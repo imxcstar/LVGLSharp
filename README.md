@@ -3,7 +3,7 @@
 中文 | [English](./README_en.md)
 
 ## ToDo
-- [ ] LVGL Windows Api 绑定
+- [ ] LVGL Windows, Linux, Mac, ... Api 绑定
 - [ ] LVGLSharp 抽象库封装
 
 ## 以下是经过AOT和压缩的x64应用程序预览（没有依赖）
