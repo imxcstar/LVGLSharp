@@ -1,0 +1,3 @@
+[submodule "libs/lv_port_pc_visual_studio"]
+	path = libs/lv_port_pc_visual_studio
+	url = https://github.com/imxcstar/lv_port_pc_visual_studio.git

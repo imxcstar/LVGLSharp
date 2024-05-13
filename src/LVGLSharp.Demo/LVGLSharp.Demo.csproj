@@ -2,16 +2,14 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PublishAot>true</PublishAot>
 		<InvariantGlobalization>true</InvariantGlobalization>
+		<Platforms>AnyCPU;x86</Platforms>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\LVGLSharp.Native.Windows\LVGLSharp.Native.Windows.csproj" />
-	</ItemGroup>
 
 	<ItemGroup Condition="'$(PlatformTarget)' == 'x64'">
 		<PackageReference Include="PublishAotCompressed" Version="1.0.3" />
@@ -29,6 +27,10 @@
 	<ItemGroup Condition="$(RuntimeIdentifier.StartsWith('win')) And '$(PlatformTarget)' == 'x86'">
 		<DirectPInvoke Include="Lvgl" />
 		<NativeLibrary Include="..\LVGLSharp.Native.Windows.x86\Lvgl.lib" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LVGLSharp.Native\LVGLSharp.Native.csproj" />
 	</ItemGroup>
 
 	<Target Name="CustomLinkerArg" AfterTargets="SetupOSSpecificProps" Condition="$(RuntimeIdentifier.StartsWith('win'))">
