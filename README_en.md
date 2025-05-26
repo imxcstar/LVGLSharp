@@ -2,9 +2,7 @@
 
 [中文](./README.md) | English
 
-## ToDo
-- [ ] LVGL Windows, Linux, Mac, ... Api Binding
-- [ ] LVGLSharp Abstract Library Encapsulation
+# Thanks to ClangSharp, all API interoperability of LVGL is now supported.
 
 ## The following is a preview of an x64 application that has undergone AOT (without dependencies)
 
