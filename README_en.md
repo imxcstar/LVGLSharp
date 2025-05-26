@@ -6,12 +6,12 @@
 - [ ] LVGL Windows, Linux, Mac, ... Api Binding
 - [ ] LVGLSharp Abstract Library Encapsulation
 
-## The following is a preview of an x64 application that has undergone AOT and compression (without dependencies)
+## The following is a preview of an x64 application that has undergone AOT (without dependencies)
 
 ![1.png](./preview/1.png)
+
+![2.png](./preview/2.png)
 
 ## Reference
 
 https://github.com/lvgl/lvgl
-
-https://github.com/lvgl/lv_port_pc_visual_studio

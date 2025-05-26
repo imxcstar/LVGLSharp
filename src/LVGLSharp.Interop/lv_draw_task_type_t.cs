@@ -1,0 +1,19 @@
+namespace LVGLSharp.Interop
+{
+    public enum lv_draw_task_type_t
+    {
+        LV_DRAW_TASK_TYPE_NONE = 0,
+        LV_DRAW_TASK_TYPE_FILL,
+        LV_DRAW_TASK_TYPE_BORDER,
+        LV_DRAW_TASK_TYPE_BOX_SHADOW,
+        LV_DRAW_TASK_TYPE_LETTER,
+        LV_DRAW_TASK_TYPE_LABEL,
+        LV_DRAW_TASK_TYPE_IMAGE,
+        LV_DRAW_TASK_TYPE_LAYER,
+        LV_DRAW_TASK_TYPE_LINE,
+        LV_DRAW_TASK_TYPE_ARC,
+        LV_DRAW_TASK_TYPE_TRIANGLE,
+        LV_DRAW_TASK_TYPE_MASK_RECTANGLE,
+        LV_DRAW_TASK_TYPE_MASK_BITMAP,
+    }
+}

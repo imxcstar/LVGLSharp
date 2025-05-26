@@ -1,0 +1,20 @@
+namespace LVGLSharp.Interop
+{
+    public unsafe partial struct _lv_tree_node_t
+    {
+        [NativeTypeName("struct _lv_tree_node_t *")]
+        public _lv_tree_node_t* parent;
+
+        [NativeTypeName("struct _lv_tree_node_t **")]
+        public _lv_tree_node_t** children;
+
+        [NativeTypeName("uint32_t")]
+        public c_uint32 child_cnt;
+
+        [NativeTypeName("uint32_t")]
+        public c_uint32 child_cap;
+
+        [NativeTypeName("const struct _lv_tree_class_t *")]
+        public _lv_tree_class_t* class_p;
+    }
+}

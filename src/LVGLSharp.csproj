@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PublishAot>true</PublishAot>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="lvgl\**" />
+		<EmbeddedResource Remove="lvgl\**" />
+		<None Remove="lvgl\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="build_lvgl.txt" />
+		<None Remove="lvgl.rsp" />
+		<None Remove="lvglsharp.h" />
+		<None Remove="lv_conf.h" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<DirectPInvoke Include="lvgl" />
+		<NativeLibrary Include="lvgl.lib" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
+		<None Update="lvgl.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

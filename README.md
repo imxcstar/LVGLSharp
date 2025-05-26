@@ -6,12 +6,12 @@
 - [ ] LVGL Windows, Linux, Mac, ... Api 绑定
 - [ ] LVGLSharp 抽象库封装
 
-## 以下是经过AOT和压缩的x64应用程序预览（没有依赖）
+## 以下是经过AOT的x64应用程序预览（没有依赖）
 
 ![1.png](./preview/1.png)
+
+![2.png](./preview/2.png)
 
 ## 引用
 
 https://github.com/lvgl/lvgl
-
-https://github.com/lvgl/lv_port_pc_visual_studio

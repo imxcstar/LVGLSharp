@@ -1,0 +1,21 @@
+namespace LVGLSharp.Interop
+{
+    public enum lv_image_align_t
+    {
+        LV_IMAGE_ALIGN_DEFAULT = 0,
+        LV_IMAGE_ALIGN_TOP_LEFT,
+        LV_IMAGE_ALIGN_TOP_MID,
+        LV_IMAGE_ALIGN_TOP_RIGHT,
+        LV_IMAGE_ALIGN_BOTTOM_LEFT,
+        LV_IMAGE_ALIGN_BOTTOM_MID,
+        LV_IMAGE_ALIGN_BOTTOM_RIGHT,
+        LV_IMAGE_ALIGN_LEFT_MID,
+        LV_IMAGE_ALIGN_RIGHT_MID,
+        LV_IMAGE_ALIGN_CENTER,
+        LV_IMAGE_ALIGN_AUTO_TRANSFORM,
+        LV_IMAGE_ALIGN_STRETCH,
+        LV_IMAGE_ALIGN_TILE,
+        LV_IMAGE_ALIGN_CONTAIN,
+        LV_IMAGE_ALIGN_COVER,
+    }
+}
