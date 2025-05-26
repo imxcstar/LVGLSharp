@@ -2,7 +2,7 @@
 
 中文 | [English](./README_en.md)
 
-# 得益于CLangSharp，现在已支持LVGL所有API互操作
+# 得益于ClangSharp，现在已支持LVGL所有API互操作
 
 ## 以下是经过AOT的x64应用程序预览（没有依赖）
 
