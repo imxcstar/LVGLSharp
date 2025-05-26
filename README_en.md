@@ -2,7 +2,7 @@
 
 [中文](./README.md) | English
 
-# Thanks to ClangSharp, all API interoperability of LVGL is now supported.
+# Thanks to ClangSharpPInvokeGenerator, all API interoperability of LVGL is now supported.
 
 ## The following is a preview of an x64 application that has undergone AOT (without dependencies)
 
