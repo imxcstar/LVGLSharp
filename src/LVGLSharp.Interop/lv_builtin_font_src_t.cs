@@ -6,6 +6,6 @@ namespace LVGLSharp.Interop
         public _lv_font_t* font_p;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 size;
+        public uint size;
     }
 }

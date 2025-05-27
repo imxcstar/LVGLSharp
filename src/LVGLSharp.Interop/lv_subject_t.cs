@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public unsafe partial struct lv_subject_t
@@ -10,16 +12,21 @@ namespace LVGLSharp.Interop
 
         public void* user_data;
 
-        public c_uint32 _bitfield;
+        [NativeBitfield("type", offset: 0, length: 4)]
+        [NativeBitfield("size", offset: 4, length: 24)]
+        [NativeBitfield("notify_restart_query", offset: 28, length: 1)]
+        public uint _bitfield;
 
         [NativeTypeName("uint32_t : 4")]
-        public c_uint32 type
+        public uint type
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
                 return _bitfield & 0xFu;
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
                 _bitfield = (_bitfield & ~0xFu) | (value & 0xFu);
@@ -27,13 +34,15 @@ namespace LVGLSharp.Interop
         }
 
         [NativeTypeName("uint32_t : 24")]
-        public c_uint32 size
+        public uint size
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
                 return (_bitfield >> 4) & 0xFFFFFFu;
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
                 _bitfield = (_bitfield & ~(0xFFFFFFu << 4)) | ((value & 0xFFFFFFu) << 4);
@@ -41,13 +50,15 @@ namespace LVGLSharp.Interop
         }
 
         [NativeTypeName("uint32_t : 1")]
-        public c_uint32 notify_restart_query
+        public uint notify_restart_query
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
                 return (_bitfield >> 28) & 0x1u;
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
                 _bitfield = (_bitfield & ~(0x1u << 28)) | ((value & 0x1u) << 28);

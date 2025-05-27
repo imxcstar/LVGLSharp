@@ -1,6 +1,7 @@
 ﻿using LVGLSharp.Interop;
 using System;
 using System.Diagnostics;
+using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,12 +14,26 @@ unsafe class Program
     static IntPtr g_hwnd;
     static _lv_display_t* g_display;
     static IntPtr g_lvbuf;
-    static int g_bufSize = Width * Height * 4;
+    static uint g_bufSize = Width * Height * 4;
     static bool g_running = true;
     static _lv_obj_t* label;
     static int startTick;
     static int mouseX = 0, mouseY = 0;
     static bool mousePressed = false;
+    static byte[] bgraBuf = new byte[g_bufSize];
+    static byte[] _timeBuf = new byte[32];
+
+    static Win32.BITMAPINFO _bmi = new Win32.BITMAPINFO
+    {
+        bmiHeader = new Win32.BITMAPINFOHEADER
+        {
+            biSize = (uint)Marshal.SizeOf(typeof(Win32.BITMAPINFOHEADER)),
+            biPlanes = 1,
+            biBitCount = 32,
+            biCompression = 0 // BI_RGB
+        },
+        bmiColors = new uint[256]
+    };
 
     static void ConvertRGB565ToBGRA(byte* src, byte* dst, int pixelCount)
     {
@@ -36,32 +51,25 @@ unsafe class Program
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
-    static unsafe void FlushCb(_lv_display_t* disp_drv, lv_area_t* area, c_uint8* color_p)
+    static unsafe void FlushCb(_lv_display_t* disp_drv, lv_area_t* area, byte* color_p)
     {
         int width = area->x2 - area->x1 + 1;
         int height = area->y2 - area->y1 + 1;
         int pixelCount = width * height;
 
-        byte[] bgraBuf = new byte[pixelCount * 4];
         fixed (byte* pBGRA = bgraBuf)
         {
             ConvertRGB565ToBGRA((byte*)color_p, pBGRA, pixelCount);
 
-            Win32.BITMAPINFO bmi = new Win32.BITMAPINFO();
-            bmi.bmiHeader.biSize = (uint)Marshal.SizeOf(typeof(Win32.BITMAPINFOHEADER));
-            bmi.bmiHeader.biWidth = width;
-            bmi.bmiHeader.biHeight = -height; // top-down DIB
-            bmi.bmiHeader.biPlanes = 1;
-            bmi.bmiHeader.biBitCount = 32;
-            bmi.bmiHeader.biCompression = 0; // BI_RGB
-            bmi.bmiHeader.biSizeImage = (uint)(width * height * 4);
-            bmi.bmiColors = new uint[256];
+            _bmi.bmiHeader.biWidth = width;
+            _bmi.bmiHeader.biHeight = -height;
+            _bmi.bmiHeader.biSizeImage = (uint)(width * height * 4);
 
             IntPtr hdc = Win32.GetDC(g_hwnd);
             Win32.SetDIBitsToDevice(
                 hdc, area->x1, area->y1, (uint)width, (uint)height,
                 0, 0, 0, (uint)height,
-                (IntPtr)pBGRA, ref bmi, 0);
+                (IntPtr)pBGRA, ref _bmi, 0);
             Win32.ReleaseDC(g_hwnd, hdc);
         }
 
@@ -71,13 +79,19 @@ unsafe class Program
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     static unsafe void buttonClick(_lv_event_t* obj)
     {
-        lv_label_set_text(label, (c_int8*)Marshal.StringToCoTaskMemAnsi(DateTime.Now.ToString()).ToPointer());
+        string now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        int len = Encoding.ASCII.GetBytes(now, 0, now.Length, _timeBuf, 0);
+        _timeBuf[len] = 0;
+        fixed (byte* p = _timeBuf)
+        {
+            lv_label_set_text(label, (sbyte*)p);
+        }
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
-    static unsafe c_uint32 my_tick()
+    static unsafe uint my_tick()
     {
-        return Environment.TickCount - startTick;
+        return (uint)(Environment.TickCount - startTick);
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
@@ -145,6 +159,7 @@ unsafe class Program
             100, 100, Width, Height,
             IntPtr.Zero, IntPtr.Zero, Win32.GetModuleHandle(null), IntPtr.Zero
         );
+
         Win32.ShowWindow(g_hwnd, 5);
         Win32.UpdateWindow(g_hwnd);
 
@@ -158,22 +173,63 @@ unsafe class Program
         lv_indev_set_type(indev, lv_indev_type_t.LV_INDEV_TYPE_POINTER);
         lv_indev_set_read_cb(indev, &MouseReadCb);
 
-        g_lvbuf = Marshal.AllocHGlobal(g_bufSize);
+        g_lvbuf = Marshal.AllocHGlobal((int)g_bufSize);
         lv_display_set_buffers(g_display, g_lvbuf.ToPointer(), null, g_bufSize, LV_DISPLAY_RENDER_MODE_FULL);
         lv_display_set_flush_cb(g_display, &FlushCb);
 
         var scr = lv_scr_act();
         label = lv_label_create(scr);
-        lv_label_set_text(label, (c_int8*)Marshal.StringToCoTaskMemAnsi("Hello LVGL!").ToPointer());
+
+        fixed (byte* value = Encoding.ASCII.GetBytes($"Hello LVGL!\0"))
+        {
+            lv_label_set_text(label, (sbyte*)value);
+        }
 
         var button = lv_button_create(scr);
         lv_obj_set_pos(button, 50, 30);
         lv_obj_set_size(button, 120, 50);
         var buttonLabel = lv_label_create(button);
-        lv_label_set_text(buttonLabel, (c_int8*)Marshal.StringToCoTaskMemAnsi("Click").ToPointer());
+        fixed (byte* value = Encoding.ASCII.GetBytes("Click\0"))
+        {
+            lv_label_set_text(buttonLabel, (sbyte*)value);
+        }
         lv_obj_center(buttonLabel);
 
         lv_obj_add_event_cb(button, &buttonClick, lv_event_code_t.LV_EVENT_CLICKED, null);
+
+
+        _lv_obj_t* slider = lv_slider_create(lv_screen_active());
+        lv_slider_set_value(slider, 70, LV_ANIM_OFF);
+        lv_obj_set_size(slider, 300, 20);
+        lv_obj_center(slider);
+
+        /*Add local styles to MAIN part (background rectangle)*/
+        lv_obj_set_style_bg_color(slider, lv_color_hex(0x0F1215), LV_PART_MAIN);
+        lv_obj_set_style_bg_opa(slider, 255, LV_PART_MAIN);
+        lv_obj_set_style_border_color(slider, lv_color_hex(0x333943), LV_PART_MAIN);
+        lv_obj_set_style_border_width(slider, 5, LV_PART_MAIN);
+        lv_obj_set_style_pad_all(slider, 5, LV_PART_MAIN);
+
+        /*Create a reusable style sheet for the INDICATOR part*/
+        lv_style_t style_indicator;
+        lv_style_init(&style_indicator);
+        lv_style_set_bg_color(&style_indicator, lv_color_hex(0x37B9F5));
+        lv_style_set_bg_grad_color(&style_indicator, lv_color_hex(0x1464F0));
+        lv_style_set_bg_grad_dir(&style_indicator, lv_grad_dir_t.LV_GRAD_DIR_HOR);
+        lv_style_set_shadow_color(&style_indicator, lv_color_hex(0x37B9F5));
+        lv_style_set_shadow_width(&style_indicator, 15);
+        lv_style_set_shadow_spread(&style_indicator, 5);
+
+        /*Add the style sheet to the slider's INDICATOR part*/
+        lv_obj_add_style(slider, &style_indicator, LV_PART_INDICATOR);
+
+        /*Add the same style to the KNOB part too and locally overwrite some properties*/
+        lv_obj_add_style(slider, &style_indicator, LV_PART_KNOB);
+
+        lv_obj_set_style_outline_color(slider, lv_color_hex(0x0096FF), LV_PART_KNOB);
+        lv_obj_set_style_outline_width(slider, 3, LV_PART_KNOB);
+        lv_obj_set_style_outline_pad(slider, -5, LV_PART_KNOB);
+        lv_obj_set_style_shadow_spread(slider, 2, LV_PART_KNOB);
 
         Win32.MSG msg;
         while (g_running)
@@ -194,6 +250,7 @@ unsafe class Program
         Marshal.FreeHGlobal(g_lvbuf);
     }
 }
+
 
 class Win32
 {

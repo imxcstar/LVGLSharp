@@ -7,7 +7,7 @@ namespace LVGLSharp.Interop
     {
         [FieldOffset(0)]
         [NativeTypeName("int32_t")]
-        public c_int32 num;
+        public int num;
 
         [FieldOffset(0)]
         [NativeTypeName("const void *")]

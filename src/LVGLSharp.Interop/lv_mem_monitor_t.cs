@@ -21,9 +21,9 @@ namespace LVGLSharp.Interop
         public nuint max_used;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 used_pct;
+        public byte used_pct;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 frag_pct;
+        public byte frag_pct;
     }
 }

@@ -6,7 +6,7 @@ namespace LVGLSharp.Interop
         public _lv_tree_class_t* base_class;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 instance_size;
+        public uint instance_size;
 
         [NativeTypeName("void (*)(const struct _lv_tree_class_t *, struct _lv_tree_node_t *)")]
         public delegate* unmanaged[Cdecl]<_lv_tree_class_t*, _lv_tree_node_t*, void> constructor_cb;

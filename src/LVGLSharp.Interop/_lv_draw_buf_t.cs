@@ -5,10 +5,10 @@ namespace LVGLSharp.Interop
         public lv_image_header_t header;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 data_size;
+        public uint data_size;
 
         [NativeTypeName("uint8_t *")]
-        public c_uint8* data;
+        public byte* data;
 
         public void* unaligned_data;
 

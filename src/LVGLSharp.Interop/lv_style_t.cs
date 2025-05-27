@@ -5,9 +5,9 @@ namespace LVGLSharp.Interop
         public void* values_and_props;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 has_group;
+        public uint has_group;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 prop_cnt;
+        public byte prop_cnt;
     }
 }

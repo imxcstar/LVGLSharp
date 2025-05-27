@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public partial struct lv_draw_box_shadow_dsc_t
@@ -5,38 +7,41 @@ namespace LVGLSharp.Interop
         public lv_draw_dsc_base_t @base;
 
         [NativeTypeName("int32_t")]
-        public c_int32 radius;
+        public int radius;
 
         public lv_color_t color;
 
         [NativeTypeName("int32_t")]
-        public c_int32 width;
+        public int width;
 
         [NativeTypeName("int32_t")]
-        public c_int32 spread;
+        public int spread;
 
         [NativeTypeName("int32_t")]
-        public c_int32 ofs_x;
+        public int ofs_x;
 
         [NativeTypeName("int32_t")]
-        public c_int32 ofs_y;
+        public int ofs_y;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
-        public c_uint8 _bitfield;
+        [NativeBitfield("bg_cover", offset: 0, length: 1)]
+        public byte _bitfield;
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 bg_cover
+        public byte bg_cover
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)(_bitfield & 0x1u);
+                return (byte)(_bitfield & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~0x1u) | (value & 0x1u));
+                _bitfield = (byte)((_bitfield & ~0x1u) | (value & 0x1u));
             }
         }
     }

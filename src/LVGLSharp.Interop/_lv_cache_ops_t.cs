@@ -3,7 +3,7 @@ namespace LVGLSharp.Interop
     public unsafe partial struct _lv_cache_ops_t
     {
         [NativeTypeName("lv_cache_compare_cb_t")]
-        public delegate* unmanaged[Cdecl]<void*, void*, c_int8> compare_cb;
+        public delegate* unmanaged[Cdecl]<void*, void*, sbyte> compare_cb;
 
         [NativeTypeName("lv_cache_create_cb_t")]
         public delegate* unmanaged[Cdecl]<void*, void*, c_bool1> create_cb;

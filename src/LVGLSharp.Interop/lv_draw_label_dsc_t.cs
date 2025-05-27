@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public unsafe partial struct lv_draw_label_dsc_t
@@ -5,7 +7,7 @@ namespace LVGLSharp.Interop
         public lv_draw_dsc_base_t @base;
 
         [NativeTypeName("const char *")]
-        public c_int8* text;
+        public sbyte* text;
 
         public lv_point_t text_size;
 
@@ -15,111 +17,124 @@ namespace LVGLSharp.Interop
         public lv_color_t color;
 
         [NativeTypeName("int32_t")]
-        public c_int32 line_space;
+        public int line_space;
 
         [NativeTypeName("int32_t")]
-        public c_int32 letter_space;
+        public int letter_space;
 
         [NativeTypeName("int32_t")]
-        public c_int32 ofs_x;
+        public int ofs_x;
 
         [NativeTypeName("int32_t")]
-        public c_int32 ofs_y;
+        public int ofs_y;
 
         [NativeTypeName("int32_t")]
-        public c_int32 rotation;
+        public int rotation;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 sel_start;
+        public uint sel_start;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 sel_end;
+        public uint sel_end;
 
         public lv_color_t sel_color;
 
         public lv_color_t sel_bg_color;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 text_length;
+        public uint text_length;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
         public lv_text_align_t align;
 
         public lv_base_dir_t bidi_dir;
 
-        public int _bitfield1;
+        [NativeBitfield("decor", offset: 0, length: 3)]
+        [NativeBitfield("flag", offset: 3, length: 5)]
+        [NativeBitfield("text_local", offset: 8, length: 1)]
+        [NativeBitfield("text_static", offset: 9, length: 1)]
+        [NativeBitfield("has_bided", offset: 10, length: 1)]
+        public int _bitfield;
 
         [NativeTypeName("lv_text_decor_t : 3")]
         public lv_text_decor_t decor
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (lv_text_decor_t)((_bitfield1 << 29) >> 29);
+                return (lv_text_decor_t)((_bitfield << 29) >> 29);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield1 = (_bitfield1 & ~0x7) | ((int)(value) & 0x7);
+                _bitfield = (_bitfield & ~0x7) | ((int)(value) & 0x7);
             }
         }
 
         [NativeTypeName("lv_text_flag_t : 5")]
         public lv_text_flag_t flag
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (lv_text_flag_t)((_bitfield1 << 24) >> 27);
+                return (lv_text_flag_t)((_bitfield << 24) >> 27);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield1 = (_bitfield1 & ~(0x1F << 3)) | (((int)(value) & 0x1F) << 3);
-            }
-        }
-
-        public c_uint8 _bitfield2;
-
-        [NativeTypeName("uint8_t : 1")]
-        public c_uint8 text_local
-        {
-            readonly get
-            {
-                return (c_uint8)(_bitfield2 & 0x1u);
-            }
-
-            set
-            {
-                _bitfield2 = (c_uint8)((_bitfield2 & ~0x1u) | (value & 0x1u));
+                _bitfield = (_bitfield & ~(0x1F << 3)) | (((int)(value) & 0x1F) << 3);
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 text_static
+        public byte text_local
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield2 >> 1) & 0x1u);
+                return (byte)((_bitfield >> 8) & 0x1);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield2 = (c_uint8)((_bitfield2 & ~(0x1u << 1)) | ((value & 0x1u) << 1));
+                _bitfield = (_bitfield & ~(0x1 << 8)) | (int)((value & 0x1u) << 8);
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 has_bided
+        public byte text_static
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield2 >> 2) & 0x1u);
+                return (byte)((_bitfield >> 9) & 0x1);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield2 = (c_uint8)((_bitfield2 & ~(0x1u << 2)) | ((value & 0x1u) << 2));
+                _bitfield = (_bitfield & ~(0x1 << 9)) | (int)((value & 0x1u) << 9);
+            }
+        }
+
+        [NativeTypeName("uint8_t : 1")]
+        public byte has_bided
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            readonly get
+            {
+                return (byte)((_bitfield >> 10) & 0x1);
+            }
+
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set
+            {
+                _bitfield = (_bitfield & ~(0x1 << 10)) | (int)((value & 0x1u) << 10);
             }
         }
 
@@ -127,11 +142,11 @@ namespace LVGLSharp.Interop
         public _lv_draw_label_hint_t* hint;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 outline_stroke_opa;
+        public byte outline_stroke_opa;
 
         public lv_color_t outline_stroke_color;
 
         [NativeTypeName("int32_t")]
-        public c_int32 outline_stroke_width;
+        public int outline_stroke_width;
     }
 }

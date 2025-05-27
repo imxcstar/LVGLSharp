@@ -6,13 +6,13 @@ namespace LVGLSharp.Interop
         public _lv_obj_t* obj;
 
         [NativeTypeName("lv_part_t")]
-        public c_uint32 part;
+        public uint part;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 id1;
+        public uint id1;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 id2;
+        public uint id2;
 
         [NativeTypeName("lv_layer_t *")]
         public _lv_layer_t* layer;

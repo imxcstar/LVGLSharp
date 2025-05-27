@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public unsafe partial struct _lv_draw_image_dsc_t
@@ -10,76 +12,83 @@ namespace LVGLSharp.Interop
         public lv_image_header_t header;
 
         [NativeTypeName("int32_t")]
-        public c_int32 clip_radius;
+        public int clip_radius;
 
         [NativeTypeName("int32_t")]
-        public c_int32 rotation;
+        public int rotation;
 
         [NativeTypeName("int32_t")]
-        public c_int32 scale_x;
+        public int scale_x;
 
         [NativeTypeName("int32_t")]
-        public c_int32 scale_y;
+        public int scale_y;
 
         [NativeTypeName("int32_t")]
-        public c_int32 skew_x;
+        public int skew_x;
 
         [NativeTypeName("int32_t")]
-        public c_int32 skew_y;
+        public int skew_y;
 
         public lv_point_t pivot;
 
         public lv_color_t recolor;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 recolor_opa;
+        public byte recolor_opa;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
-        public int _bitfield1;
+        [NativeBitfield("blend_mode", offset: 0, length: 4)]
+        [NativeBitfield("antialias", offset: 4, length: 1)]
+        [NativeBitfield("tile", offset: 5, length: 1)]
+        public int _bitfield;
 
         [NativeTypeName("lv_blend_mode_t : 4")]
         public lv_blend_mode_t blend_mode
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (lv_blend_mode_t)((_bitfield1 << 28) >> 28);
+                return (lv_blend_mode_t)((_bitfield << 28) >> 28);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield1 = (_bitfield1 & ~0xF) | ((int)(value) & 0xF);
-            }
-        }
-
-        public c_uint16 _bitfield2;
-
-        [NativeTypeName("uint16_t : 1")]
-        public c_uint16 antialias
-        {
-            readonly get
-            {
-                return (c_uint16)(_bitfield2 & 0x1u);
-            }
-
-            set
-            {
-                _bitfield2 = (c_uint16)((_bitfield2 & ~0x1u) | (value & 0x1u));
+                _bitfield = (_bitfield & ~0xF) | ((int)(value) & 0xF);
             }
         }
 
         [NativeTypeName("uint16_t : 1")]
-        public c_uint16 tile
+        public ushort antialias
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint16)((_bitfield2 >> 1) & 0x1u);
+                return (ushort)((_bitfield >> 4) & 0x1);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield2 = (c_uint16)((_bitfield2 & ~(0x1u << 1)) | ((value & 0x1u) << 1));
+                _bitfield = (_bitfield & ~(0x1 << 4)) | (int)((value & 0x1u) << 4);
+            }
+        }
+
+        [NativeTypeName("uint16_t : 1")]
+        public ushort tile
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            readonly get
+            {
+                return (ushort)((_bitfield >> 5) & 0x1);
+            }
+
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set
+            {
+                _bitfield = (_bitfield & ~(0x1 << 5)) | (int)((value & 0x1u) << 5);
             }
         }
 

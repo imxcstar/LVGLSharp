@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace LVGLSharp.Interop
@@ -7,10 +8,10 @@ namespace LVGLSharp.Interop
         public void* var;
 
         [NativeTypeName("lv_anim_exec_xcb_t")]
-        public delegate* unmanaged[Cdecl]<void*, c_int32, void> exec_cb;
+        public delegate* unmanaged[Cdecl]<void*, int, void> exec_cb;
 
         [NativeTypeName("lv_anim_custom_exec_cb_t")]
-        public delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32, void> custom_exec_cb;
+        public delegate* unmanaged[Cdecl]<_lv_anim_t*, int, void> custom_exec_cb;
 
         [NativeTypeName("lv_anim_start_cb_t")]
         public delegate* unmanaged[Cdecl]<_lv_anim_t*, void> start_cb;
@@ -22,121 +23,136 @@ namespace LVGLSharp.Interop
         public delegate* unmanaged[Cdecl]<_lv_anim_t*, void> deleted_cb;
 
         [NativeTypeName("lv_anim_get_value_cb_t")]
-        public delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32> get_value_cb;
+        public delegate* unmanaged[Cdecl]<_lv_anim_t*, int> get_value_cb;
 
         public void* user_data;
 
         [NativeTypeName("lv_anim_path_cb_t")]
-        public delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32> path_cb;
+        public delegate* unmanaged[Cdecl]<_lv_anim_t*, int> path_cb;
 
         [NativeTypeName("int32_t")]
-        public c_int32 start_value;
+        public int start_value;
 
         [NativeTypeName("int32_t")]
-        public c_int32 current_value;
+        public int current_value;
 
         [NativeTypeName("int32_t")]
-        public c_int32 end_value;
+        public int end_value;
 
         [NativeTypeName("int32_t")]
-        public c_int32 duration;
+        public int duration;
 
         [NativeTypeName("int32_t")]
-        public c_int32 act_time;
+        public int act_time;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 reverse_delay;
+        public uint reverse_delay;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 reverse_duration;
+        public uint reverse_duration;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 repeat_delay;
+        public uint repeat_delay;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 repeat_cnt;
+        public uint repeat_cnt;
 
         [NativeTypeName("union _lv_anim_path_para_t")]
         public _lv_anim_path_para_t parameter;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 last_timer_run;
+        public uint last_timer_run;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 pause_time;
+        public uint pause_time;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 pause_duration;
+        public uint pause_duration;
 
-        public c_uint8 _bitfield;
+        [NativeBitfield("is_paused", offset: 0, length: 1)]
+        [NativeBitfield("reverse_play_in_progress", offset: 1, length: 1)]
+        [NativeBitfield("run_round", offset: 2, length: 1)]
+        [NativeBitfield("start_cb_called", offset: 3, length: 1)]
+        [NativeBitfield("early_apply", offset: 4, length: 1)]
+        public byte _bitfield;
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 is_paused
+        public byte is_paused
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)(_bitfield & 0x1u);
+                return (byte)(_bitfield & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~0x1u) | (value & 0x1u));
+                _bitfield = (byte)((_bitfield & ~0x1u) | (value & 0x1u));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 reverse_play_in_progress
+        public byte reverse_play_in_progress
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 1) & 0x1u);
+                return (byte)((_bitfield >> 1) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 1)) | ((value & 0x1u) << 1));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 1)) | ((value & 0x1u) << 1));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 run_round
+        public byte run_round
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 2) & 0x1u);
+                return (byte)((_bitfield >> 2) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 2)) | ((value & 0x1u) << 2));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 2)) | ((value & 0x1u) << 2));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 start_cb_called
+        public byte start_cb_called
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 3) & 0x1u);
+                return (byte)((_bitfield >> 3) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 3)) | ((value & 0x1u) << 3));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 3)) | ((value & 0x1u) << 3));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 early_apply
+        public byte early_apply
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 4) & 0x1u);
+                return (byte)((_bitfield >> 4) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 4)) | ((value & 0x1u) << 4));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 4)) | ((value & 0x1u) << 4));
             }
         }
 

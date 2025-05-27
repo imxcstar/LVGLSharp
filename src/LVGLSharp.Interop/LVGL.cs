@@ -28,7 +28,7 @@ namespace LVGLSharp.Interop
         public static extern void* lv_memcpy(void* dst, [NativeTypeName("const void *")] void* src, [NativeTypeName("size_t")] nuint len);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_memset(void* dst, [NativeTypeName("uint8_t")] c_uint8 v, [NativeTypeName("size_t")] nuint len);
+        public static extern void lv_memset(void* dst, [NativeTypeName("uint8_t")] byte v, [NativeTypeName("size_t")] nuint len);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void* lv_memmove(void* dst, [NativeTypeName("const void *")] void* src, [NativeTypeName("size_t")] nuint len);
@@ -43,55 +43,55 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
-        public static extern nuint lv_strlen([NativeTypeName("const char *")] c_int8* str);
+        public static extern nuint lv_strlen([NativeTypeName("const char *")] sbyte* str);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
-        public static extern nuint lv_strnlen([NativeTypeName("const char *")] c_int8* str, [NativeTypeName("size_t")] nuint max_len);
+        public static extern nuint lv_strnlen([NativeTypeName("const char *")] sbyte* str, [NativeTypeName("size_t")] nuint max_len);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("size_t")]
-        public static extern nuint lv_strlcpy([NativeTypeName("char *")] c_int8* dst, [NativeTypeName("const char *")] c_int8* src, [NativeTypeName("size_t")] nuint dst_size);
+        public static extern nuint lv_strlcpy([NativeTypeName("char *")] sbyte* dst, [NativeTypeName("const char *")] sbyte* src, [NativeTypeName("size_t")] nuint dst_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_strncpy([NativeTypeName("char *")] c_int8* dst, [NativeTypeName("const char *")] c_int8* src, [NativeTypeName("size_t")] nuint dest_size);
+        public static extern sbyte* lv_strncpy([NativeTypeName("char *")] sbyte* dst, [NativeTypeName("const char *")] sbyte* src, [NativeTypeName("size_t")] nuint dest_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_strcpy([NativeTypeName("char *")] c_int8* dst, [NativeTypeName("const char *")] c_int8* src);
+        public static extern sbyte* lv_strcpy([NativeTypeName("char *")] sbyte* dst, [NativeTypeName("const char *")] sbyte* src);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int lv_strcmp([NativeTypeName("const char *")] c_int8* s1, [NativeTypeName("const char *")] c_int8* s2);
+        public static extern int lv_strcmp([NativeTypeName("const char *")] sbyte* s1, [NativeTypeName("const char *")] sbyte* s2);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int lv_strncmp([NativeTypeName("const char *")] c_int8* s1, [NativeTypeName("const char *")] c_int8* s2, [NativeTypeName("size_t")] nuint len);
+        public static extern int lv_strncmp([NativeTypeName("const char *")] sbyte* s1, [NativeTypeName("const char *")] sbyte* s2, [NativeTypeName("size_t")] nuint len);
 
         [return: NativeTypeName("bool")]
-        public static c_bool1 lv_streq([NativeTypeName("const char *")] c_int8* s1, [NativeTypeName("const char *")] c_int8* s2)
+        public static c_bool1 lv_streq([NativeTypeName("const char *")] sbyte* s1, [NativeTypeName("const char *")] sbyte* s2)
         {
             return lv_strcmp(s1, s2) == 0;
         }
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_strdup([NativeTypeName("const char *")] c_int8* src);
+        public static extern sbyte* lv_strdup([NativeTypeName("const char *")] sbyte* src);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_strndup([NativeTypeName("const char *")] c_int8* src, [NativeTypeName("size_t")] nuint max_len);
+        public static extern sbyte* lv_strndup([NativeTypeName("const char *")] sbyte* src, [NativeTypeName("size_t")] nuint max_len);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_strcat([NativeTypeName("char *")] c_int8* dst, [NativeTypeName("const char *")] c_int8* src);
+        public static extern sbyte* lv_strcat([NativeTypeName("char *")] sbyte* dst, [NativeTypeName("const char *")] sbyte* src);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_strncat([NativeTypeName("char *")] c_int8* dst, [NativeTypeName("const char *")] c_int8* src, [NativeTypeName("size_t")] nuint src_len);
+        public static extern sbyte* lv_strncat([NativeTypeName("char *")] sbyte* dst, [NativeTypeName("const char *")] sbyte* src, [NativeTypeName("size_t")] nuint src_len);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_strchr([NativeTypeName("const char *")] c_int8* str, int c);
+        public static extern sbyte* lv_strchr([NativeTypeName("const char *")] sbyte* str, int c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_mem_init();
@@ -149,33 +149,33 @@ namespace LVGLSharp.Interop
         public static extern void lv_mem_monitor(lv_mem_monitor_t* mon_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int lv_snprintf([NativeTypeName("char *")] c_int8* buffer, [NativeTypeName("size_t")] nuint count, [NativeTypeName("const char *")] c_int8* format, __arglist);
+        public static extern int lv_snprintf([NativeTypeName("char *")] sbyte* buffer, [NativeTypeName("size_t")] nuint count, [NativeTypeName("const char *")] sbyte* format, __arglist);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int lv_vsnprintf([NativeTypeName("char *")] c_int8* buffer, [NativeTypeName("size_t")] nuint count, [NativeTypeName("const char *")] c_int8* format, [NativeTypeName("va_list")] c_int8* va);
+        public static extern int lv_vsnprintf([NativeTypeName("char *")] sbyte* buffer, [NativeTypeName("size_t")] nuint count, [NativeTypeName("const char *")] sbyte* format, [NativeTypeName("va_list")] sbyte* va);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_tick_inc([NativeTypeName("uint32_t")] c_uint32 tick_period);
-
-        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_tick_get();
+        public static extern void lv_tick_inc([NativeTypeName("uint32_t")] uint tick_period);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_tick_elaps([NativeTypeName("uint32_t")] c_uint32 prev_tick);
+        public static extern uint lv_tick_get();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_delay_ms([NativeTypeName("uint32_t")] c_uint32 ms);
+        [return: NativeTypeName("uint32_t")]
+        public static extern uint lv_tick_elaps([NativeTypeName("uint32_t")] uint prev_tick);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_tick_set_cb([NativeTypeName("lv_tick_get_cb_t")] delegate* unmanaged[Cdecl]<c_uint32> cb);
+        public static extern void lv_delay_ms([NativeTypeName("uint32_t")] uint ms);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_delay_set_cb([NativeTypeName("lv_delay_cb_t")] delegate* unmanaged[Cdecl]<c_uint32, void> cb);
+        public static extern void lv_tick_set_cb([NativeTypeName("lv_tick_get_cb_t")] delegate* unmanaged[Cdecl]<uint> cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_ll_init(lv_ll_t* ll_p, [NativeTypeName("uint32_t")] c_uint32 node_size);
+        public static extern void lv_delay_set_cb([NativeTypeName("lv_delay_cb_t")] delegate* unmanaged[Cdecl]<uint, void> cb);
+
+        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void lv_ll_init(lv_ll_t* ll_p, [NativeTypeName("uint32_t")] uint node_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void* lv_ll_ins_head(lv_ll_t* ll_p);
@@ -212,7 +212,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_ll_get_len([NativeTypeName("const lv_ll_t *")] lv_ll_t* ll_p);
+        public static extern uint lv_ll_get_len([NativeTypeName("const lv_ll_t *")] lv_ll_t* ll_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_ll_move_before(lv_ll_t* ll_p, void* n_act, void* n_after);
@@ -223,11 +223,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_timer_handler();
+        public static extern uint lv_timer_handler();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_timer_handler_run_in_period([NativeTypeName("uint32_t")] c_uint32 period);
+        public static extern uint lv_timer_handler_run_in_period([NativeTypeName("uint32_t")] uint period);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_timer_periodic_handler();
@@ -241,7 +241,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_timer_t *")]
-        public static extern _lv_timer_t* lv_timer_create([NativeTypeName("lv_timer_cb_t")] delegate* unmanaged[Cdecl]<_lv_timer_t*, void> timer_xcb, [NativeTypeName("uint32_t")] c_uint32 period, void* user_data);
+        public static extern _lv_timer_t* lv_timer_create([NativeTypeName("lv_timer_cb_t")] delegate* unmanaged[Cdecl]<_lv_timer_t*, void> timer_xcb, [NativeTypeName("uint32_t")] uint period, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_timer_delete([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer);
@@ -256,13 +256,13 @@ namespace LVGLSharp.Interop
         public static extern void lv_timer_set_cb([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer, [NativeTypeName("lv_timer_cb_t")] delegate* unmanaged[Cdecl]<_lv_timer_t*, void> timer_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_timer_set_period([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer, [NativeTypeName("uint32_t")] c_uint32 period);
+        public static extern void lv_timer_set_period([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer, [NativeTypeName("uint32_t")] uint period);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_timer_ready([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_timer_set_repeat_count([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer, [NativeTypeName("int32_t")] c_int32 repeat_count);
+        public static extern void lv_timer_set_repeat_count([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer, [NativeTypeName("int32_t")] int repeat_count);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_timer_set_auto_delete([NativeTypeName("lv_timer_t *")] _lv_timer_t* timer, [NativeTypeName("bool")] c_bool1 auto_delete);
@@ -278,11 +278,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_timer_get_idle();
+        public static extern uint lv_timer_get_idle();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_timer_get_time_until_next();
+        public static extern uint lv_timer_get_time_until_next();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_timer_t *")]
@@ -297,73 +297,73 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_trigo_sin([NativeTypeName("int16_t")] c_int16 angle);
+        public static extern int lv_trigo_sin([NativeTypeName("int16_t")] short angle);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_trigo_cos([NativeTypeName("int16_t")] c_int16 angle);
+        public static extern int lv_trigo_cos([NativeTypeName("int16_t")] short angle);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_cubic_bezier([NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 x1, [NativeTypeName("int32_t")] c_int32 y1, [NativeTypeName("int32_t")] c_int32 x2, [NativeTypeName("int32_t")] c_int32 y2);
+        public static extern int lv_cubic_bezier([NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int x1, [NativeTypeName("int32_t")] int y1, [NativeTypeName("int32_t")] int x2, [NativeTypeName("int32_t")] int y2);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_bezier3([NativeTypeName("int32_t")] c_int32 t, [NativeTypeName("int32_t")] c_int32 u0, [NativeTypeName("uint32_t")] c_uint32 u1, [NativeTypeName("int32_t")] c_int32 u2, [NativeTypeName("int32_t")] c_int32 u3);
+        public static extern int lv_bezier3([NativeTypeName("int32_t")] int t, [NativeTypeName("int32_t")] int u0, [NativeTypeName("uint32_t")] uint u1, [NativeTypeName("int32_t")] int u2, [NativeTypeName("int32_t")] int u3);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint16_t")]
-        public static extern c_uint16 lv_atan2(int x, int y);
+        public static extern ushort lv_atan2(int x, int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_sqrt([NativeTypeName("uint32_t")] c_uint32 x, lv_sqrt_res_t* q, [NativeTypeName("uint32_t")] c_uint32 mask);
+        public static extern void lv_sqrt([NativeTypeName("uint32_t")] uint x, lv_sqrt_res_t* q, [NativeTypeName("uint32_t")] uint mask);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_sqrt32([NativeTypeName("uint32_t")] c_uint32 x);
+        public static extern int lv_sqrt32([NativeTypeName("uint32_t")] uint x);
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_sqr([NativeTypeName("int32_t")] c_int32 x)
+        public static int lv_sqr([NativeTypeName("int32_t")] int x)
         {
             return x * x;
         }
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int64_t")]
-        public static extern c_int64 lv_pow([NativeTypeName("int64_t")] c_int64 @base, [NativeTypeName("int8_t")] c_int8 exp);
+        public static extern long lv_pow([NativeTypeName("int64_t")] long @base, [NativeTypeName("int8_t")] sbyte exp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_map([NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 min_in, [NativeTypeName("int32_t")] c_int32 max_in, [NativeTypeName("int32_t")] c_int32 min_out, [NativeTypeName("int32_t")] c_int32 max_out);
+        public static extern int lv_map([NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int min_in, [NativeTypeName("int32_t")] int max_in, [NativeTypeName("int32_t")] int min_out, [NativeTypeName("int32_t")] int max_out);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_rand_set_seed([NativeTypeName("uint32_t")] c_uint32 seed);
+        public static extern void lv_rand_set_seed([NativeTypeName("uint32_t")] uint seed);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_rand([NativeTypeName("uint32_t")] c_uint32 min, [NativeTypeName("uint32_t")] c_uint32 max);
+        public static extern uint lv_rand([NativeTypeName("uint32_t")] uint min, [NativeTypeName("uint32_t")] uint max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_array_init([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] c_uint32 capacity, [NativeTypeName("uint32_t")] c_uint32 element_size);
+        public static extern void lv_array_init([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] uint capacity, [NativeTypeName("uint32_t")] uint element_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_array_init_from_buf([NativeTypeName("lv_array_t *")] _lv_array_t* array, void* buf, [NativeTypeName("uint32_t")] c_uint32 capacity, [NativeTypeName("uint32_t")] c_uint32 element_size);
+        public static extern void lv_array_init_from_buf([NativeTypeName("lv_array_t *")] _lv_array_t* array, void* buf, [NativeTypeName("uint32_t")] uint capacity, [NativeTypeName("uint32_t")] uint element_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_array_resize([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] c_uint32 new_capacity);
+        public static extern c_bool1 lv_array_resize([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] uint new_capacity);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_array_deinit([NativeTypeName("lv_array_t *")] _lv_array_t* array);
 
         [return: NativeTypeName("uint32_t")]
-        public static c_uint32 lv_array_size([NativeTypeName("const lv_array_t *")] _lv_array_t* array)
+        public static uint lv_array_size([NativeTypeName("const lv_array_t *")] _lv_array_t* array)
         {
             return array->size;
         }
 
         [return: NativeTypeName("uint32_t")]
-        public static c_uint32 lv_array_capacity([NativeTypeName("const lv_array_t *")] _lv_array_t* array)
+        public static uint lv_array_capacity([NativeTypeName("const lv_array_t *")] _lv_array_t* array)
         {
             return array->capacity;
         }
@@ -392,10 +392,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_array_shrink([NativeTypeName("lv_array_t *")] _lv_array_t* array);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_array_remove([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern lv_result_t lv_array_remove([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_array_erase([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] c_uint32 start, [NativeTypeName("uint32_t")] c_uint32 end);
+        public static extern lv_result_t lv_array_erase([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] uint start, [NativeTypeName("uint32_t")] uint end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_result_t lv_array_concat([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("const lv_array_t *")] _lv_array_t* other);
@@ -404,10 +404,10 @@ namespace LVGLSharp.Interop
         public static extern lv_result_t lv_array_push_back([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("const void *")] void* element);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_array_assign([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] c_uint32 index, [NativeTypeName("const void *")] void* value);
+        public static extern lv_result_t lv_array_assign([NativeTypeName("lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] uint index, [NativeTypeName("const void *")] void* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void* lv_array_at([NativeTypeName("const lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern void* lv_array_at([NativeTypeName("const lv_array_t *")] _lv_array_t* array, [NativeTypeName("uint32_t")] uint index);
 
         public static void* lv_array_front([NativeTypeName("const lv_array_t *")] _lv_array_t* array)
         {
@@ -432,13 +432,13 @@ namespace LVGLSharp.Interop
         public static extern void lv_anim_set_var([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, void* var);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_exec_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_exec_xcb_t")] delegate* unmanaged[Cdecl]<void*, c_int32, void> exec_cb);
+        public static extern void lv_anim_set_exec_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_exec_xcb_t")] delegate* unmanaged[Cdecl]<void*, int, void> exec_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_duration([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 duration);
+        public static extern void lv_anim_set_duration([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint duration);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_delay([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 delay);
+        public static extern void lv_anim_set_delay([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint delay);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_anim_resume([NativeTypeName("lv_anim_t *")] _lv_anim_t* a);
@@ -447,26 +447,26 @@ namespace LVGLSharp.Interop
         public static extern void lv_anim_pause([NativeTypeName("lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_pause_for([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 ms);
+        public static extern void lv_anim_pause_for([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint ms);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
         public static extern c_bool1 lv_anim_is_paused([NativeTypeName("lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_values([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("int32_t")] c_int32 start, [NativeTypeName("int32_t")] c_int32 end);
+        public static extern void lv_anim_set_values([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("int32_t")] int start, [NativeTypeName("int32_t")] int end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_custom_exec_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_custom_exec_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32, void> exec_cb);
+        public static extern void lv_anim_set_custom_exec_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_custom_exec_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, int, void> exec_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_path_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_path_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32> path_cb);
+        public static extern void lv_anim_set_path_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_path_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, int> path_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_anim_set_start_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_start_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, void> start_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_get_value_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_get_value_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32> get_value_cb);
+        public static extern void lv_anim_set_get_value_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_get_value_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, int> get_value_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_anim_set_completed_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_completed_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, void> completed_cb);
@@ -475,19 +475,19 @@ namespace LVGLSharp.Interop
         public static extern void lv_anim_set_deleted_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_deleted_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, void> deleted_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_reverse_duration([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 duration);
+        public static extern void lv_anim_set_reverse_duration([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint duration);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_reverse_time([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 duration);
+        public static extern void lv_anim_set_reverse_time([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint duration);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_reverse_delay([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 delay);
+        public static extern void lv_anim_set_reverse_delay([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint delay);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_repeat_count([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 cnt);
+        public static extern void lv_anim_set_repeat_count([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_repeat_delay([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] c_uint32 delay);
+        public static extern void lv_anim_set_repeat_delay([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("uint32_t")] uint delay);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_anim_set_early_apply([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("bool")] c_bool1 en);
@@ -496,7 +496,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_anim_set_user_data([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_set_bezier3_param([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("int16_t")] c_int16 x1, [NativeTypeName("int16_t")] c_int16 y1, [NativeTypeName("int16_t")] c_int16 x2, [NativeTypeName("int16_t")] c_int16 y2);
+        public static extern void lv_anim_set_bezier3_param([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("int16_t")] short x1, [NativeTypeName("int16_t")] short y1, [NativeTypeName("int16_t")] short x2, [NativeTypeName("int16_t")] short y2);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_anim_t *")]
@@ -504,33 +504,33 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_get_delay([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern uint lv_anim_get_delay([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_get_playtime([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern uint lv_anim_get_playtime([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_get_time([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern uint lv_anim_get_time([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_get_repeat_count([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern uint lv_anim_get_repeat_count([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void* lv_anim_get_user_data([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_anim_delete(void* var, [NativeTypeName("lv_anim_exec_xcb_t")] delegate* unmanaged[Cdecl]<void*, c_int32, void> exec_cb);
+        public static extern c_bool1 lv_anim_delete(void* var, [NativeTypeName("lv_anim_exec_xcb_t")] delegate* unmanaged[Cdecl]<void*, int, void> exec_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_anim_delete_all();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_anim_t *")]
-        public static extern _lv_anim_t* lv_anim_get(void* var, [NativeTypeName("lv_anim_exec_xcb_t")] delegate* unmanaged[Cdecl]<void*, c_int32, void> exec_cb);
+        public static extern _lv_anim_t* lv_anim_get(void* var, [NativeTypeName("lv_anim_exec_xcb_t")] delegate* unmanaged[Cdecl]<void*, int, void> exec_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_timer_t *")]
@@ -538,66 +538,66 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_anim_custom_delete([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_custom_exec_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32, void> exec_cb);
+        public static extern c_bool1 lv_anim_custom_delete([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_custom_exec_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, int, void> exec_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_anim_t *")]
-        public static extern _lv_anim_t* lv_anim_custom_get([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_custom_exec_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32, void> exec_cb);
+        public static extern _lv_anim_t* lv_anim_custom_get([NativeTypeName("lv_anim_t *")] _lv_anim_t* a, [NativeTypeName("lv_anim_custom_exec_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, int, void> exec_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint16_t")]
-        public static extern c_uint16 lv_anim_count_running();
+        public static extern ushort lv_anim_count_running();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_speed([NativeTypeName("uint32_t")] c_uint32 speed);
+        public static extern uint lv_anim_speed([NativeTypeName("uint32_t")] uint speed);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_speed_clamped([NativeTypeName("uint32_t")] c_uint32 speed, [NativeTypeName("uint32_t")] c_uint32 min_time, [NativeTypeName("uint32_t")] c_uint32 max_time);
+        public static extern uint lv_anim_speed_clamped([NativeTypeName("uint32_t")] uint speed, [NativeTypeName("uint32_t")] uint min_time, [NativeTypeName("uint32_t")] uint max_time);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_resolve_speed([NativeTypeName("uint32_t")] c_uint32 speed, [NativeTypeName("int32_t")] c_int32 start, [NativeTypeName("int32_t")] c_int32 end);
+        public static extern uint lv_anim_resolve_speed([NativeTypeName("uint32_t")] uint speed, [NativeTypeName("int32_t")] int start, [NativeTypeName("int32_t")] int end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_speed_to_time([NativeTypeName("uint32_t")] c_uint32 speed, [NativeTypeName("int32_t")] c_int32 start, [NativeTypeName("int32_t")] c_int32 end);
+        public static extern uint lv_anim_speed_to_time([NativeTypeName("uint32_t")] uint speed, [NativeTypeName("int32_t")] int start, [NativeTypeName("int32_t")] int end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_anim_refr_now();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_linear([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_linear([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_ease_in([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_ease_in([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_ease_out([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_ease_out([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_ease_in_out([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_ease_in_out([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_overshoot([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_overshoot([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_bounce([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_bounce([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_step([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_step([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_anim_path_custom_bezier3([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern int lv_anim_path_custom_bezier3([NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_anim_timeline_t *")]
@@ -607,11 +607,11 @@ namespace LVGLSharp.Interop
         public static extern void lv_anim_timeline_delete([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_timeline_add([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint32_t")] c_uint32 start_time, [NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
+        public static extern void lv_anim_timeline_add([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint32_t")] uint start_time, [NativeTypeName("const lv_anim_t *")] _lv_anim_t* a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_timeline_start([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
+        public static extern uint lv_anim_timeline_start([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_anim_timeline_pause([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
@@ -620,17 +620,17 @@ namespace LVGLSharp.Interop
         public static extern void lv_anim_timeline_set_reverse([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("bool")] c_bool1 reverse);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_timeline_set_repeat_count([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint32_t")] c_uint32 cnt);
+        public static extern void lv_anim_timeline_set_repeat_count([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint32_t")] uint cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_timeline_set_repeat_delay([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint32_t")] c_uint32 delay);
+        public static extern void lv_anim_timeline_set_repeat_delay([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint32_t")] uint delay);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_anim_timeline_set_progress([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint16_t")] c_uint16 progress);
+        public static extern void lv_anim_timeline_set_progress([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at, [NativeTypeName("uint16_t")] ushort progress);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_timeline_get_playtime([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
+        public static extern uint lv_anim_timeline_get_playtime([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -638,19 +638,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint16_t")]
-        public static extern c_uint16 lv_anim_timeline_get_progress([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
+        public static extern ushort lv_anim_timeline_get_progress([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_timeline_get_repeat_count([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
+        public static extern uint lv_anim_timeline_get_repeat_count([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_anim_timeline_get_repeat_delay([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
+        public static extern uint lv_anim_timeline_get_repeat_delay([NativeTypeName("lv_anim_timeline_t *")] _lv_anim_timeline_t* at);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_rb_init([NativeTypeName("lv_rb_t *")] _lv_rb_t* tree, [NativeTypeName("lv_rb_compare_t")] delegate* unmanaged[Cdecl]<void*, void*, c_int8> compare, [NativeTypeName("size_t")] nuint node_size);
+        public static extern c_bool1 lv_rb_init([NativeTypeName("lv_rb_t *")] _lv_rb_t* tree, [NativeTypeName("lv_rb_compare_t")] delegate* unmanaged[Cdecl]<void*, void*, sbyte> compare, [NativeTypeName("size_t")] nuint node_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_rb_node_t *")]
@@ -694,7 +694,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_rb_destroy([NativeTypeName("lv_rb_t *")] _lv_rb_t* tree);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_area_set(lv_area_t* area_p, [NativeTypeName("int32_t")] c_int32 x1, [NativeTypeName("int32_t")] c_int32 y1, [NativeTypeName("int32_t")] c_int32 x2, [NativeTypeName("int32_t")] c_int32 y2);
+        public static extern void lv_area_set(lv_area_t* area_p, [NativeTypeName("int32_t")] int x1, [NativeTypeName("int32_t")] int y1, [NativeTypeName("int32_t")] int x2, [NativeTypeName("int32_t")] int y2);
 
         public static void lv_area_copy(lv_area_t* dest, [NativeTypeName("const lv_area_t *")] lv_area_t* src)
         {
@@ -706,36 +706,36 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_area_get_width([NativeTypeName("const lv_area_t *")] lv_area_t* area_p);
+        public static extern int lv_area_get_width([NativeTypeName("const lv_area_t *")] lv_area_t* area_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_area_get_height([NativeTypeName("const lv_area_t *")] lv_area_t* area_p);
+        public static extern int lv_area_get_height([NativeTypeName("const lv_area_t *")] lv_area_t* area_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_area_set_width(lv_area_t* area_p, [NativeTypeName("int32_t")] c_int32 w);
+        public static extern void lv_area_set_width(lv_area_t* area_p, [NativeTypeName("int32_t")] int w);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_area_set_height(lv_area_t* area_p, [NativeTypeName("int32_t")] c_int32 h);
+        public static extern void lv_area_set_height(lv_area_t* area_p, [NativeTypeName("int32_t")] int h);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_area_get_size([NativeTypeName("const lv_area_t *")] lv_area_t* area_p);
+        public static extern uint lv_area_get_size([NativeTypeName("const lv_area_t *")] lv_area_t* area_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_area_increase(lv_area_t* area, [NativeTypeName("int32_t")] c_int32 w_extra, [NativeTypeName("int32_t")] c_int32 h_extra);
+        public static extern void lv_area_increase(lv_area_t* area, [NativeTypeName("int32_t")] int w_extra, [NativeTypeName("int32_t")] int h_extra);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_area_move(lv_area_t* area, [NativeTypeName("int32_t")] c_int32 x_ofs, [NativeTypeName("int32_t")] c_int32 y_ofs);
+        public static extern void lv_area_move(lv_area_t* area, [NativeTypeName("int32_t")] int x_ofs, [NativeTypeName("int32_t")] int y_ofs);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_area_align([NativeTypeName("const lv_area_t *")] lv_area_t* @base, lv_area_t* to_align, lv_align_t align, [NativeTypeName("int32_t")] c_int32 ofs_x, [NativeTypeName("int32_t")] c_int32 ofs_y);
+        public static extern void lv_area_align([NativeTypeName("const lv_area_t *")] lv_area_t* @base, lv_area_t* to_align, lv_align_t align, [NativeTypeName("int32_t")] int ofs_x, [NativeTypeName("int32_t")] int ofs_y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_point_transform(lv_point_t* point, [NativeTypeName("int32_t")] c_int32 angle, [NativeTypeName("int32_t")] c_int32 scale_x, [NativeTypeName("int32_t")] c_int32 scale_y, [NativeTypeName("const lv_point_t *")] lv_point_t* pivot, [NativeTypeName("bool")] c_bool1 zoom_first);
+        public static extern void lv_point_transform(lv_point_t* point, [NativeTypeName("int32_t")] int angle, [NativeTypeName("int32_t")] int scale_x, [NativeTypeName("int32_t")] int scale_y, [NativeTypeName("const lv_point_t *")] lv_point_t* pivot, [NativeTypeName("bool")] c_bool1 zoom_first);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_point_array_transform(lv_point_t* points, [NativeTypeName("size_t")] nuint count, [NativeTypeName("int32_t")] c_int32 angle, [NativeTypeName("int32_t")] c_int32 scale_x, [NativeTypeName("int32_t")] c_int32 scale_y, [NativeTypeName("const lv_point_t *")] lv_point_t* pivot, [NativeTypeName("bool")] c_bool1 zoom_first);
+        public static extern void lv_point_array_transform(lv_point_t* points, [NativeTypeName("size_t")] nuint count, [NativeTypeName("int32_t")] int angle, [NativeTypeName("int32_t")] int scale_x, [NativeTypeName("int32_t")] int scale_y, [NativeTypeName("const lv_point_t *")] lv_point_t* pivot, [NativeTypeName("bool")] c_bool1 zoom_first);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_point_t lv_point_from_precise([NativeTypeName("const lv_point_precise_t *")] lv_point_precise_t* p);
@@ -744,10 +744,10 @@ namespace LVGLSharp.Interop
         public static extern lv_point_precise_t lv_point_to_precise([NativeTypeName("const lv_point_t *")] lv_point_t* p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_point_set(lv_point_t* p, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_point_set(lv_point_t* p, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_point_precise_set(lv_point_precise_t* p, [NativeTypeName("lv_value_precise_t")] c_int32 x, [NativeTypeName("lv_value_precise_t")] c_int32 y);
+        public static extern void lv_point_precise_set(lv_point_precise_t* p, [NativeTypeName("lv_value_precise_t")] int x, [NativeTypeName("lv_value_precise_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_point_swap(lv_point_t* p1, lv_point_t* p2);
@@ -757,11 +757,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_pct([NativeTypeName("int32_t")] c_int32 x);
+        public static extern int lv_pct([NativeTypeName("int32_t")] int x);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_pct_to_px([NativeTypeName("int32_t")] c_int32 v, [NativeTypeName("int32_t")] c_int32 @base);
+        public static extern int lv_pct_to_px([NativeTypeName("int32_t")] int v, [NativeTypeName("int32_t")] int @base);
 
         public const int LV_OPA_TRANSP = 0;
         public const int LV_OPA_0 = 0;
@@ -779,22 +779,22 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_color_format_get_bpp(lv_color_format_t cf);
+        public static extern byte lv_color_format_get_bpp(lv_color_format_t cf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_color_format_get_size(lv_color_format_t cf);
+        public static extern byte lv_color_format_get_size(lv_color_format_t cf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
         public static extern c_bool1 lv_color_format_has_alpha(lv_color_format_t src_cf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color32_t lv_color_to_32(lv_color_t color, [NativeTypeName("lv_opa_t")] c_uint8 opa);
+        public static extern lv_color32_t lv_color_to_32(lv_color_t color, [NativeTypeName("lv_opa_t")] byte opa);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_color_to_int(lv_color_t c);
+        public static extern uint lv_color_to_int(lv_color_t c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -805,40 +805,40 @@ namespace LVGLSharp.Interop
         public static extern c_bool1 lv_color32_eq(lv_color32_t c1, lv_color32_t c2);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_color_hex([NativeTypeName("uint32_t")] c_uint32 c);
+        public static extern lv_color_t lv_color_hex([NativeTypeName("uint32_t")] uint c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_color_make([NativeTypeName("uint8_t")] c_uint8 r, [NativeTypeName("uint8_t")] c_uint8 g, [NativeTypeName("uint8_t")] c_uint8 b);
+        public static extern lv_color_t lv_color_make([NativeTypeName("uint8_t")] byte r, [NativeTypeName("uint8_t")] byte g, [NativeTypeName("uint8_t")] byte b);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color32_t lv_color32_make([NativeTypeName("uint8_t")] c_uint8 r, [NativeTypeName("uint8_t")] c_uint8 g, [NativeTypeName("uint8_t")] c_uint8 b, [NativeTypeName("uint8_t")] c_uint8 a);
+        public static extern lv_color32_t lv_color32_make([NativeTypeName("uint8_t")] byte r, [NativeTypeName("uint8_t")] byte g, [NativeTypeName("uint8_t")] byte b, [NativeTypeName("uint8_t")] byte a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_color_hex3([NativeTypeName("uint32_t")] c_uint32 c);
+        public static extern lv_color_t lv_color_hex3([NativeTypeName("uint32_t")] uint c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint16_t")]
-        public static extern c_uint16 lv_color_to_u16(lv_color_t color);
+        public static extern ushort lv_color_to_u16(lv_color_t color);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_color_to_u32(lv_color_t color);
+        public static extern uint lv_color_to_u32(lv_color_t color);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint16_t")]
-        public static extern c_uint16 lv_color_16_16_mix([NativeTypeName("uint16_t")] c_uint16 c1, [NativeTypeName("uint16_t")] c_uint16 c2, [NativeTypeName("uint8_t")] c_uint8 mix);
+        public static extern ushort lv_color_16_16_mix([NativeTypeName("uint16_t")] ushort c1, [NativeTypeName("uint16_t")] ushort c2, [NativeTypeName("uint8_t")] byte mix);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_color_lighten(lv_color_t c, [NativeTypeName("lv_opa_t")] c_uint8 lvl);
+        public static extern lv_color_t lv_color_lighten(lv_color_t c, [NativeTypeName("lv_opa_t")] byte lvl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_color_darken(lv_color_t c, [NativeTypeName("lv_opa_t")] c_uint8 lvl);
+        public static extern lv_color_t lv_color_darken(lv_color_t c, [NativeTypeName("lv_opa_t")] byte lvl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_color_hsv_to_rgb([NativeTypeName("uint16_t")] c_uint16 h, [NativeTypeName("uint8_t")] c_uint8 s, [NativeTypeName("uint8_t")] c_uint8 v);
+        public static extern lv_color_t lv_color_hsv_to_rgb([NativeTypeName("uint16_t")] ushort h, [NativeTypeName("uint8_t")] byte s, [NativeTypeName("uint8_t")] byte v);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_hsv_t lv_color_rgb_to_hsv([NativeTypeName("uint8_t")] c_uint8 r8, [NativeTypeName("uint8_t")] c_uint8 g8, [NativeTypeName("uint8_t")] c_uint8 b8);
+        public static extern lv_color_hsv_t lv_color_rgb_to_hsv([NativeTypeName("uint8_t")] byte r8, [NativeTypeName("uint8_t")] byte g8, [NativeTypeName("uint8_t")] byte b8);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_color_hsv_t lv_color_to_hsv(lv_color_t color);
@@ -853,35 +853,35 @@ namespace LVGLSharp.Interop
         public static extern void lv_color_premultiply(lv_color32_t* c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_color16_premultiply(lv_color16_t* c, [NativeTypeName("lv_opa_t")] c_uint8 a);
+        public static extern void lv_color16_premultiply(lv_color16_t* c, [NativeTypeName("lv_opa_t")] byte a);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_color_luminance(lv_color_t c);
+        public static extern byte lv_color_luminance(lv_color_t c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_color16_luminance([NativeTypeName("const lv_color16_t")] lv_color16_t c);
+        public static extern byte lv_color16_luminance([NativeTypeName("const lv_color16_t")] lv_color16_t c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_color24_luminance([NativeTypeName("const uint8_t *")] c_uint8* c);
+        public static extern byte lv_color24_luminance([NativeTypeName("const uint8_t *")] byte* c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_color32_luminance(lv_color32_t c);
+        public static extern byte lv_color32_luminance(lv_color32_t c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_color_t lv_palette_main(lv_palette_t p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_palette_lighten(lv_palette_t p, [NativeTypeName("uint8_t")] c_uint8 lvl);
+        public static extern lv_color_t lv_palette_lighten(lv_palette_t p, [NativeTypeName("uint8_t")] byte lvl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_palette_darken(lv_palette_t p, [NativeTypeName("uint8_t")] c_uint8 lvl);
+        public static extern lv_color_t lv_palette_darken(lv_palette_t p, [NativeTypeName("uint8_t")] byte lvl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color_t lv_color_mix(lv_color_t c1, lv_color_t c2, [NativeTypeName("uint8_t")] c_uint8 mix);
+        public static extern lv_color_t lv_color_mix(lv_color_t c1, lv_color_t c2, [NativeTypeName("uint8_t")] byte mix);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_color32_t lv_color_mix32(lv_color32_t fg, lv_color32_t bg);
@@ -891,10 +891,10 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_color_brightness(lv_color_t c);
+        public static extern byte lv_color_brightness(lv_color_t c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_color_filter_dsc_init([NativeTypeName("lv_color_filter_dsc_t *")] _lv_color_filter_dsc_t* dsc, [NativeTypeName("lv_color_filter_cb_t")] delegate* unmanaged[Cdecl]<_lv_color_filter_dsc_t*, lv_color_t, c_uint8, lv_color_t> cb);
+        public static extern void lv_color_filter_dsc_init([NativeTypeName("lv_color_filter_dsc_t *")] _lv_color_filter_dsc_t* dsc, [NativeTypeName("lv_color_filter_cb_t")] delegate* unmanaged[Cdecl]<_lv_color_filter_dsc_t*, lv_color_t, byte, lv_color_t> cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_color32_t lv_color_over32(lv_color32_t fg, lv_color32_t bg);
@@ -903,7 +903,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_draw_buf_init_with_default_handlers([NativeTypeName("lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_buf_handlers_init([NativeTypeName("lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers, [NativeTypeName("lv_draw_buf_malloc_cb")] delegate* unmanaged[Cdecl]<nuint, lv_color_format_t, void*> buf_malloc_cb, [NativeTypeName("lv_draw_buf_free_cb")] delegate* unmanaged[Cdecl]<void*, void> buf_free_cb, [NativeTypeName("lv_draw_buf_align_cb")] delegate* unmanaged[Cdecl]<void*, lv_color_format_t, void*> align_pointer_cb, [NativeTypeName("lv_draw_buf_cache_operation_cb")] delegate* unmanaged[Cdecl]<_lv_draw_buf_t*, lv_area_t*, void> invalidate_cache_cb, [NativeTypeName("lv_draw_buf_cache_operation_cb")] delegate* unmanaged[Cdecl]<_lv_draw_buf_t*, lv_area_t*, void> flush_cache_cb, [NativeTypeName("lv_draw_buf_width_to_stride_cb")] delegate* unmanaged[Cdecl]<c_uint32, lv_color_format_t, c_uint32> width_to_stride_cb);
+        public static extern void lv_draw_buf_handlers_init([NativeTypeName("lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers, [NativeTypeName("lv_draw_buf_malloc_cb")] delegate* unmanaged[Cdecl]<nuint, lv_color_format_t, void*> buf_malloc_cb, [NativeTypeName("lv_draw_buf_free_cb")] delegate* unmanaged[Cdecl]<void*, void> buf_free_cb, [NativeTypeName("lv_draw_buf_align_cb")] delegate* unmanaged[Cdecl]<void*, lv_color_format_t, void*> align_pointer_cb, [NativeTypeName("lv_draw_buf_cache_operation_cb")] delegate* unmanaged[Cdecl]<_lv_draw_buf_t*, lv_area_t*, void> invalidate_cache_cb, [NativeTypeName("lv_draw_buf_cache_operation_cb")] delegate* unmanaged[Cdecl]<_lv_draw_buf_t*, lv_area_t*, void> flush_cache_cb, [NativeTypeName("lv_draw_buf_width_to_stride_cb")] delegate* unmanaged[Cdecl]<uint, lv_color_format_t, uint> width_to_stride_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_buf_handlers_t *")]
@@ -931,11 +931,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_draw_buf_width_to_stride([NativeTypeName("uint32_t")] c_uint32 w, lv_color_format_t color_format);
+        public static extern uint lv_draw_buf_width_to_stride([NativeTypeName("uint32_t")] uint w, lv_color_format_t color_format);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_draw_buf_width_to_stride_ex([NativeTypeName("const lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers, [NativeTypeName("uint32_t")] c_uint32 w, lv_color_format_t color_format);
+        public static extern uint lv_draw_buf_width_to_stride_ex([NativeTypeName("const lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers, [NativeTypeName("uint32_t")] uint w, lv_color_format_t color_format);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_draw_buf_clear([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, [NativeTypeName("const lv_area_t *")] lv_area_t* a);
@@ -945,11 +945,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_buf_t *")]
-        public static extern _lv_draw_buf_t* lv_draw_buf_create([NativeTypeName("uint32_t")] c_uint32 w, [NativeTypeName("uint32_t")] c_uint32 h, lv_color_format_t cf, [NativeTypeName("uint32_t")] c_uint32 stride);
+        public static extern _lv_draw_buf_t* lv_draw_buf_create([NativeTypeName("uint32_t")] uint w, [NativeTypeName("uint32_t")] uint h, lv_color_format_t cf, [NativeTypeName("uint32_t")] uint stride);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_buf_t *")]
-        public static extern _lv_draw_buf_t* lv_draw_buf_create_ex([NativeTypeName("const lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers, [NativeTypeName("uint32_t")] c_uint32 w, [NativeTypeName("uint32_t")] c_uint32 h, lv_color_format_t cf, [NativeTypeName("uint32_t")] c_uint32 stride);
+        public static extern _lv_draw_buf_t* lv_draw_buf_create_ex([NativeTypeName("const lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers, [NativeTypeName("uint32_t")] uint w, [NativeTypeName("uint32_t")] uint h, lv_color_format_t cf, [NativeTypeName("uint32_t")] uint stride);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_buf_t *")]
@@ -960,20 +960,20 @@ namespace LVGLSharp.Interop
         public static extern _lv_draw_buf_t* lv_draw_buf_dup_ex([NativeTypeName("const lv_draw_buf_handlers_t *")] _lv_draw_buf_handlers_t* handlers, [NativeTypeName("const lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_draw_buf_init([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, [NativeTypeName("uint32_t")] c_uint32 w, [NativeTypeName("uint32_t")] c_uint32 h, lv_color_format_t cf, [NativeTypeName("uint32_t")] c_uint32 stride, void* data, [NativeTypeName("uint32_t")] c_uint32 data_size);
+        public static extern lv_result_t lv_draw_buf_init([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, [NativeTypeName("uint32_t")] uint w, [NativeTypeName("uint32_t")] uint h, lv_color_format_t cf, [NativeTypeName("uint32_t")] uint stride, void* data, [NativeTypeName("uint32_t")] uint data_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_buf_t *")]
-        public static extern _lv_draw_buf_t* lv_draw_buf_reshape([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, lv_color_format_t cf, [NativeTypeName("uint32_t")] c_uint32 w, [NativeTypeName("uint32_t")] c_uint32 h, [NativeTypeName("uint32_t")] c_uint32 stride);
+        public static extern _lv_draw_buf_t* lv_draw_buf_reshape([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, lv_color_format_t cf, [NativeTypeName("uint32_t")] uint w, [NativeTypeName("uint32_t")] uint h, [NativeTypeName("uint32_t")] uint stride);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_draw_buf_destroy([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void* lv_draw_buf_goto_xy([NativeTypeName("const lv_draw_buf_t *")] _lv_draw_buf_t* buf, [NativeTypeName("uint32_t")] c_uint32 x, [NativeTypeName("uint32_t")] c_uint32 y);
+        public static extern void* lv_draw_buf_goto_xy([NativeTypeName("const lv_draw_buf_t *")] _lv_draw_buf_t* buf, [NativeTypeName("uint32_t")] uint x, [NativeTypeName("uint32_t")] uint y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_draw_buf_adjust_stride([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* src, [NativeTypeName("uint32_t")] c_uint32 stride);
+        public static extern lv_result_t lv_draw_buf_adjust_stride([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* src, [NativeTypeName("uint32_t")] uint stride);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_result_t lv_draw_buf_premultiply([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf);
@@ -995,10 +995,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_draw_buf_to_image([NativeTypeName("const lv_draw_buf_t *")] _lv_draw_buf_t* buf, lv_image_dsc_t* img);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_buf_set_palette([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, [NativeTypeName("uint8_t")] c_uint8 index, lv_color32_t color);
+        public static extern void lv_draw_buf_set_palette([NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, [NativeTypeName("uint8_t")] byte index, lv_color32_t color);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_buf_set_palette(lv_image_dsc_t* dsc, [NativeTypeName("uint8_t")] c_uint8 id, lv_color32_t c);
+        public static extern void lv_image_buf_set_palette(lv_image_dsc_t* dsc, [NativeTypeName("uint8_t")] byte id, lv_color32_t c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_image_buf_free(lv_image_dsc_t* dsc);
@@ -1007,23 +1007,17 @@ namespace LVGLSharp.Interop
         public static extern void* lv_utils_bsearch([NativeTypeName("const void *")] void* key, [NativeTypeName("const void *")] void* @base, [NativeTypeName("size_t")] nuint n, [NativeTypeName("size_t")] nuint size, [NativeTypeName("int (*)(const void *, const void *)")] delegate* unmanaged[Cdecl]<void*, void*, int> cmp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_draw_buf_save_to_file([NativeTypeName("const lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, [NativeTypeName("const char *")] c_int8* path);
+        public static extern lv_result_t lv_draw_buf_save_to_file([NativeTypeName("const lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf, [NativeTypeName("const char *")] sbyte* path);
 
         [return: NativeTypeName("uint32_t")]
-        public static c_uint32 lv_swap_bytes_32([NativeTypeName("uint32_t")] c_uint32 x)
+        public static uint lv_swap_bytes_32([NativeTypeName("uint32_t")] uint x)
         {
             return (x << 24) | ((x & 0x0000ff00U) << 8) | ((x & 0x00ff0000U) >> 8) | (x >> 24);
         }
 
-        [return: NativeTypeName("uint16_t")]
-        public static c_uint16 lv_swap_bytes_16([NativeTypeName("uint16_t")] c_uint16 x)
-        {
-            return (x << 8) | (x >> 8);
-        }
-
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_iter_t *")]
-        public static extern _lv_iter_t* lv_iter_create(void* instance, [NativeTypeName("uint32_t")] c_uint32 elem_size, [NativeTypeName("uint32_t")] c_uint32 context_size, [NativeTypeName("lv_iter_next_cb")] delegate* unmanaged[Cdecl]<void*, void*, void*, lv_result_t> next_cb);
+        public static extern _lv_iter_t* lv_iter_create(void* instance, [NativeTypeName("uint32_t")] uint elem_size, [NativeTypeName("uint32_t")] uint context_size, [NativeTypeName("lv_iter_next_cb")] delegate* unmanaged[Cdecl]<void*, void*, void*, lv_result_t> next_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void* lv_iter_get_context([NativeTypeName("const lv_iter_t *")] _lv_iter_t* iter);
@@ -1035,7 +1029,7 @@ namespace LVGLSharp.Interop
         public static extern lv_result_t lv_iter_next([NativeTypeName("lv_iter_t *")] _lv_iter_t* iter, void* elem);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_iter_make_peekable([NativeTypeName("lv_iter_t *")] _lv_iter_t* iter, [NativeTypeName("uint32_t")] c_uint32 capacity);
+        public static extern void lv_iter_make_peekable([NativeTypeName("lv_iter_t *")] _lv_iter_t* iter, [NativeTypeName("uint32_t")] uint capacity);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_result_t lv_iter_peek([NativeTypeName("lv_iter_t *")] _lv_iter_t* iter, void* elem);
@@ -1051,33 +1045,33 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_circle_buf_t *")]
-        public static extern _lv_circle_buf_t* lv_circle_buf_create([NativeTypeName("uint32_t")] c_uint32 capacity, [NativeTypeName("uint32_t")] c_uint32 element_size);
+        public static extern _lv_circle_buf_t* lv_circle_buf_create([NativeTypeName("uint32_t")] uint capacity, [NativeTypeName("uint32_t")] uint element_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_circle_buf_t *")]
-        public static extern _lv_circle_buf_t* lv_circle_buf_create_from_buf(void* buf, [NativeTypeName("uint32_t")] c_uint32 capacity, [NativeTypeName("uint32_t")] c_uint32 element_size);
+        public static extern _lv_circle_buf_t* lv_circle_buf_create_from_buf(void* buf, [NativeTypeName("uint32_t")] uint capacity, [NativeTypeName("uint32_t")] uint element_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_circle_buf_t *")]
         public static extern _lv_circle_buf_t* lv_circle_buf_create_from_array([NativeTypeName("const lv_array_t *")] _lv_array_t* array);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_circle_buf_resize([NativeTypeName("lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf, [NativeTypeName("uint32_t")] c_uint32 capacity);
+        public static extern lv_result_t lv_circle_buf_resize([NativeTypeName("lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf, [NativeTypeName("uint32_t")] uint capacity);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_circle_buf_destroy([NativeTypeName("lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_circle_buf_size([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
+        public static extern uint lv_circle_buf_size([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_circle_buf_capacity([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
+        public static extern uint lv_circle_buf_capacity([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_circle_buf_remain([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
+        public static extern uint lv_circle_buf_remain([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -1104,7 +1098,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_circle_buf_fill([NativeTypeName("lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf, [NativeTypeName("uint32_t")] c_uint32 count, [NativeTypeName("lv_circle_buf_fill_cb_t")] delegate* unmanaged[Cdecl]<void*, c_uint32, c_int32, void*, c_bool1> fill_cb, void* user_data);
+        public static extern uint lv_circle_buf_fill([NativeTypeName("lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf, [NativeTypeName("uint32_t")] uint count, [NativeTypeName("lv_circle_buf_fill_cb_t")] delegate* unmanaged[Cdecl]<void*, uint, int, void*, c_bool1> fill_cb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_result_t lv_circle_buf_skip([NativeTypeName("lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf);
@@ -1113,7 +1107,7 @@ namespace LVGLSharp.Interop
         public static extern lv_result_t lv_circle_buf_peek([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf, void* data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_circle_buf_peek_at([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf, [NativeTypeName("uint32_t")] c_uint32 index, void* data);
+        public static extern lv_result_t lv_circle_buf_peek_at([NativeTypeName("const lv_circle_buf_t *")] _lv_circle_buf_t* circle_buf, [NativeTypeName("uint32_t")] uint index, void* data);
 
         public const int LV_TREE_WALK_PRE_ORDER = 0;
         public const int LV_TREE_WALK_POST_ORDER = 1;
@@ -1127,19 +1121,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_tree_walk([NativeTypeName("const lv_tree_node_t *")] _lv_tree_node_t* node, [NativeTypeName("lv_tree_walk_mode_t")] c_uint8 mode, [NativeTypeName("lv_tree_traverse_cb_t")] delegate* unmanaged[Cdecl]<_lv_tree_node_t*, void*, c_bool1> cb, [NativeTypeName("lv_tree_before_cb_t")] delegate* unmanaged[Cdecl]<_lv_tree_node_t*, void*, c_bool1> bcb, [NativeTypeName("lv_tree_after_cb_t")] delegate* unmanaged[Cdecl]<_lv_tree_node_t*, void*, void> acb, void* user_data);
+        public static extern c_bool1 lv_tree_walk([NativeTypeName("const lv_tree_node_t *")] _lv_tree_node_t* node, [NativeTypeName("lv_tree_walk_mode_t")] byte mode, [NativeTypeName("lv_tree_traverse_cb_t")] delegate* unmanaged[Cdecl]<_lv_tree_node_t*, void*, c_bool1> cb, [NativeTypeName("lv_tree_before_cb_t")] delegate* unmanaged[Cdecl]<_lv_tree_node_t*, void*, c_bool1> bcb, [NativeTypeName("lv_tree_after_cb_t")] delegate* unmanaged[Cdecl]<_lv_tree_node_t*, void*, void> acb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_cache_entry_get_size([NativeTypeName("const uint32_t")] c_uint32 node_size);
+        public static extern uint lv_cache_entry_get_size([NativeTypeName("const uint32_t")] uint node_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_cache_entry_get_ref([NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry);
+        public static extern int lv_cache_entry_get_ref([NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_cache_entry_get_node_size([NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry);
+        public static extern uint lv_cache_entry_get_node_size([NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -1154,21 +1148,21 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_cache_entry_t *")]
-        public static extern _lv_cache_entry_t* lv_cache_entry_get_entry(void* data, [NativeTypeName("const uint32_t")] c_uint32 node_size);
+        public static extern _lv_cache_entry_t* lv_cache_entry_get_entry(void* data, [NativeTypeName("const uint32_t")] uint node_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_cache_entry_t *")]
-        public static extern _lv_cache_entry_t* lv_cache_entry_alloc([NativeTypeName("const uint32_t")] c_uint32 node_size, [NativeTypeName("const lv_cache_t *")] _lv_cache_t* cache);
+        public static extern _lv_cache_entry_t* lv_cache_entry_alloc([NativeTypeName("const uint32_t")] uint node_size, [NativeTypeName("const lv_cache_t *")] _lv_cache_t* cache);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_cache_entry_init([NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry, [NativeTypeName("const lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("const uint32_t")] c_uint32 node_size);
+        public static extern void lv_cache_entry_init([NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry, [NativeTypeName("const lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("const uint32_t")] uint node_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_cache_entry_delete([NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_os_get_idle_percent();
+        public static extern uint lv_os_get_idle_percent();
 
         public static void lv_lock()
         {
@@ -1184,10 +1178,10 @@ namespace LVGLSharp.Interop
         }
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_image_header_cache_init([NativeTypeName("uint32_t")] c_uint32 count);
+        public static extern lv_result_t lv_image_header_cache_init([NativeTypeName("uint32_t")] uint count);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_header_cache_resize([NativeTypeName("uint32_t")] c_uint32 count, [NativeTypeName("bool")] c_bool1 evict_now);
+        public static extern void lv_image_header_cache_resize([NativeTypeName("uint32_t")] uint count, [NativeTypeName("bool")] c_bool1 evict_now);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_image_header_cache_drop([NativeTypeName("const void *")] void* src);
@@ -1204,10 +1198,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_image_header_cache_dump();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_image_cache_init([NativeTypeName("uint32_t")] c_uint32 size);
+        public static extern lv_result_t lv_image_cache_init([NativeTypeName("uint32_t")] uint size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_cache_resize([NativeTypeName("uint32_t")] c_uint32 new_size, [NativeTypeName("bool")] c_bool1 evict_now);
+        public static extern void lv_image_cache_resize([NativeTypeName("uint32_t")] uint new_size, [NativeTypeName("bool")] c_bool1 evict_now);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_image_cache_drop([NativeTypeName("const void *")] void* src);
@@ -1246,7 +1240,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_cache_release([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("lv_cache_entry_t *")] _lv_cache_entry_t* entry, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_cache_reserve([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("uint32_t")] c_uint32 reserved_size, void* user_data);
+        public static extern void lv_cache_reserve([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("uint32_t")] uint reserved_size, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_cache_drop([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("const void *")] void* key, void* user_data);
@@ -1278,7 +1272,7 @@ namespace LVGLSharp.Interop
         public static extern c_bool1 lv_cache_is_enabled([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_cache_set_compare_cb([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("lv_cache_compare_cb_t")] delegate* unmanaged[Cdecl]<void*, void*, c_int8> compare_cb, void* user_data);
+        public static extern void lv_cache_set_compare_cb([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("lv_cache_compare_cb_t")] delegate* unmanaged[Cdecl]<void*, void*, sbyte> compare_cb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_cache_set_create_cb([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("lv_cache_create_cb_t")] delegate* unmanaged[Cdecl]<void*, void*, c_bool1> alloc_cb, void* user_data);
@@ -1287,11 +1281,11 @@ namespace LVGLSharp.Interop
         public static extern void lv_cache_set_free_cb([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("lv_cache_free_cb_t")] delegate* unmanaged[Cdecl]<void*, void*, void> free_cb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_cache_set_name([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("const char *")] c_int8* name);
+        public static extern void lv_cache_set_name([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache, [NativeTypeName("const char *")] sbyte* name);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_cache_get_name([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache);
+        public static extern sbyte* lv_cache_get_name([NativeTypeName("lv_cache_t *")] _lv_cache_t* cache);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_iter_t *")]
@@ -1370,18 +1364,18 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_font_get_glyph_dsc([NativeTypeName("const lv_font_t *")] _lv_font_t* font, lv_font_glyph_dsc_t* dsc_out, [NativeTypeName("uint32_t")] c_uint32 letter, [NativeTypeName("uint32_t")] c_uint32 letter_next);
+        public static extern c_bool1 lv_font_get_glyph_dsc([NativeTypeName("const lv_font_t *")] _lv_font_t* font, lv_font_glyph_dsc_t* dsc_out, [NativeTypeName("uint32_t")] uint letter, [NativeTypeName("uint32_t")] uint letter_next);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_font_glyph_release_draw_data(lv_font_glyph_dsc_t* g_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint16_t")]
-        public static extern c_uint16 lv_font_get_glyph_width([NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("uint32_t")] c_uint32 letter, [NativeTypeName("uint32_t")] c_uint32 letter_next);
+        public static extern ushort lv_font_get_glyph_width([NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("uint32_t")] uint letter, [NativeTypeName("uint32_t")] uint letter_next);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_font_get_line_height([NativeTypeName("const lv_font_t *")] _lv_font_t* font);
+        public static extern int lv_font_get_line_height([NativeTypeName("const lv_font_t *")] _lv_font_t* font);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_font_set_kerning([NativeTypeName("lv_font_t *")] _lv_font_t* font, lv_font_kerning_t kerning);
@@ -1399,22 +1393,22 @@ namespace LVGLSharp.Interop
         public static extern c_bool1 lv_font_has_static_bitmap([NativeTypeName("const lv_font_t *")] _lv_font_t* font);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_text_get_size(lv_point_t* size_res, [NativeTypeName("const char *")] c_int8* text, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("int32_t")] c_int32 letter_space, [NativeTypeName("int32_t")] c_int32 line_space, [NativeTypeName("int32_t")] c_int32 max_width, lv_text_flag_t flag);
+        public static extern void lv_text_get_size(lv_point_t* size_res, [NativeTypeName("const char *")] sbyte* text, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("int32_t")] int letter_space, [NativeTypeName("int32_t")] int line_space, [NativeTypeName("int32_t")] int max_width, lv_text_flag_t flag);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_text_get_width([NativeTypeName("const char *")] c_int8* txt, [NativeTypeName("uint32_t")] c_uint32 length, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("int32_t")] c_int32 letter_space);
+        public static extern int lv_text_get_width([NativeTypeName("const char *")] sbyte* txt, [NativeTypeName("uint32_t")] uint length, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("int32_t")] int letter_space);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_text_get_width_with_flags([NativeTypeName("const char *")] c_int8* txt, [NativeTypeName("uint32_t")] c_uint32 length, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("int32_t")] c_int32 letter_space, lv_text_flag_t flags);
+        public static extern int lv_text_get_width_with_flags([NativeTypeName("const char *")] sbyte* txt, [NativeTypeName("uint32_t")] uint length, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("int32_t")] int letter_space, lv_text_flag_t flags);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_text_is_cmd(lv_text_cmd_state_t* state, [NativeTypeName("uint32_t")] c_uint32 c);
+        public static extern c_bool1 lv_text_is_cmd(lv_text_cmd_state_t* state, [NativeTypeName("uint32_t")] uint c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_grad_init_stops(lv_grad_dsc_t* grad, [NativeTypeName("const lv_color_t[]")] lv_color_t* colors, [NativeTypeName("const lv_opa_t[]")] c_uint8* opa, [NativeTypeName("const uint8_t[]")] c_uint8* fracs, int num_stops);
+        public static extern void lv_grad_init_stops(lv_grad_dsc_t* grad, [NativeTypeName("const lv_color_t[]")] lv_color_t* colors, [NativeTypeName("const lv_opa_t[]")] byte* opa, [NativeTypeName("const uint8_t[]")] byte* fracs, int num_stops);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_grad_horizontal_init(lv_grad_dsc_t* dsc);
@@ -1424,7 +1418,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_layout_register([NativeTypeName("lv_layout_update_cb_t")] delegate* unmanaged[Cdecl]<_lv_obj_t*, void*, void> cb, void* user_data);
+        public static extern uint lv_layout_register([NativeTypeName("lv_layout_update_cb_t")] delegate* unmanaged[Cdecl]<_lv_obj_t*, void*, void> cb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_flex_init();
@@ -1436,23 +1430,23 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_set_flex_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_align_t main_place, lv_flex_align_t cross_place, lv_flex_align_t track_cross_place);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_flex_grow([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] c_uint8 grow);
+        public static extern void lv_obj_set_flex_grow([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] byte grow);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_grid_init();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_grid_dsc_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const int32_t[]")] c_int32* col_dsc, [NativeTypeName("const int32_t[]")] c_int32* row_dsc);
+        public static extern void lv_obj_set_grid_dsc_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const int32_t[]")] int* col_dsc, [NativeTypeName("const int32_t[]")] int* row_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_set_grid_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t column_align, lv_grid_align_t row_align);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_grid_cell([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t column_align, [NativeTypeName("int32_t")] c_int32 col_pos, [NativeTypeName("int32_t")] c_int32 col_span, lv_grid_align_t row_align, [NativeTypeName("int32_t")] c_int32 row_pos, [NativeTypeName("int32_t")] c_int32 row_span);
+        public static extern void lv_obj_set_grid_cell([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t column_align, [NativeTypeName("int32_t")] int col_pos, [NativeTypeName("int32_t")] int col_span, lv_grid_align_t row_align, [NativeTypeName("int32_t")] int row_pos, [NativeTypeName("int32_t")] int row_span);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_grid_fr([NativeTypeName("uint8_t")] c_uint8 x);
+        public static extern int lv_grid_fr([NativeTypeName("uint8_t")] byte x);
 
         public const int LV_STYLE_PROP_INV = 0;
         public const int LV_STYLE_WIDTH = 1;
@@ -1600,34 +1594,34 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_style_prop_t")]
-        public static extern c_uint8 lv_style_register_prop([NativeTypeName("uint8_t")] c_uint8 flag);
+        public static extern byte lv_style_register_prop([NativeTypeName("uint8_t")] byte flag);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_style_prop_t")]
-        public static extern c_uint8 lv_style_get_num_custom_props();
+        public static extern byte lv_style_get_num_custom_props();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_style_remove_prop(lv_style_t* style, [NativeTypeName("lv_style_prop_t")] c_uint8 prop);
+        public static extern c_bool1 lv_style_remove_prop(lv_style_t* style, [NativeTypeName("lv_style_prop_t")] byte prop);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_prop(lv_style_t* style, [NativeTypeName("lv_style_prop_t")] c_uint8 prop, lv_style_value_t value);
+        public static extern void lv_style_set_prop(lv_style_t* style, [NativeTypeName("lv_style_prop_t")] byte prop, lv_style_value_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_style_res_t lv_style_get_prop([NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_prop_t")] c_uint8 prop, lv_style_value_t* value);
+        public static extern lv_style_res_t lv_style_get_prop([NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_prop_t")] byte prop, lv_style_value_t* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_transition_dsc_init(lv_style_transition_dsc_t* tr, [NativeTypeName("const lv_style_prop_t[]")] c_uint8* props, [NativeTypeName("lv_anim_path_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, c_int32> path_cb, [NativeTypeName("uint32_t")] c_uint32 time, [NativeTypeName("uint32_t")] c_uint32 delay, void* user_data);
+        public static extern void lv_style_transition_dsc_init(lv_style_transition_dsc_t* tr, [NativeTypeName("const lv_style_prop_t[]")] byte* props, [NativeTypeName("lv_anim_path_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, int> path_cb, [NativeTypeName("uint32_t")] uint time, [NativeTypeName("uint32_t")] uint delay, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_style_value_t lv_style_prop_get_default([NativeTypeName("lv_style_prop_t")] c_uint8 prop);
+        public static extern lv_style_value_t lv_style_prop_get_default([NativeTypeName("lv_style_prop_t")] byte prop);
 
-        public static lv_style_res_t lv_style_get_prop_inlined([NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_prop_t")] c_uint8 prop, lv_style_value_t* value)
+        public static lv_style_res_t lv_style_get_prop_inlined([NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_prop_t")] byte prop, lv_style_value_t* value)
         {
             if (_ = lv_style_is_const(style))
             {
                 lv_style_const_prop_t* props = (lv_style_const_prop_t*)(style->values_and_props);
-                c_uint32 i;
+                uint i;
 
                 for (i = 0; unchecked(props[i]).prop != LV_STYLE_PROP_INV; i++)
                 {
@@ -1640,8 +1634,8 @@ namespace LVGLSharp.Interop
             }
             else
             {
-                c_uint8* props = (c_uint8*)(style->values_and_props) + style->prop_cnt * sizeof(lv_style_value_t);
-                c_uint32 i;
+                byte* props = (byte*)(style->values_and_props) + style->prop_cnt * sizeof(lv_style_value_t);
+                uint i;
 
                 for (i = 0; i < style->prop_cnt; i++)
                 {
@@ -1662,127 +1656,114 @@ namespace LVGLSharp.Interop
         [return: NativeTypeName("bool")]
         public static extern c_bool1 lv_style_is_empty([NativeTypeName("const lv_style_t *")] lv_style_t* style);
 
-        [return: NativeTypeName("uint32_t")]
-        public static c_uint32 lv_style_get_prop_group([NativeTypeName("lv_style_prop_t")] c_uint8 prop)
-        {
-            c_uint32 group = prop >> 2;
-
-            if (group > 30)
-            {
-                group = 31;
-            }
-
-            return group;
-        }
-
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_style_prop_lookup_flags([NativeTypeName("lv_style_prop_t")] c_uint8 prop);
+        public static extern byte lv_style_prop_lookup_flags([NativeTypeName("lv_style_prop_t")] byte prop);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_min_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_min_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_max_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_max_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_height(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_height(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_min_height(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_min_height(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_max_height(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_max_height(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_length(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_length(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_x(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_x(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_y(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_y(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_align(lv_style_t* style, lv_align_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_height(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_height(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_translate_x(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_translate_x(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_translate_y(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_translate_y(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_translate_radial(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_translate_radial(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_scale_x(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_scale_x(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_scale_y(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_scale_y(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_rotation(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_rotation(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_pivot_x(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_pivot_x(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_pivot_y(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_pivot_y(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_skew_x(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_skew_x(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_transform_skew_y(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_transform_skew_y(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_pad_top(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_pad_top(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_pad_bottom(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_pad_bottom(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_pad_left(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_pad_left(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_pad_right(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_pad_right(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_pad_row(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_pad_row(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_pad_column(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_pad_column(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_pad_radial(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_pad_radial(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_margin_top(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_margin_top(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_margin_bottom(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_margin_bottom(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_margin_left(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_margin_left(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_margin_right(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_margin_right(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_bg_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_bg_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_bg_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_bg_grad_color(lv_style_t* style, lv_color_t value);
@@ -1791,16 +1772,16 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_bg_grad_dir(lv_style_t* style, lv_grad_dir_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_bg_main_stop(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_bg_main_stop(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_bg_grad_stop(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_bg_grad_stop(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_bg_main_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_bg_main_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_bg_grad_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_bg_grad_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_bg_grad(lv_style_t* style, [NativeTypeName("const lv_grad_dsc_t *")] lv_grad_dsc_t* value);
@@ -1809,13 +1790,13 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_bg_image_src(lv_style_t* style, [NativeTypeName("const void *")] void* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_bg_image_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_bg_image_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_bg_image_recolor(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_bg_image_recolor_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_bg_image_recolor_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_bg_image_tiled(lv_style_t* style, [NativeTypeName("bool")] c_bool1 value);
@@ -1824,10 +1805,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_border_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_border_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_border_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_border_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_border_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_border_side(lv_style_t* style, lv_border_side_t value);
@@ -1836,52 +1817,52 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_border_post(lv_style_t* style, [NativeTypeName("bool")] c_bool1 value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_outline_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_outline_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_outline_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_outline_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_outline_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_outline_pad(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_outline_pad(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_shadow_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_shadow_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_shadow_offset_x(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_shadow_offset_x(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_shadow_offset_y(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_shadow_offset_y(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_shadow_spread(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_shadow_spread(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_shadow_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_shadow_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_shadow_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_image_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_image_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_image_recolor(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_image_recolor_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_image_recolor_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_line_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_line_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_line_dash_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_line_dash_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_line_dash_gap(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_line_dash_gap(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_line_rounded(lv_style_t* style, [NativeTypeName("bool")] c_bool1 value);
@@ -1890,10 +1871,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_line_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_line_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_line_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_arc_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_arc_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_arc_rounded(lv_style_t* style, [NativeTypeName("bool")] c_bool1 value);
@@ -1902,7 +1883,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_arc_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_arc_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_arc_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_arc_image_src(lv_style_t* style, [NativeTypeName("const void *")] void* value);
@@ -1911,16 +1892,16 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_text_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_text_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_text_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_text_font(lv_style_t* style, [NativeTypeName("const lv_font_t *")] _lv_font_t* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_text_letter_space(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_text_letter_space(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_text_line_space(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_text_line_space(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_text_decor(lv_style_t* style, lv_text_decor_t value);
@@ -1932,43 +1913,43 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_text_outline_stroke_color(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_text_outline_stroke_width(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_text_outline_stroke_width(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_text_outline_stroke_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_text_outline_stroke_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_radius(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_radius(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_radial_offset(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_radial_offset(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_clip_corner(lv_style_t* style, [NativeTypeName("bool")] c_bool1 value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_opa_layered(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_opa_layered(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_color_filter_dsc(lv_style_t* style, [NativeTypeName("const lv_color_filter_dsc_t *")] _lv_color_filter_dsc_t* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_color_filter_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_color_filter_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_recolor(lv_style_t* style, lv_color_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_recolor_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] c_uint8 value);
+        public static extern void lv_style_set_recolor_opa(lv_style_t* style, [NativeTypeName("lv_opa_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_anim(lv_style_t* style, [NativeTypeName("const lv_anim_t *")] _lv_anim_t* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_anim_duration(lv_style_t* style, [NativeTypeName("uint32_t")] c_uint32 value);
+        public static extern void lv_style_set_anim_duration(lv_style_t* style, [NativeTypeName("uint32_t")] uint value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_transition(lv_style_t* style, [NativeTypeName("const lv_style_transition_dsc_t *")] lv_style_transition_dsc_t* value);
@@ -1977,7 +1958,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_blend_mode(lv_style_t* style, lv_blend_mode_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_layout(lv_style_t* style, [NativeTypeName("uint16_t")] c_uint16 value);
+        public static extern void lv_style_set_layout(lv_style_t* style, [NativeTypeName("uint16_t")] ushort value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_base_dir(lv_style_t* style, lv_base_dir_t value);
@@ -1986,7 +1967,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_bitmap_mask_src(lv_style_t* style, [NativeTypeName("const void *")] void* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_rotary_sensitivity(lv_style_t* style, [NativeTypeName("uint32_t")] c_uint32 value);
+        public static extern void lv_style_set_rotary_sensitivity(lv_style_t* style, [NativeTypeName("uint32_t")] uint value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_flex_flow(lv_style_t* style, lv_flex_flow_t value);
@@ -2001,45 +1982,45 @@ namespace LVGLSharp.Interop
         public static extern void lv_style_set_flex_track_place(lv_style_t* style, lv_flex_align_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_flex_grow(lv_style_t* style, [NativeTypeName("uint8_t")] c_uint8 value);
+        public static extern void lv_style_set_flex_grow(lv_style_t* style, [NativeTypeName("uint8_t")] byte value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_grid_column_dsc_array(lv_style_t* style, [NativeTypeName("const int32_t *")] c_int32* value);
+        public static extern void lv_style_set_grid_column_dsc_array(lv_style_t* style, [NativeTypeName("const int32_t *")] int* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_grid_column_align(lv_style_t* style, lv_grid_align_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_grid_row_dsc_array(lv_style_t* style, [NativeTypeName("const int32_t *")] c_int32* value);
+        public static extern void lv_style_set_grid_row_dsc_array(lv_style_t* style, [NativeTypeName("const int32_t *")] int* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_grid_row_align(lv_style_t* style, lv_grid_align_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_grid_cell_column_pos(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_grid_cell_column_pos(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_grid_cell_x_align(lv_style_t* style, lv_grid_align_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_grid_cell_column_span(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_grid_cell_column_span(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_grid_cell_row_pos(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_grid_cell_row_pos(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_style_set_grid_cell_y_align(lv_style_t* style, lv_grid_align_t value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_style_set_grid_cell_row_span(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_style_set_grid_cell_row_span(lv_style_t* style, [NativeTypeName("int32_t")] int value);
 
-        public static void lv_style_set_size(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 width, [NativeTypeName("int32_t")] c_int32 height)
+        public static void lv_style_set_size(lv_style_t* style, [NativeTypeName("int32_t")] int width, [NativeTypeName("int32_t")] int height)
         {
             lv_style_set_width(style, width);
             lv_style_set_height(style, height);
         }
 
-        public static void lv_style_set_pad_all(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_pad_all(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_pad_left(style, value);
             lv_style_set_pad_right(style, value);
@@ -2047,37 +2028,37 @@ namespace LVGLSharp.Interop
             lv_style_set_pad_bottom(style, value);
         }
 
-        public static void lv_style_set_pad_hor(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_pad_hor(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_pad_left(style, value);
             lv_style_set_pad_right(style, value);
         }
 
-        public static void lv_style_set_pad_ver(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_pad_ver(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_pad_top(style, value);
             lv_style_set_pad_bottom(style, value);
         }
 
-        public static void lv_style_set_pad_gap(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_pad_gap(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_pad_row(style, value);
             lv_style_set_pad_column(style, value);
         }
 
-        public static void lv_style_set_margin_hor(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_margin_hor(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_margin_left(style, value);
             lv_style_set_margin_right(style, value);
         }
 
-        public static void lv_style_set_margin_ver(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_margin_ver(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_margin_top(style, value);
             lv_style_set_margin_bottom(style, value);
         }
 
-        public static void lv_style_set_margin_all(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_margin_all(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_margin_left(style, value);
             lv_style_set_margin_right(style, value);
@@ -2085,14 +2066,14 @@ namespace LVGLSharp.Interop
             lv_style_set_margin_bottom(style, value);
         }
 
-        public static void lv_style_set_transform_scale(lv_style_t* style, [NativeTypeName("int32_t")] c_int32 value)
+        public static void lv_style_set_transform_scale(lv_style_t* style, [NativeTypeName("int32_t")] int value)
         {
             lv_style_set_transform_scale_x(style, value);
             lv_style_set_transform_scale_y(style, value);
         }
 
         [return: NativeTypeName("bool")]
-        public static c_bool1 lv_style_prop_has_flag([NativeTypeName("lv_style_prop_t")] c_uint8 prop, [NativeTypeName("uint8_t")] c_uint8 flag)
+        public static c_bool1 lv_style_prop_has_flag([NativeTypeName("lv_style_prop_t")] byte prop, [NativeTypeName("uint8_t")] byte flag)
         {
             return (lv_style_prop_lookup_flags(prop) & flag) != 0;
         }
@@ -2110,11 +2091,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_event_get_count(lv_event_list_t* list);
+        public static extern uint lv_event_get_count(lv_event_list_t* list);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_event_dsc_t *")]
-        public static extern _lv_event_dsc_t* lv_event_get_dsc(lv_event_list_t* list, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern _lv_event_dsc_t* lv_event_get_dsc(lv_event_list_t* list, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_event_cb_t")]
@@ -2125,7 +2106,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_event_remove(lv_event_list_t* list, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern c_bool1 lv_event_remove(lv_event_list_t* list, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_event_remove_all(lv_event_list_t* list);
@@ -2153,15 +2134,15 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_event_register_id();
+        public static extern uint lv_event_register_id();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_event_code_get_name(lv_event_code_t code);
+        public static extern sbyte* lv_event_code_get_name(lv_event_code_t code);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_display_t *")]
-        public static extern _lv_display_t* lv_display_create([NativeTypeName("int32_t")] c_int32 hor_res, [NativeTypeName("int32_t")] c_int32 ver_res);
+        public static extern _lv_display_t* lv_display_create([NativeTypeName("int32_t")] int hor_res, [NativeTypeName("int32_t")] int ver_res);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_display_delete([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
@@ -2178,13 +2159,13 @@ namespace LVGLSharp.Interop
         public static extern _lv_display_t* lv_display_get_next([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_resolution([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] c_int32 hor_res, [NativeTypeName("int32_t")] c_int32 ver_res);
+        public static extern void lv_display_set_resolution([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] int hor_res, [NativeTypeName("int32_t")] int ver_res);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_physical_resolution([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] c_int32 hor_res, [NativeTypeName("int32_t")] c_int32 ver_res);
+        public static extern void lv_display_set_physical_resolution([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] int hor_res, [NativeTypeName("int32_t")] int ver_res);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_offset([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_display_set_offset([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_display_set_rotation([NativeTypeName("lv_display_t *")] _lv_display_t* disp, lv_display_rotation_t rotation);
@@ -2193,39 +2174,39 @@ namespace LVGLSharp.Interop
         public static extern void lv_display_set_matrix_rotation([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("bool")] c_bool1 enable);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_dpi([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] c_int32 dpi);
+        public static extern void lv_display_set_dpi([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] int dpi);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_horizontal_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_horizontal_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_vertical_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_vertical_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_original_horizontal_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_original_horizontal_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_original_vertical_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_original_vertical_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_physical_horizontal_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_physical_horizontal_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_physical_vertical_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_physical_vertical_resolution([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_offset_x([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_offset_x([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_offset_y([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_offset_y([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_display_rotation_t lv_display_get_rotation([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
@@ -2236,13 +2217,13 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_get_dpi([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern int lv_display_get_dpi([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_buffers([NativeTypeName("lv_display_t *")] _lv_display_t* disp, void* buf1, void* buf2, [NativeTypeName("uint32_t")] c_uint32 buf_size, lv_display_render_mode_t render_mode);
+        public static extern void lv_display_set_buffers([NativeTypeName("lv_display_t *")] _lv_display_t* disp, void* buf1, void* buf2, [NativeTypeName("uint32_t")] uint buf_size, lv_display_render_mode_t render_mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_buffers_with_stride([NativeTypeName("lv_display_t *")] _lv_display_t* disp, void* buf1, void* buf2, [NativeTypeName("uint32_t")] c_uint32 buf_size, [NativeTypeName("uint32_t")] c_uint32 stride, lv_display_render_mode_t render_mode);
+        public static extern void lv_display_set_buffers_with_stride([NativeTypeName("lv_display_t *")] _lv_display_t* disp, void* buf1, void* buf2, [NativeTypeName("uint32_t")] uint buf_size, [NativeTypeName("uint32_t")] uint stride, lv_display_render_mode_t render_mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_display_set_draw_buffers([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* buf1, [NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* buf2);
@@ -2254,7 +2235,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_display_set_render_mode([NativeTypeName("lv_display_t *")] _lv_display_t* disp, lv_display_render_mode_t render_mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_flush_cb([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("lv_display_flush_cb_t")] delegate* unmanaged[Cdecl]<_lv_display_t*, lv_area_t*, c_uint8*, void> flush_cb);
+        public static extern void lv_display_set_flush_cb([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("lv_display_flush_cb_t")] delegate* unmanaged[Cdecl]<_lv_display_t*, lv_area_t*, byte*, void> flush_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_display_set_flush_wait_cb([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("lv_display_flush_wait_cb_t")] delegate* unmanaged[Cdecl]<_lv_display_t*, void> wait_cb);
@@ -2266,11 +2247,11 @@ namespace LVGLSharp.Interop
         public static extern lv_color_format_t lv_display_get_color_format([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_display_set_tile_cnt([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] c_uint32 tile_cnt);
+        public static extern void lv_display_set_tile_cnt([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] uint tile_cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_display_get_tile_cnt([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
+        public static extern uint lv_display_get_tile_cnt([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_display_set_antialiasing([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("bool")] c_bool1 en);
@@ -2314,7 +2295,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_screen_load([NativeTypeName("struct _lv_obj_t *")] _lv_obj_t* scr);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_screen_load_anim([NativeTypeName("lv_obj_t *")] _lv_obj_t* scr, lv_screen_load_anim_t anim_type, [NativeTypeName("uint32_t")] c_uint32 time, [NativeTypeName("uint32_t")] c_uint32 delay, [NativeTypeName("bool")] c_bool1 auto_del);
+        public static extern void lv_screen_load_anim([NativeTypeName("lv_obj_t *")] _lv_obj_t* scr, lv_screen_load_anim_t anim_type, [NativeTypeName("uint32_t")] uint time, [NativeTypeName("uint32_t")] uint delay, [NativeTypeName("bool")] c_bool1 auto_del);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -2337,19 +2318,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_display_get_event_count([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
+        public static extern uint lv_display_get_event_count([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_event_dsc_t *")]
-        public static extern _lv_event_dsc_t* lv_display_get_event_dsc([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern _lv_event_dsc_t* lv_display_get_event_dsc([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_display_delete_event([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern c_bool1 lv_display_delete_event([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_display_remove_event_cb_with_user_data([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb, void* user_data);
+        public static extern uint lv_display_remove_event_cb_with_user_data([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_result_t lv_display_send_event([NativeTypeName("lv_display_t *")] _lv_display_t* disp, lv_event_code_t code, void* param2);
@@ -2366,7 +2347,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_display_get_inactive_time([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
+        public static extern uint lv_display_get_inactive_time([NativeTypeName("const lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_display_trigger_activity([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
@@ -2417,19 +2398,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_display_get_draw_buf_size([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
+        public static extern uint lv_display_get_draw_buf_size([NativeTypeName("lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_display_get_invalidated_draw_buf_size([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] c_uint32 width, [NativeTypeName("uint32_t")] c_uint32 height);
+        public static extern uint lv_display_get_invalidated_draw_buf_size([NativeTypeName("lv_display_t *")] _lv_display_t* disp, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_dpx([NativeTypeName("int32_t")] c_int32 n);
+        public static extern int lv_dpx([NativeTypeName("int32_t")] int n);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_display_dpx([NativeTypeName("const lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] c_int32 n);
+        public static extern int lv_display_dpx([NativeTypeName("const lv_display_t *")] _lv_display_t* disp, [NativeTypeName("int32_t")] int n);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_delete([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -2438,7 +2419,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_clean([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_delete_delayed([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 delay_ms);
+        public static extern void lv_obj_delete_delayed([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint delay_ms);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_delete_anim_completed_cb([NativeTypeName("lv_anim_t *")] _lv_anim_t* a);
@@ -2453,7 +2434,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_swap([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj1, [NativeTypeName("lv_obj_t *")] _lv_obj_t* obj2);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_move_to_index([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 index);
+        public static extern void lv_obj_move_to_index([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -2469,35 +2450,35 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_obj_get_child([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 idx);
+        public static extern _lv_obj_t* lv_obj_get_child([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int idx);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_obj_get_child_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 idx, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
+        public static extern _lv_obj_t* lv_obj_get_child_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int idx, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_obj_get_sibling([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 idx);
+        public static extern _lv_obj_t* lv_obj_get_sibling([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int idx);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_obj_get_sibling_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 idx, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
+        public static extern _lv_obj_t* lv_obj_get_sibling_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int idx, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_obj_get_child_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_obj_get_child_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_obj_get_child_count_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
+        public static extern uint lv_obj_get_child_count_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_index([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_index([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_index_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
+        public static extern int lv_obj_get_index_by_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_obj_class_t *")] _lv_obj_class_t* class_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_tree_walk([NativeTypeName("lv_obj_t *")] _lv_obj_t* start_obj, [NativeTypeName("lv_obj_tree_walk_cb_t")] delegate* unmanaged[Cdecl]<_lv_obj_t*, void*, lv_obj_tree_walk_res_t> cb, void* user_data);
@@ -2506,35 +2487,35 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_dump_tree([NativeTypeName("lv_obj_t *")] _lv_obj_t* start_obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_obj_set_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x);
+        public static extern void lv_obj_set_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_obj_set_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 w, [NativeTypeName("int32_t")] c_int32 h);
+        public static extern void lv_obj_set_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int w, [NativeTypeName("int32_t")] int h);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
         public static extern c_bool1 lv_obj_refr_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 w);
+        public static extern void lv_obj_set_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int w);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 h);
+        public static extern void lv_obj_set_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int h);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_content_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 w);
+        public static extern void lv_obj_set_content_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int w);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_content_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 h);
+        public static extern void lv_obj_set_content_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int h);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_layout([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 layout);
+        public static extern void lv_obj_set_layout([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint layout);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -2550,10 +2531,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_set_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_align_t align);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_align_t align, [NativeTypeName("int32_t")] c_int32 x_ofs, [NativeTypeName("int32_t")] c_int32 y_ofs);
+        public static extern void lv_obj_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_align_t align, [NativeTypeName("int32_t")] int x_ofs, [NativeTypeName("int32_t")] int y_ofs);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_align_to([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_obj_t *")] _lv_obj_t* @base, lv_align_t align, [NativeTypeName("int32_t")] c_int32 x_ofs, [NativeTypeName("int32_t")] c_int32 y_ofs);
+        public static extern void lv_obj_align_to([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_obj_t *")] _lv_obj_t* @base, lv_align_t align, [NativeTypeName("int32_t")] int x_ofs, [NativeTypeName("int32_t")] int y_ofs);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_center([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -2569,54 +2550,54 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_x2([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_x2([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_y2([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_y2([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_x_aligned([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_x_aligned([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_y_aligned([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_y_aligned([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_content_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_content_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_content_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_content_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_get_content_coords([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, lv_area_t* area);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_self_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_self_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_self_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_self_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -2626,10 +2607,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_refr_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_move_to([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_obj_move_to([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_move_children_by([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x_diff, [NativeTypeName("int32_t")] c_int32 y_diff, [NativeTypeName("bool")] c_bool1 ignore_floating);
+        public static extern void lv_obj_move_children_by([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x_diff, [NativeTypeName("int32_t")] int y_diff, [NativeTypeName("bool")] c_bool1 ignore_floating);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const lv_matrix_t *")]
@@ -2659,7 +2640,7 @@ namespace LVGLSharp.Interop
         public static extern c_bool1 lv_obj_is_visible([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_ext_click_area([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 size);
+        public static extern void lv_obj_set_ext_click_area([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_get_click_area([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, lv_area_t* area);
@@ -2670,11 +2651,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_clamp_width([NativeTypeName("int32_t")] c_int32 width, [NativeTypeName("int32_t")] c_int32 min_width, [NativeTypeName("int32_t")] c_int32 max_width, [NativeTypeName("int32_t")] c_int32 ref_width);
+        public static extern int lv_clamp_width([NativeTypeName("int32_t")] int width, [NativeTypeName("int32_t")] int min_width, [NativeTypeName("int32_t")] int max_width, [NativeTypeName("int32_t")] int ref_width);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_clamp_height([NativeTypeName("int32_t")] c_int32 height, [NativeTypeName("int32_t")] c_int32 min_height, [NativeTypeName("int32_t")] c_int32 max_height, [NativeTypeName("int32_t")] c_int32 ref_height);
+        public static extern int lv_clamp_height([NativeTypeName("int32_t")] int height, [NativeTypeName("int32_t")] int min_height, [NativeTypeName("int32_t")] int max_height, [NativeTypeName("int32_t")] int ref_height);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_set_scrollbar_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_scrollbar_mode_t mode);
@@ -2702,45 +2683,45 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_scroll_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_scroll_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_scroll_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_scroll_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_scroll_top([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_scroll_top([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_scroll_bottom([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_scroll_bottom([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_scroll_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_scroll_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_get_scroll_right([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_obj_get_scroll_right([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_get_scroll_end([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_point_t* end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_scroll_by([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 dx, [NativeTypeName("int32_t")] c_int32 dy, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
+        public static extern void lv_obj_scroll_by([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int dx, [NativeTypeName("int32_t")] int dy, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_scroll_by_bounded([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 dx, [NativeTypeName("int32_t")] c_int32 dy, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
+        public static extern void lv_obj_scroll_by_bounded([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int dx, [NativeTypeName("int32_t")] int dy, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_scroll_to([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
+        public static extern void lv_obj_scroll_to([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_scroll_to_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
+        public static extern void lv_obj_scroll_to_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_scroll_to_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 y, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
+        public static extern void lv_obj_scroll_to_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int y, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_scroll_to_view([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
@@ -2768,14 +2749,14 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_readjust_scroll([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_add_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_add_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_obj_replace_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_t *")] lv_style_t* old_style, [NativeTypeName("const lv_style_t *")] lv_style_t* new_style, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern c_bool1 lv_obj_replace_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_t *")] lv_style_t* old_style, [NativeTypeName("const lv_style_t *")] lv_style_t* new_style, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_remove_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_remove_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_t *")] lv_style_t* style, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_remove_style_all([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -2784,1398 +2765,1392 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_report_style_change(lv_style_t* style);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_refresh_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, [NativeTypeName("lv_style_prop_t")] c_uint8 prop);
+        public static extern void lv_obj_refresh_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, [NativeTypeName("lv_style_prop_t")] byte prop);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_enable_style_refresh([NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_style_value_t lv_obj_get_style_prop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, [NativeTypeName("lv_style_prop_t")] c_uint8 prop);
+        public static extern lv_style_value_t lv_obj_get_style_prop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, [NativeTypeName("lv_style_prop_t")] byte prop);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_obj_has_style_prop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_selector_t")] c_uint32 selector, [NativeTypeName("lv_style_prop_t")] c_uint8 prop);
+        public static extern c_bool1 lv_obj_has_style_prop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_selector_t")] uint selector, [NativeTypeName("lv_style_prop_t")] byte prop);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_local_style_prop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_prop_t")] c_uint8 prop, lv_style_value_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_local_style_prop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_prop_t")] byte prop, lv_style_value_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_style_res_t lv_obj_get_local_style_prop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_prop_t")] c_uint8 prop, lv_style_value_t* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern lv_style_res_t lv_obj_get_local_style_prop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_prop_t")] byte prop, lv_style_value_t* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_obj_remove_local_style_prop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_prop_t")] c_uint8 prop, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern c_bool1 lv_obj_remove_local_style_prop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_style_prop_t")] byte prop, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_style_value_t lv_obj_style_apply_color_filter([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, lv_style_value_t v);
+        public static extern lv_style_value_t lv_obj_style_apply_color_filter([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, lv_style_value_t v);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_fade_in([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 time, [NativeTypeName("uint32_t")] c_uint32 delay);
+        public static extern void lv_obj_fade_in([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint time, [NativeTypeName("uint32_t")] uint delay);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_fade_out([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 time, [NativeTypeName("uint32_t")] c_uint32 delay);
-
-        [return: NativeTypeName("lv_state_t")]
-        public static c_uint16 lv_obj_style_get_selector_state([NativeTypeName("lv_style_selector_t")] c_uint32 selector)
-        {
-            return selector & 0xFFFF;
-        }
+        public static extern void lv_obj_fade_out([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint time, [NativeTypeName("uint32_t")] uint delay);
 
         [return: NativeTypeName("lv_part_t")]
-        public static c_uint32 lv_obj_style_get_selector_part([NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static uint lv_obj_style_get_selector_part([NativeTypeName("lv_style_selector_t")] uint selector)
         {
             return selector & 0xFF0000;
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_min_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_min_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MIN_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MIN_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_max_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_max_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MAX_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MAX_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_HEIGHT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_HEIGHT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_min_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_min_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MIN_HEIGHT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MIN_HEIGHT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_max_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_max_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MAX_HEIGHT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MAX_HEIGHT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_length([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_length([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LENGTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LENGTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_X));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_X));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_Y));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_Y));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_align_t lv_obj_get_style_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_align_t lv_obj_get_style_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ALIGN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ALIGN));
 
             return (lv_align_t)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_height([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_HEIGHT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_HEIGHT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_translate_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_translate_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSLATE_X));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSLATE_X));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_translate_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_translate_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSLATE_Y));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSLATE_Y));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_translate_radial([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_translate_radial([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSLATE_RADIAL));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSLATE_RADIAL));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_scale_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_scale_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_SCALE_X));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_SCALE_X));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_scale_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_scale_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_SCALE_Y));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_SCALE_Y));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_rotation([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_rotation([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_ROTATION));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_ROTATION));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_pivot_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_pivot_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_PIVOT_X));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_PIVOT_X));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_pivot_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_pivot_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_PIVOT_Y));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_PIVOT_Y));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_skew_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_skew_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_SKEW_X));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_SKEW_X));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_skew_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_skew_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSFORM_SKEW_Y));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSFORM_SKEW_Y));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_pad_top([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_pad_top([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_PAD_TOP));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_PAD_TOP));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_pad_bottom([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_pad_bottom([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_PAD_BOTTOM));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_PAD_BOTTOM));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_pad_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_pad_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_PAD_LEFT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_PAD_LEFT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_pad_right([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_pad_right([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_PAD_RIGHT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_PAD_RIGHT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_pad_row([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_pad_row([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_PAD_ROW));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_PAD_ROW));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_pad_column([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_pad_column([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_PAD_COLUMN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_PAD_COLUMN));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_pad_radial([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_pad_radial([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_PAD_RADIAL));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_PAD_RADIAL));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_margin_top([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_margin_top([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MARGIN_TOP));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MARGIN_TOP));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_margin_bottom([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_margin_bottom([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MARGIN_BOTTOM));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MARGIN_BOTTOM));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_margin_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_margin_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MARGIN_LEFT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MARGIN_LEFT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_margin_right([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_margin_right([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_MARGIN_RIGHT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_MARGIN_RIGHT));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_bg_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_bg_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_bg_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_bg_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_bg_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_bg_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_bg_grad_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_bg_grad_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_GRAD_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_GRAD_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_bg_grad_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_bg_grad_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_GRAD_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_GRAD_COLOR)));
 
             return v.color;
         }
 
-        public static lv_grad_dir_t lv_obj_get_style_bg_grad_dir([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_grad_dir_t lv_obj_get_style_bg_grad_dir([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_GRAD_DIR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_GRAD_DIR));
 
             return (lv_grad_dir_t)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_bg_main_stop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_bg_main_stop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_MAIN_STOP));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_MAIN_STOP));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_bg_grad_stop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_bg_grad_stop([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_GRAD_STOP));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_GRAD_STOP));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_bg_main_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_bg_main_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_MAIN_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_MAIN_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_bg_grad_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_bg_grad_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_GRAD_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_GRAD_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("const lv_grad_dsc_t *")]
-        public static lv_grad_dsc_t* lv_obj_get_style_bg_grad([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_grad_dsc_t* lv_obj_get_style_bg_grad([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_GRAD));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_GRAD));
 
             return (lv_grad_dsc_t*)(v.ptr);
         }
 
         [return: NativeTypeName("const void *")]
-        public static void* lv_obj_get_style_bg_image_src([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static void* lv_obj_get_style_bg_image_src([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_IMAGE_SRC));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_IMAGE_SRC));
 
             return (void*)(v.ptr);
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_bg_image_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_bg_image_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_IMAGE_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_IMAGE_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_bg_image_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_bg_image_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_IMAGE_RECOLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_IMAGE_RECOLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_bg_image_recolor_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_bg_image_recolor_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_IMAGE_RECOLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_IMAGE_RECOLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_bg_image_recolor_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_bg_image_recolor_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_IMAGE_RECOLOR_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_IMAGE_RECOLOR_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("bool")]
-        public static c_bool1 lv_obj_get_style_bg_image_tiled([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static c_bool1 lv_obj_get_style_bg_image_tiled([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BG_IMAGE_TILED));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BG_IMAGE_TILED));
 
             return (c_bool1)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_border_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_border_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BORDER_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BORDER_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_border_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_border_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BORDER_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BORDER_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_border_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_border_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BORDER_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BORDER_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_border_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_border_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BORDER_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BORDER_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_border_side_t lv_obj_get_style_border_side([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_border_side_t lv_obj_get_style_border_side([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BORDER_SIDE));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BORDER_SIDE));
 
             return (lv_border_side_t)(v.num);
         }
 
         [return: NativeTypeName("bool")]
-        public static c_bool1 lv_obj_get_style_border_post([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static c_bool1 lv_obj_get_style_border_post([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BORDER_POST));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BORDER_POST));
 
             return (c_bool1)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_outline_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_outline_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_OUTLINE_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_OUTLINE_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_outline_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_outline_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_OUTLINE_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_OUTLINE_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_outline_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_outline_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_OUTLINE_COLOR)));
-
-            return v.color;
-        }
-
-        [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_outline_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_OUTLINE_OPA));
-
-            return (c_uint8)(v.num);
-        }
-
-        [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_outline_pad([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_OUTLINE_PAD));
-
-            return (c_int32)(v.num);
-        }
-
-        [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_shadow_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_SHADOW_WIDTH));
-
-            return (c_int32)(v.num);
-        }
-
-        [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_shadow_offset_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_SHADOW_OFFSET_X));
-
-            return (c_int32)(v.num);
-        }
-
-        [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_shadow_offset_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_SHADOW_OFFSET_Y));
-
-            return (c_int32)(v.num);
-        }
-
-        [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_shadow_spread([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_SHADOW_SPREAD));
-
-            return (c_int32)(v.num);
-        }
-
-        public static lv_color_t lv_obj_get_style_shadow_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_SHADOW_COLOR));
-
-            return v.color;
-        }
-
-        public static lv_color_t lv_obj_get_style_shadow_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
-        {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_SHADOW_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_OUTLINE_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_shadow_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_outline_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_SHADOW_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_OUTLINE_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
-        [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_image_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        [return: NativeTypeName("int32_t")]
+        public static int lv_obj_get_style_outline_pad([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_IMAGE_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_OUTLINE_PAD));
 
-            return (c_uint8)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_image_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        [return: NativeTypeName("int32_t")]
+        public static int lv_obj_get_style_shadow_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_IMAGE_RECOLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_SHADOW_WIDTH));
+
+            return (int)(v.num);
+        }
+
+        [return: NativeTypeName("int32_t")]
+        public static int lv_obj_get_style_shadow_offset_x([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_SHADOW_OFFSET_X));
+
+            return (int)(v.num);
+        }
+
+        [return: NativeTypeName("int32_t")]
+        public static int lv_obj_get_style_shadow_offset_y([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_SHADOW_OFFSET_Y));
+
+            return (int)(v.num);
+        }
+
+        [return: NativeTypeName("int32_t")]
+        public static int lv_obj_get_style_shadow_spread([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_SHADOW_SPREAD));
+
+            return (int)(v.num);
+        }
+
+        public static lv_color_t lv_obj_get_style_shadow_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_SHADOW_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_image_recolor_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_shadow_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_IMAGE_RECOLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_SHADOW_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_image_recolor_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_shadow_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_IMAGE_RECOLOR_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_SHADOW_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
+        }
+
+        [return: NativeTypeName("lv_opa_t")]
+        public static byte lv_obj_get_style_image_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_IMAGE_OPA));
+
+            return (byte)(v.num);
+        }
+
+        public static lv_color_t lv_obj_get_style_image_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_IMAGE_RECOLOR));
+
+            return v.color;
+        }
+
+        public static lv_color_t lv_obj_get_style_image_recolor_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_IMAGE_RECOLOR)));
+
+            return v.color;
+        }
+
+        [return: NativeTypeName("lv_opa_t")]
+        public static byte lv_obj_get_style_image_recolor_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        {
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_IMAGE_RECOLOR_OPA));
+
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_line_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_line_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LINE_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LINE_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_line_dash_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_line_dash_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LINE_DASH_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LINE_DASH_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_line_dash_gap([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_line_dash_gap([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LINE_DASH_GAP));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LINE_DASH_GAP));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("bool")]
-        public static c_bool1 lv_obj_get_style_line_rounded([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static c_bool1 lv_obj_get_style_line_rounded([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LINE_ROUNDED));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LINE_ROUNDED));
 
             return (c_bool1)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_line_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_line_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LINE_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LINE_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_line_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_line_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LINE_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LINE_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_line_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_line_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LINE_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LINE_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_arc_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_arc_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ARC_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ARC_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("bool")]
-        public static c_bool1 lv_obj_get_style_arc_rounded([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static c_bool1 lv_obj_get_style_arc_rounded([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ARC_ROUNDED));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ARC_ROUNDED));
 
             return (c_bool1)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_arc_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_arc_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ARC_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ARC_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_arc_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_arc_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ARC_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ARC_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_arc_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_arc_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ARC_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ARC_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("const void *")]
-        public static void* lv_obj_get_style_arc_image_src([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static void* lv_obj_get_style_arc_image_src([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ARC_IMAGE_SRC));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ARC_IMAGE_SRC));
 
             return (void*)(v.ptr);
         }
 
-        public static lv_color_t lv_obj_get_style_text_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_text_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_text_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_text_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_text_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_text_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("const lv_font_t *")]
-        public static _lv_font_t* lv_obj_get_style_text_font([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static _lv_font_t* lv_obj_get_style_text_font([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_FONT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_FONT));
 
             return (_lv_font_t*)(v.ptr);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_text_letter_space([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_text_letter_space([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_LETTER_SPACE));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_LETTER_SPACE));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_text_line_space([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_text_line_space([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_LINE_SPACE));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_LINE_SPACE));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_text_decor_t lv_obj_get_style_text_decor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_text_decor_t lv_obj_get_style_text_decor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_DECOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_DECOR));
 
             return (lv_text_decor_t)(v.num);
         }
 
-        public static lv_text_align_t lv_obj_get_style_text_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_text_align_t lv_obj_get_style_text_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_ALIGN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_ALIGN));
 
             return (lv_text_align_t)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_text_outline_stroke_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_text_outline_stroke_color([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_OUTLINE_STROKE_COLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_OUTLINE_STROKE_COLOR));
 
             return v.color;
         }
 
-        public static lv_color_t lv_obj_get_style_text_outline_stroke_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_text_outline_stroke_color_filtered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_OUTLINE_STROKE_COLOR)));
+            lv_style_value_t v = lv_obj_style_apply_color_filter(obj, part, lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_OUTLINE_STROKE_COLOR)));
 
             return v.color;
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_text_outline_stroke_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_text_outline_stroke_width([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_OUTLINE_STROKE_WIDTH));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_OUTLINE_STROKE_WIDTH));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_text_outline_stroke_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_text_outline_stroke_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TEXT_OUTLINE_STROKE_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TEXT_OUTLINE_STROKE_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_radius([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_radius([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_RADIUS));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_RADIUS));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_radial_offset([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_radial_offset([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_RADIAL_OFFSET));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_RADIAL_OFFSET));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("bool")]
-        public static c_bool1 lv_obj_get_style_clip_corner([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static c_bool1 lv_obj_get_style_clip_corner([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_CLIP_CORNER));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_CLIP_CORNER));
 
             return (c_bool1)(v.num);
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_opa_layered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_opa_layered([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_OPA_LAYERED));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_OPA_LAYERED));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("const lv_color_filter_dsc_t *")]
-        public static _lv_color_filter_dsc_t* lv_obj_get_style_color_filter_dsc([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static _lv_color_filter_dsc_t* lv_obj_get_style_color_filter_dsc([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_COLOR_FILTER_DSC));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_COLOR_FILTER_DSC));
 
             return (_lv_color_filter_dsc_t*)(v.ptr);
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_color_filter_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_color_filter_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_COLOR_FILTER_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_COLOR_FILTER_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
-        public static lv_color_t lv_obj_get_style_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_color_t lv_obj_get_style_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_RECOLOR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_RECOLOR));
 
             return v.color;
         }
 
         [return: NativeTypeName("lv_opa_t")]
-        public static c_uint8 lv_obj_get_style_recolor_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_recolor_opa([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_RECOLOR_OPA));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_RECOLOR_OPA));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("const lv_anim_t *")]
-        public static _lv_anim_t* lv_obj_get_style_anim([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static _lv_anim_t* lv_obj_get_style_anim([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ANIM));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ANIM));
 
             return (_lv_anim_t*)(v.ptr);
         }
 
         [return: NativeTypeName("uint32_t")]
-        public static c_uint32 lv_obj_get_style_anim_duration([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static uint lv_obj_get_style_anim_duration([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ANIM_DURATION));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ANIM_DURATION));
 
-            return (c_uint32)(v.num);
+            return (uint)(v.num);
         }
 
         [return: NativeTypeName("const lv_style_transition_dsc_t *")]
-        public static lv_style_transition_dsc_t* lv_obj_get_style_transition([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_style_transition_dsc_t* lv_obj_get_style_transition([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_TRANSITION));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_TRANSITION));
 
             return (lv_style_transition_dsc_t*)(v.ptr);
         }
 
-        public static lv_blend_mode_t lv_obj_get_style_blend_mode([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_blend_mode_t lv_obj_get_style_blend_mode([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BLEND_MODE));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BLEND_MODE));
 
             return (lv_blend_mode_t)(v.num);
         }
 
         [return: NativeTypeName("uint16_t")]
-        public static c_uint16 lv_obj_get_style_layout([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static ushort lv_obj_get_style_layout([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_LAYOUT));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_LAYOUT));
 
-            return (c_uint16)(v.num);
+            return (ushort)(v.num);
         }
 
-        public static lv_base_dir_t lv_obj_get_style_base_dir([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_base_dir_t lv_obj_get_style_base_dir([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BASE_DIR));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BASE_DIR));
 
             return (lv_base_dir_t)(v.num);
         }
 
         [return: NativeTypeName("const void *")]
-        public static void* lv_obj_get_style_bitmap_mask_src([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static void* lv_obj_get_style_bitmap_mask_src([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_BITMAP_MASK_SRC));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_BITMAP_MASK_SRC));
 
             return (void*)(v.ptr);
         }
 
         [return: NativeTypeName("uint32_t")]
-        public static c_uint32 lv_obj_get_style_rotary_sensitivity([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static uint lv_obj_get_style_rotary_sensitivity([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_ROTARY_SENSITIVITY));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_ROTARY_SENSITIVITY));
 
-            return (c_uint32)(v.num);
+            return (uint)(v.num);
         }
 
-        public static lv_flex_flow_t lv_obj_get_style_flex_flow([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_flex_flow_t lv_obj_get_style_flex_flow([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_FLEX_FLOW));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_FLEX_FLOW));
 
             return (lv_flex_flow_t)(v.num);
         }
 
-        public static lv_flex_align_t lv_obj_get_style_flex_main_place([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_flex_align_t lv_obj_get_style_flex_main_place([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_FLEX_MAIN_PLACE));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_FLEX_MAIN_PLACE));
 
             return (lv_flex_align_t)(v.num);
         }
 
-        public static lv_flex_align_t lv_obj_get_style_flex_cross_place([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_flex_align_t lv_obj_get_style_flex_cross_place([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_FLEX_CROSS_PLACE));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_FLEX_CROSS_PLACE));
 
             return (lv_flex_align_t)(v.num);
         }
 
-        public static lv_flex_align_t lv_obj_get_style_flex_track_place([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_flex_align_t lv_obj_get_style_flex_track_place([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_FLEX_TRACK_PLACE));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_FLEX_TRACK_PLACE));
 
             return (lv_flex_align_t)(v.num);
         }
 
         [return: NativeTypeName("uint8_t")]
-        public static c_uint8 lv_obj_get_style_flex_grow([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static byte lv_obj_get_style_flex_grow([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_FLEX_GROW));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_FLEX_GROW));
 
-            return (c_uint8)(v.num);
+            return (byte)(v.num);
         }
 
         [return: NativeTypeName("const int32_t *")]
-        public static c_int32* lv_obj_get_style_grid_column_dsc_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int* lv_obj_get_style_grid_column_dsc_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_COLUMN_DSC_ARRAY));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_COLUMN_DSC_ARRAY));
 
-            return (c_int32*)(v.ptr);
+            return (int*)(v.ptr);
         }
 
-        public static lv_grid_align_t lv_obj_get_style_grid_column_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_grid_align_t lv_obj_get_style_grid_column_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_COLUMN_ALIGN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_COLUMN_ALIGN));
 
             return (lv_grid_align_t)(v.num);
         }
 
         [return: NativeTypeName("const int32_t *")]
-        public static c_int32* lv_obj_get_style_grid_row_dsc_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int* lv_obj_get_style_grid_row_dsc_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_ROW_DSC_ARRAY));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_ROW_DSC_ARRAY));
 
-            return (c_int32*)(v.ptr);
+            return (int*)(v.ptr);
         }
 
-        public static lv_grid_align_t lv_obj_get_style_grid_row_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_grid_align_t lv_obj_get_style_grid_row_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_ROW_ALIGN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_ROW_ALIGN));
 
             return (lv_grid_align_t)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_grid_cell_column_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_grid_cell_column_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_CELL_COLUMN_POS));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_CELL_COLUMN_POS));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_grid_align_t lv_obj_get_style_grid_cell_x_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_grid_align_t lv_obj_get_style_grid_cell_x_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_CELL_X_ALIGN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_CELL_X_ALIGN));
 
             return (lv_grid_align_t)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_grid_cell_column_span([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_grid_cell_column_span([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_CELL_COLUMN_SPAN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_CELL_COLUMN_SPAN));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_grid_cell_row_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_grid_cell_row_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_CELL_ROW_POS));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_CELL_ROW_POS));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
-        public static lv_grid_align_t lv_obj_get_style_grid_cell_y_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static lv_grid_align_t lv_obj_get_style_grid_cell_y_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_CELL_Y_ALIGN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_CELL_Y_ALIGN));
 
             return (lv_grid_align_t)(v.num);
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_grid_cell_row_span([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_grid_cell_row_span([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (c_uint8)(LV_STYLE_GRID_CELL_ROW_SPAN));
+            lv_style_value_t v = lv_obj_get_style_prop(obj, part, (byte)(LV_STYLE_GRID_CELL_ROW_SPAN));
 
-            return (c_int32)(v.num);
+            return (int)(v.num);
         }
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_min_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_min_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_max_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_max_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_min_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_min_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_max_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_max_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_length([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_length([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_translate_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_translate_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_translate_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_translate_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_translate_radial([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_translate_radial([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_scale_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_scale_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_scale_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_scale_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_pivot_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_pivot_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_pivot_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_pivot_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_skew_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_skew_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transform_skew_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transform_skew_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_pad_top([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_pad_top([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_pad_bottom([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_pad_bottom([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_pad_left([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_pad_left([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_pad_right([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_pad_right([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_pad_row([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_pad_row([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_pad_column([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_pad_column([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_pad_radial([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_pad_radial([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_margin_top([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_margin_top([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_margin_bottom([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_margin_bottom([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_margin_left([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_margin_left([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_margin_right([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_margin_right([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_grad_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_grad_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_grad_dir([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grad_dir_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_grad_dir([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grad_dir_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_main_stop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_main_stop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_grad_stop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_grad_stop([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_main_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_main_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_grad_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_grad_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_grad([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_grad_dsc_t *")] lv_grad_dsc_t* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_grad([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_grad_dsc_t *")] lv_grad_dsc_t* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_image_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const void *")] void* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_image_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const void *")] void* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_image_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_image_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_image_recolor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_image_recolor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_image_recolor_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_image_recolor_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bg_image_tiled([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bg_image_tiled([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_border_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_border_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_border_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_border_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_border_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_border_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_border_side([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_border_side_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_border_side([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_border_side_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_border_post([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_border_post([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_outline_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_outline_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_outline_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_outline_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_outline_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_outline_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_outline_pad([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_outline_pad([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_shadow_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_shadow_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_shadow_offset_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_shadow_offset_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_shadow_offset_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_shadow_offset_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_shadow_spread([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_shadow_spread([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_shadow_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_shadow_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_shadow_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_shadow_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_image_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_image_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_image_recolor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_image_recolor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_image_recolor_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_image_recolor_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_line_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_line_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_line_dash_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_line_dash_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_line_dash_gap([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_line_dash_gap([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_line_rounded([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_line_rounded([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_line_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_line_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_line_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_line_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_arc_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_arc_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_arc_rounded([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_arc_rounded([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_arc_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_arc_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_arc_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_arc_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_arc_image_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const void *")] void* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_arc_image_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const void *")] void* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_font([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_font_t *")] _lv_font_t* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_font([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_font_t *")] _lv_font_t* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_letter_space([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_letter_space([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_line_space([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_line_space([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_decor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_text_decor_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_decor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_text_decor_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_text_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_text_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_outline_stroke_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_outline_stroke_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_outline_stroke_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_outline_stroke_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_text_outline_stroke_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_text_outline_stroke_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_radius([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_radius([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_radial_offset([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_radial_offset([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_clip_corner([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_clip_corner([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_opa_layered([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_opa_layered([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_color_filter_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_color_filter_dsc_t *")] _lv_color_filter_dsc_t* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_color_filter_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_color_filter_dsc_t *")] _lv_color_filter_dsc_t* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_color_filter_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_color_filter_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_recolor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_recolor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_recolor_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_recolor_opa([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_opa_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_anim([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_anim_t *")] _lv_anim_t* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_anim([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_anim_t *")] _lv_anim_t* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_anim_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_anim_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_transition([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_transition_dsc_t *")] lv_style_transition_dsc_t* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_transition([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_style_transition_dsc_t *")] lv_style_transition_dsc_t* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_blend_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_blend_mode_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_blend_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_blend_mode_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_layout([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] c_uint16 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_layout([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] ushort value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_base_dir([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_base_dir_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_base_dir([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_base_dir_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_bitmap_mask_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const void *")] void* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_bitmap_mask_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const void *")] void* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_rotary_sensitivity([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_rotary_sensitivity([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_flex_flow([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_flow_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_flex_flow([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_flow_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_flex_main_place([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_flex_main_place([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_flex_cross_place([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_flex_cross_place([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_flex_track_place([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_flex_track_place([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_flex_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_flex_grow([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] c_uint8 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_flex_grow([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] byte value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_column_dsc_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const int32_t *")] c_int32* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_column_dsc_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const int32_t *")] int* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_column_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_column_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_row_dsc_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const int32_t *")] c_int32* value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_row_dsc_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const int32_t *")] int* value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_row_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_row_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_cell_column_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_cell_column_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_cell_x_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_cell_x_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_cell_column_span([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_cell_column_span([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_cell_row_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_cell_row_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_cell_y_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_cell_y_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_grid_align_t value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_style_grid_cell_row_span([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector);
+        public static extern void lv_obj_set_style_grid_cell_row_span([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector);
 
-        public static void lv_obj_set_style_pad_all([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_pad_all([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_pad_left(obj, value, selector);
             lv_obj_set_style_pad_right(obj, value, selector);
@@ -4183,19 +4158,19 @@ namespace LVGLSharp.Interop
             lv_obj_set_style_pad_bottom(obj, value, selector);
         }
 
-        public static void lv_obj_set_style_pad_hor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_pad_hor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_pad_left(obj, value, selector);
             lv_obj_set_style_pad_right(obj, value, selector);
         }
 
-        public static void lv_obj_set_style_pad_ver([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_pad_ver([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_pad_top(obj, value, selector);
             lv_obj_set_style_pad_bottom(obj, value, selector);
         }
 
-        public static void lv_obj_set_style_margin_all([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_margin_all([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_margin_left(obj, value, selector);
             lv_obj_set_style_margin_right(obj, value, selector);
@@ -4203,64 +4178,64 @@ namespace LVGLSharp.Interop
             lv_obj_set_style_margin_bottom(obj, value, selector);
         }
 
-        public static void lv_obj_set_style_margin_hor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_margin_hor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_margin_left(obj, value, selector);
             lv_obj_set_style_margin_right(obj, value, selector);
         }
 
-        public static void lv_obj_set_style_margin_ver([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_margin_ver([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_margin_top(obj, value, selector);
             lv_obj_set_style_margin_bottom(obj, value, selector);
         }
 
-        public static void lv_obj_set_style_pad_gap([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_pad_gap([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_pad_row(obj, value, selector);
             lv_obj_set_style_pad_column(obj, value, selector);
         }
 
-        public static void lv_obj_set_style_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 width, [NativeTypeName("int32_t")] c_int32 height, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int width, [NativeTypeName("int32_t")] int height, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_width(obj, width, selector);
             lv_obj_set_style_height(obj, height, selector);
         }
 
-        public static void lv_obj_set_style_transform_scale([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_style_selector_t")] c_uint32 selector)
+        public static void lv_obj_set_style_transform_scale([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_style_selector_t")] uint selector)
         {
             lv_obj_set_style_transform_scale_x(obj, value, selector);
             lv_obj_set_style_transform_scale_y(obj, value, selector);
         }
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_text_align_t lv_obj_calculate_style_text_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern lv_text_align_t lv_obj_calculate_style_text_align([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, [NativeTypeName("const char *")] sbyte* txt);
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_scale_x_safe([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_scale_x_safe([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            c_int32 scale = lv_obj_get_style_transform_scale_x(obj, part);
+            int scale = lv_obj_get_style_transform_scale_x(obj, part);
 
             return scale > 0 ? scale : 1;
         }
 
         [return: NativeTypeName("int32_t")]
-        public static c_int32 lv_obj_get_style_transform_scale_y_safe([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part)
+        public static int lv_obj_get_style_transform_scale_y_safe([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
-            c_int32 scale = lv_obj_get_style_transform_scale_y(obj, part);
+            int scale = lv_obj_get_style_transform_scale_y(obj, part);
 
             return scale > 0 ? scale : 1;
         }
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_opa_t")]
-        public static extern c_uint8 lv_obj_get_style_opa_recursive([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part);
+        public static extern byte lv_obj_get_style_opa_recursive([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color32_t lv_obj_style_apply_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, lv_color32_t color);
+        public static extern lv_color32_t lv_obj_style_apply_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, lv_color32_t color);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color32_t lv_obj_get_style_recolor_recursive([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part);
+        public static extern lv_color32_t lv_obj_get_style_recolor_recursive([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_fs_drv_init([NativeTypeName("lv_fs_drv_t *")] _lv_fs_drv_t* drv);
@@ -4270,57 +4245,57 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_fs_drv_t *")]
-        public static extern _lv_fs_drv_t* lv_fs_get_drv([NativeTypeName("char")] c_int8 letter);
+        public static extern _lv_fs_drv_t* lv_fs_get_drv([NativeTypeName("char")] sbyte letter);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_fs_is_ready([NativeTypeName("char")] c_int8 letter);
+        public static extern c_bool1 lv_fs_is_ready([NativeTypeName("char")] sbyte letter);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_fs_res_t lv_fs_open(lv_fs_file_t* file_p, [NativeTypeName("const char *")] c_int8* path, lv_fs_mode_t mode);
+        public static extern lv_fs_res_t lv_fs_open(lv_fs_file_t* file_p, [NativeTypeName("const char *")] sbyte* path, lv_fs_mode_t mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_fs_make_path_from_buffer([NativeTypeName("lv_fs_path_ex_t *")] _lv_fs_path_ex_t* path, [NativeTypeName("char")] c_int8 letter, [NativeTypeName("const void *")] void* buf, [NativeTypeName("uint32_t")] c_uint32 size);
+        public static extern void lv_fs_make_path_from_buffer([NativeTypeName("lv_fs_path_ex_t *")] _lv_fs_path_ex_t* path, [NativeTypeName("char")] sbyte letter, [NativeTypeName("const void *")] void* buf, [NativeTypeName("uint32_t")] uint size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_fs_res_t lv_fs_close(lv_fs_file_t* file_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_fs_res_t lv_fs_read(lv_fs_file_t* file_p, void* buf, [NativeTypeName("uint32_t")] c_uint32 btr, [NativeTypeName("uint32_t *")] c_uint32* br);
+        public static extern lv_fs_res_t lv_fs_read(lv_fs_file_t* file_p, void* buf, [NativeTypeName("uint32_t")] uint btr, [NativeTypeName("uint32_t *")] uint* br);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_fs_res_t lv_fs_write(lv_fs_file_t* file_p, [NativeTypeName("const void *")] void* buf, [NativeTypeName("uint32_t")] c_uint32 btw, [NativeTypeName("uint32_t *")] c_uint32* bw);
+        public static extern lv_fs_res_t lv_fs_write(lv_fs_file_t* file_p, [NativeTypeName("const void *")] void* buf, [NativeTypeName("uint32_t")] uint btw, [NativeTypeName("uint32_t *")] uint* bw);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_fs_res_t lv_fs_seek(lv_fs_file_t* file_p, [NativeTypeName("uint32_t")] c_uint32 pos, lv_fs_whence_t whence);
+        public static extern lv_fs_res_t lv_fs_seek(lv_fs_file_t* file_p, [NativeTypeName("uint32_t")] uint pos, lv_fs_whence_t whence);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_fs_res_t lv_fs_tell(lv_fs_file_t* file_p, [NativeTypeName("uint32_t *")] c_uint32* pos);
+        public static extern lv_fs_res_t lv_fs_tell(lv_fs_file_t* file_p, [NativeTypeName("uint32_t *")] uint* pos);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_fs_res_t lv_fs_dir_open(lv_fs_dir_t* rddir_p, [NativeTypeName("const char *")] c_int8* path);
+        public static extern lv_fs_res_t lv_fs_dir_open(lv_fs_dir_t* rddir_p, [NativeTypeName("const char *")] sbyte* path);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_fs_res_t lv_fs_dir_read(lv_fs_dir_t* rddir_p, [NativeTypeName("char *")] c_int8* fn, [NativeTypeName("uint32_t")] c_uint32 fn_len);
+        public static extern lv_fs_res_t lv_fs_dir_read(lv_fs_dir_t* rddir_p, [NativeTypeName("char *")] sbyte* fn, [NativeTypeName("uint32_t")] uint fn_len);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_fs_res_t lv_fs_dir_close(lv_fs_dir_t* rddir_p);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_fs_get_letters([NativeTypeName("char *")] c_int8* buf);
+        public static extern sbyte* lv_fs_get_letters([NativeTypeName("char *")] sbyte* buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_fs_get_ext([NativeTypeName("const char *")] c_int8* fn);
+        public static extern sbyte* lv_fs_get_ext([NativeTypeName("const char *")] sbyte* fn);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_fs_up([NativeTypeName("char *")] c_int8* path);
+        public static extern sbyte* lv_fs_up([NativeTypeName("char *")] sbyte* path);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_fs_get_last([NativeTypeName("const char *")] c_int8* path);
+        public static extern sbyte* lv_fs_get_last([NativeTypeName("const char *")] sbyte* path);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_result_t lv_image_decoder_get_info([NativeTypeName("const void *")] void* src, lv_image_header_t* header);
@@ -4399,19 +4374,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_draw_get_unit_count();
+        public static extern uint lv_draw_get_unit_count();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_task_t *")]
-        public static extern _lv_draw_task_t* lv_draw_get_available_task([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t_prev, [NativeTypeName("uint8_t")] c_uint8 draw_unit_id);
+        public static extern _lv_draw_task_t* lv_draw_get_available_task([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t_prev, [NativeTypeName("uint8_t")] byte draw_unit_id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_task_t *")]
-        public static extern _lv_draw_task_t* lv_draw_get_next_available_task([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t_prev, [NativeTypeName("uint8_t")] c_uint8 draw_unit_id);
+        public static extern _lv_draw_task_t* lv_draw_get_next_available_task([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t_prev, [NativeTypeName("uint8_t")] byte draw_unit_id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_draw_get_dependent_count([NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t_check);
+        public static extern uint lv_draw_get_dependent_count([NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t_check);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_layer_init([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer);
@@ -4430,7 +4405,7 @@ namespace LVGLSharp.Interop
         public static extern void* lv_draw_layer_alloc_buf([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void* lv_draw_layer_go_to_xy([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void* lv_draw_layer_go_to_xy([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_draw_task_type_t lv_draw_task_get_type([NativeTypeName("const lv_draw_task_t *")] _lv_draw_task_t* t);
@@ -4490,7 +4465,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_draw_label([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("const lv_draw_label_dsc_t *")] lv_draw_label_dsc_t* dsc, [NativeTypeName("const lv_area_t *")] lv_area_t* coords);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_character([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, lv_draw_label_dsc_t* dsc, [NativeTypeName("const lv_point_t *")] lv_point_t* point, [NativeTypeName("uint32_t")] c_uint32 unicode_letter);
+        public static extern void lv_draw_character([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, lv_draw_label_dsc_t* dsc, [NativeTypeName("const lv_point_t *")] lv_point_t* point, [NativeTypeName("uint32_t")] uint unicode_letter);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_draw_letter([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, lv_draw_letter_dsc_t* dsc, [NativeTypeName("const lv_point_t *")] lv_point_t* point);
@@ -4499,7 +4474,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_draw_label_iterate_characters([NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t, [NativeTypeName("const lv_draw_label_dsc_t *")] lv_draw_label_dsc_t* dsc, [NativeTypeName("const lv_area_t *")] lv_area_t* coords, [NativeTypeName("lv_draw_glyph_cb_t")] delegate* unmanaged[Cdecl]<_lv_draw_task_t*, _lv_draw_glyph_dsc_t*, lv_draw_fill_dsc_t*, lv_area_t*, void> cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_unit_draw_letter([NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t, [NativeTypeName("lv_draw_glyph_dsc_t *")] _lv_draw_glyph_dsc_t* dsc, [NativeTypeName("const lv_point_t *")] lv_point_t* pos, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("uint32_t")] c_uint32 letter, [NativeTypeName("lv_draw_glyph_cb_t")] delegate* unmanaged[Cdecl]<_lv_draw_task_t*, _lv_draw_glyph_dsc_t*, lv_draw_fill_dsc_t*, lv_area_t*, void> cb);
+        public static extern void lv_draw_unit_draw_letter([NativeTypeName("lv_draw_task_t *")] _lv_draw_task_t* t, [NativeTypeName("lv_draw_glyph_dsc_t *")] _lv_draw_glyph_dsc_t* dsc, [NativeTypeName("const lv_point_t *")] lv_point_t* pos, [NativeTypeName("const lv_font_t *")] _lv_font_t* font, [NativeTypeName("uint32_t")] uint letter, [NativeTypeName("lv_draw_glyph_cb_t")] delegate* unmanaged[Cdecl]<_lv_draw_task_t*, _lv_draw_glyph_dsc_t*, lv_draw_fill_dsc_t*, lv_area_t*, void> cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_draw_image_dsc_init([NativeTypeName("lv_draw_image_dsc_t *")] _lv_draw_image_dsc_t* dsc);
@@ -4536,7 +4511,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_draw_arc([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("const lv_draw_arc_dsc_t *")] lv_draw_arc_dsc_t* dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_arc_get_area([NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y, [NativeTypeName("uint16_t")] c_uint16 radius, [NativeTypeName("lv_value_precise_t")] c_int32 start_angle, [NativeTypeName("lv_value_precise_t")] c_int32 end_angle, [NativeTypeName("int32_t")] c_int32 w, [NativeTypeName("bool")] c_bool1 rounded, lv_area_t* area);
+        public static extern void lv_draw_arc_get_area([NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y, [NativeTypeName("uint16_t")] ushort radius, [NativeTypeName("lv_value_precise_t")] int start_angle, [NativeTypeName("lv_value_precise_t")] int end_angle, [NativeTypeName("int32_t")] int w, [NativeTypeName("bool")] c_bool1 rounded, lv_area_t* area);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_draw_triangle_dsc_init(lv_draw_triangle_dsc_t* draw_dsc);
@@ -4548,23 +4523,23 @@ namespace LVGLSharp.Interop
         public static extern void lv_draw_triangle([NativeTypeName("lv_layer_t *")] _lv_layer_t* layer, [NativeTypeName("const lv_draw_triangle_dsc_t *")] lv_draw_triangle_dsc_t* draw_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_init_draw_rect_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, lv_draw_rect_dsc_t* draw_dsc);
+        public static extern void lv_obj_init_draw_rect_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, lv_draw_rect_dsc_t* draw_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_init_draw_label_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, lv_draw_label_dsc_t* draw_dsc);
+        public static extern void lv_obj_init_draw_label_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, lv_draw_label_dsc_t* draw_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_init_draw_image_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, [NativeTypeName("lv_draw_image_dsc_t *")] _lv_draw_image_dsc_t* draw_dsc);
+        public static extern void lv_obj_init_draw_image_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, [NativeTypeName("lv_draw_image_dsc_t *")] _lv_draw_image_dsc_t* draw_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_init_draw_line_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, lv_draw_line_dsc_t* draw_dsc);
+        public static extern void lv_obj_init_draw_line_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, lv_draw_line_dsc_t* draw_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_init_draw_arc_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part, lv_draw_arc_dsc_t* draw_dsc);
+        public static extern void lv_obj_init_draw_arc_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part, lv_draw_arc_dsc_t* draw_dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_obj_calculate_ext_draw_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] c_uint32 part);
+        public static extern int lv_obj_calculate_ext_draw_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_refresh_ext_draw_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -4623,7 +4598,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_group_focus_freeze([NativeTypeName("lv_group_t *")] _lv_group_t* group, [NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_result_t lv_group_send_data([NativeTypeName("lv_group_t *")] _lv_group_t* group, [NativeTypeName("uint32_t")] c_uint32 c);
+        public static extern lv_result_t lv_group_send_data([NativeTypeName("lv_group_t *")] _lv_group_t* group, [NativeTypeName("uint32_t")] uint c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_group_set_focus_cb([NativeTypeName("lv_group_t *")] _lv_group_t* group, [NativeTypeName("lv_group_focus_cb_t")] delegate* unmanaged[Cdecl]<_lv_group_t*, void> focus_cb);
@@ -4662,19 +4637,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_group_get_obj_count([NativeTypeName("lv_group_t *")] _lv_group_t* group);
+        public static extern uint lv_group_get_obj_count([NativeTypeName("lv_group_t *")] _lv_group_t* group);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_group_get_obj_by_index([NativeTypeName("lv_group_t *")] _lv_group_t* group, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern _lv_obj_t* lv_group_get_obj_by_index([NativeTypeName("lv_group_t *")] _lv_group_t* group, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_group_get_count();
+        public static extern uint lv_group_get_count();
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_group_t *")]
-        public static extern _lv_group_t* lv_group_by_index([NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern _lv_group_t* lv_group_by_index([NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_indev_t *")]
@@ -4716,16 +4691,16 @@ namespace LVGLSharp.Interop
         public static extern void lv_indev_set_display([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("struct _lv_display_t *")] _lv_display_t* disp);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_indev_set_long_press_time([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint16_t")] c_uint16 long_press_time);
+        public static extern void lv_indev_set_long_press_time([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint16_t")] ushort long_press_time);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_indev_set_long_press_repeat_time([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint16_t")] c_uint16 long_press_repeat_time);
+        public static extern void lv_indev_set_long_press_repeat_time([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint16_t")] ushort long_press_repeat_time);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_indev_set_scroll_limit([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint8_t")] c_uint8 scroll_limit);
+        public static extern void lv_indev_set_scroll_limit([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint8_t")] byte scroll_limit);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_indev_set_scroll_throw([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint8_t")] c_uint8 scroll_throw);
+        public static extern void lv_indev_set_scroll_throw([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint8_t")] byte scroll_throw);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_indev_type_t lv_indev_get_type([NativeTypeName("const lv_indev_t *")] _lv_indev_t* indev);
@@ -4781,11 +4756,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_indev_get_key([NativeTypeName("const lv_indev_t *")] _lv_indev_t* indev);
+        public static extern uint lv_indev_get_key([NativeTypeName("const lv_indev_t *")] _lv_indev_t* indev);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_indev_get_short_click_streak([NativeTypeName("const lv_indev_t *")] _lv_indev_t* indev);
+        public static extern byte lv_indev_get_short_click_streak([NativeTypeName("const lv_indev_t *")] _lv_indev_t* indev);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_dir_t lv_indev_get_scroll_dir([NativeTypeName("const lv_indev_t *")] _lv_indev_t* indev);
@@ -4827,19 +4802,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_indev_get_event_count([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev);
+        public static extern uint lv_indev_get_event_count([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_event_dsc_t *")]
-        public static extern _lv_event_dsc_t* lv_indev_get_event_dsc([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern _lv_event_dsc_t* lv_indev_get_event_dsc([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_indev_remove_event([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern c_bool1 lv_indev_remove_event([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_indev_remove_event_cb_with_user_data([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb, void* user_data);
+        public static extern uint lv_indev_remove_event_cb_with_user_data([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_result_t lv_indev_send_event([NativeTypeName("lv_indev_t *")] _lv_indev_t* indev, lv_event_code_t code, void* param2);
@@ -4864,15 +4839,15 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_obj_get_event_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_obj_get_event_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_event_dsc_t *")]
-        public static extern _lv_event_dsc_t* lv_obj_get_event_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern _lv_event_dsc_t* lv_obj_get_event_dsc([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_obj_remove_event([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern c_bool1 lv_obj_remove_event([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -4880,11 +4855,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_obj_remove_event_cb([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb);
+        public static extern uint lv_obj_remove_event_cb([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_obj_remove_event_cb_with_user_data([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb, void* user_data);
+        public static extern uint lv_obj_remove_event_cb_with_user_data([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_event_cb_t")] delegate* unmanaged[Cdecl]<_lv_event_t*, void> event_cb, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_indev_t *")]
@@ -4900,18 +4875,18 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_event_get_key([NativeTypeName("lv_event_t *")] _lv_event_t* e);
+        public static extern uint lv_event_get_key([NativeTypeName("lv_event_t *")] _lv_event_t* e);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_event_get_rotary_diff([NativeTypeName("lv_event_t *")] _lv_event_t* e);
+        public static extern int lv_event_get_rotary_diff([NativeTypeName("lv_event_t *")] _lv_event_t* e);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_anim_t *")]
         public static extern _lv_anim_t* lv_event_get_scroll_anim([NativeTypeName("lv_event_t *")] _lv_event_t* e);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_event_set_ext_draw_size([NativeTypeName("lv_event_t *")] _lv_event_t* e, [NativeTypeName("int32_t")] c_int32 size);
+        public static extern void lv_event_set_ext_draw_size([NativeTypeName("lv_event_t *")] _lv_event_t* e, [NativeTypeName("int32_t")] int size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_point_t* lv_event_get_self_size_info([NativeTypeName("lv_event_t *")] _lv_event_t* e);
@@ -4970,13 +4945,13 @@ namespace LVGLSharp.Interop
         public static extern void lv_obj_set_flag([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_obj_flag_t f, [NativeTypeName("bool")] c_bool1 v);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_add_state([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] c_uint16 state);
+        public static extern void lv_obj_add_state([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] ushort state);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_remove_state([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] c_uint16 state);
+        public static extern void lv_obj_remove_state([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] ushort state);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_obj_set_state([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] c_uint16 state, [NativeTypeName("bool")] c_bool1 v);
+        public static extern void lv_obj_set_state([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] ushort state, [NativeTypeName("bool")] c_bool1 v);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_obj_set_user_data([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, void* user_data);
@@ -4991,11 +4966,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_state_t")]
-        public static extern c_uint16 lv_obj_get_state([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern ushort lv_obj_get_state([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_obj_has_state([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] c_uint16 state);
+        public static extern c_bool1 lv_obj_has_state([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_state_t")] ushort state);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_group_t *")]
@@ -5037,7 +5012,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_font_t *")]
-        public static extern _lv_font_t* lv_binfont_create([NativeTypeName("const char *")] c_int8* path);
+        public static extern _lv_font_t* lv_binfont_create([NativeTypeName("const char *")] sbyte* path);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_binfont_destroy([NativeTypeName("lv_font_t *")] _lv_font_t* font);
@@ -5048,7 +5023,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_font_get_glyph_dsc_fmt_txt([NativeTypeName("const lv_font_t *")] _lv_font_t* font, lv_font_glyph_dsc_t* dsc_out, [NativeTypeName("uint32_t")] c_uint32 unicode_letter, [NativeTypeName("uint32_t")] c_uint32 unicode_letter_next);
+        public static extern c_bool1 lv_font_get_glyph_dsc_fmt_txt([NativeTypeName("const lv_font_t *")] _lv_font_t* font, lv_font_glyph_dsc_t* dsc_out, [NativeTypeName("uint32_t")] uint unicode_letter, [NativeTypeName("uint32_t")] uint unicode_letter_next);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -5058,25 +5033,25 @@ namespace LVGLSharp.Interop
         public static extern void lv_image_set_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const void *")] void* src);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_set_offset_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x);
+        public static extern void lv_image_set_offset_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_set_offset_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_image_set_offset_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_set_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 angle);
+        public static extern void lv_image_set_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int angle);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_set_pivot([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_image_set_pivot([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_set_scale([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 zoom);
+        public static extern void lv_image_set_scale([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint zoom);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_set_scale_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 zoom);
+        public static extern void lv_image_set_scale_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint zoom);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_image_set_scale_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 zoom);
+        public static extern void lv_image_set_scale_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint zoom);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_image_set_blend_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_blend_mode_t blend_mode);
@@ -5096,46 +5071,46 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_offset_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_offset_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_offset_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_offset_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_image_get_pivot([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_point_t* pivot);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_scale([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_scale([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_scale_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_scale_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_scale_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_scale_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_src_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_src_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_src_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_src_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_transformed_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_transformed_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_image_get_transformed_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_image_get_transformed_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_blend_mode_t lv_image_get_blend_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -5169,16 +5144,16 @@ namespace LVGLSharp.Interop
         public static extern c_bool1 lv_animimg_delete([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_animimg_set_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 duration);
+        public static extern void lv_animimg_set_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint duration);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_animimg_set_repeat_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 count);
+        public static extern void lv_animimg_set_repeat_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint count);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_animimg_set_reverse_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 duration);
+        public static extern void lv_animimg_set_reverse_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint duration);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_animimg_set_reverse_delay([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 duration);
+        public static extern void lv_animimg_set_reverse_delay([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint duration);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_animimg_set_start_cb([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_anim_start_cb_t")] delegate* unmanaged[Cdecl]<_lv_anim_t*, void> start_cb);
@@ -5192,15 +5167,15 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_animimg_get_src_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern byte lv_animimg_get_src_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_animimg_get_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_animimg_get_duration([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_animimg_get_repeat_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_animimg_get_repeat_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_anim_t *")]
@@ -5211,124 +5186,124 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_arc_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_start_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] c_int32 start);
+        public static extern void lv_arc_set_start_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] int start);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_end_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] c_int32 end);
+        public static extern void lv_arc_set_end_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] int end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_angles([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] c_int32 start, [NativeTypeName("lv_value_precise_t")] c_int32 end);
+        public static extern void lv_arc_set_angles([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] int start, [NativeTypeName("lv_value_precise_t")] int end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_bg_start_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] c_int32 start);
+        public static extern void lv_arc_set_bg_start_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] int start);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_bg_end_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] c_int32 end);
+        public static extern void lv_arc_set_bg_end_angle([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] int end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_bg_angles([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] c_int32 start, [NativeTypeName("lv_value_precise_t")] c_int32 end);
+        public static extern void lv_arc_set_bg_angles([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_value_precise_t")] int start, [NativeTypeName("lv_value_precise_t")] int end);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 rotation);
+        public static extern void lv_arc_set_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int rotation);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_arc_set_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_arc_mode_t type);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_arc_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 min, [NativeTypeName("int32_t")] c_int32 max);
+        public static extern void lv_arc_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int min, [NativeTypeName("int32_t")] int max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_change_rate([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 rate);
+        public static extern void lv_arc_set_change_rate([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint rate);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_set_knob_offset([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 offset);
-
-        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("lv_value_precise_t")]
-        public static extern c_int32 lv_arc_get_angle_start([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern void lv_arc_set_knob_offset([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int offset);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_value_precise_t")]
-        public static extern c_int32 lv_arc_get_angle_end([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_angle_start([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_value_precise_t")]
-        public static extern c_int32 lv_arc_get_bg_angle_start([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_angle_end([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_value_precise_t")]
-        public static extern c_int32 lv_arc_get_bg_angle_end([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_bg_angle_start([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+
+        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        [return: NativeTypeName("lv_value_precise_t")]
+        public static extern int lv_arc_get_bg_angle_end([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_arc_get_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_arc_get_min_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_min_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_arc_get_max_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_max_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_arc_mode_t lv_arc_get_mode([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_arc_get_rotation([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_rotation([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_arc_get_knob_offset([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_arc_get_knob_offset([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_align_obj_to_angle([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* obj_to_align, [NativeTypeName("int32_t")] c_int32 r_offset);
+        public static extern void lv_arc_align_obj_to_angle([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* obj_to_align, [NativeTypeName("int32_t")] int r_offset);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_arc_rotate_obj_to_angle([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* obj_to_rotate, [NativeTypeName("int32_t")] c_int32 r_offset);
+        public static extern void lv_arc_rotate_obj_to_angle([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* obj_to_rotate, [NativeTypeName("int32_t")] int r_offset);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
         public static extern _lv_obj_t* lv_label_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* text);
+        public static extern void lv_label_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* text);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_set_text_fmt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* fmt, __arglist);
+        public static extern void lv_label_set_text_fmt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* fmt, __arglist);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_set_text_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* text);
+        public static extern void lv_label_set_text_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* text);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_label_set_long_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_label_long_mode_t long_mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_set_text_selection_start([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern void lv_label_set_text_selection_start([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_set_text_selection_end([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 index);
+        public static extern void lv_label_set_text_selection_end([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_label_set_recolor([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("char *")]
-        public static extern c_int8* lv_label_get_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_label_get_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_label_long_mode_t lv_label_get_long_mode([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_get_letter_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 char_id, lv_point_t* pos);
+        public static extern void lv_label_get_letter_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint char_id, lv_point_t* pos);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_label_get_letter_on([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, lv_point_t* pos_in, [NativeTypeName("bool")] c_bool1 bidi);
+        public static extern uint lv_label_get_letter_on([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, lv_point_t* pos_in, [NativeTypeName("bool")] c_bool1 bidi);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -5336,34 +5311,34 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_label_get_text_selection_start([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_label_get_text_selection_start([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_label_get_text_selection_end([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_label_get_text_selection_end([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
         public static extern c_bool1 lv_label_get_recolor([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_ins_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 pos, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_label_ins_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint pos, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_label_cut_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 pos, [NativeTypeName("uint32_t")] c_uint32 cnt);
+        public static extern void lv_label_cut_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint pos, [NativeTypeName("uint32_t")] uint cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
         public static extern _lv_obj_t* lv_bar_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_bar_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
+        public static extern void lv_bar_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_bar_set_start_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 start_value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
+        public static extern void lv_bar_set_start_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int start_value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_bar_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 min, [NativeTypeName("int32_t")] c_int32 max);
+        public static extern void lv_bar_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int min, [NativeTypeName("int32_t")] int max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_bar_set_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_bar_mode_t mode);
@@ -5373,19 +5348,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_bar_get_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_bar_get_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_bar_get_start_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_bar_get_start_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_bar_get_min_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_bar_get_min_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_bar_get_max_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_bar_get_max_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_bar_mode_t lv_bar_get_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -5406,19 +5381,19 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_buttonmatrix_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_buttonmatrix_set_map([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *const[]")] c_int8** map);
+        public static extern void lv_buttonmatrix_set_map([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *const[]")] sbyte** map);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_buttonmatrix_set_ctrl_map([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_buttonmatrix_ctrl_t[]")] lv_buttonmatrix_ctrl_t* ctrl_map);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_buttonmatrix_set_selected_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 btn_id);
+        public static extern void lv_buttonmatrix_set_selected_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint btn_id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_buttonmatrix_set_button_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 btn_id, lv_buttonmatrix_ctrl_t ctrl);
+        public static extern void lv_buttonmatrix_set_button_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint btn_id, lv_buttonmatrix_ctrl_t ctrl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_buttonmatrix_clear_button_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 btn_id, lv_buttonmatrix_ctrl_t ctrl);
+        public static extern void lv_buttonmatrix_clear_button_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint btn_id, lv_buttonmatrix_ctrl_t ctrl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_buttonmatrix_set_button_ctrl_all([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_buttonmatrix_ctrl_t ctrl);
@@ -5427,26 +5402,26 @@ namespace LVGLSharp.Interop
         public static extern void lv_buttonmatrix_clear_button_ctrl_all([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_buttonmatrix_ctrl_t ctrl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_buttonmatrix_set_button_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 btn_id, [NativeTypeName("uint32_t")] c_uint32 width);
+        public static extern void lv_buttonmatrix_set_button_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint btn_id, [NativeTypeName("uint32_t")] uint width);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_buttonmatrix_set_one_checked([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *const *")]
-        public static extern c_int8** lv_buttonmatrix_get_map([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte** lv_buttonmatrix_get_map([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_buttonmatrix_get_selected_button([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_buttonmatrix_get_selected_button([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_buttonmatrix_get_button_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 btn_id);
+        public static extern sbyte* lv_buttonmatrix_get_button_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint btn_id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_buttonmatrix_has_button_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 btn_id, lv_buttonmatrix_ctrl_t ctrl);
+        public static extern c_bool1 lv_buttonmatrix_has_button_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint btn_id, lv_buttonmatrix_ctrl_t ctrl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -5457,16 +5432,16 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_calendar_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_calendar_set_today_date([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 year, [NativeTypeName("uint32_t")] c_uint32 month, [NativeTypeName("uint32_t")] c_uint32 day);
+        public static extern void lv_calendar_set_today_date([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint year, [NativeTypeName("uint32_t")] uint month, [NativeTypeName("uint32_t")] uint day);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_calendar_set_month_shown([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 year, [NativeTypeName("uint32_t")] c_uint32 month);
+        public static extern void lv_calendar_set_month_shown([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint year, [NativeTypeName("uint32_t")] uint month);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_calendar_set_highlighted_dates([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_calendar_date_t[]")] lv_calendar_date_t* highlighted, [NativeTypeName("size_t")] nuint date_num);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_calendar_set_day_names([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char **")] c_int8** day_names);
+        public static extern void lv_calendar_set_day_names([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char **")] sbyte** day_names);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -5499,30 +5474,30 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_calendar_add_header_dropdown([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_calendar_header_dropdown_set_year_list([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent, [NativeTypeName("const char *")] c_int8* years_list);
+        public static extern void lv_calendar_header_dropdown_set_year_list([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent, [NativeTypeName("const char *")] sbyte* years_list);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
         public static extern _lv_obj_t* lv_canvas_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_canvas_set_buffer([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, void* buf, [NativeTypeName("int32_t")] c_int32 w, [NativeTypeName("int32_t")] c_int32 h, lv_color_format_t cf);
+        public static extern void lv_canvas_set_buffer([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, void* buf, [NativeTypeName("int32_t")] int w, [NativeTypeName("int32_t")] int h, lv_color_format_t cf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_canvas_set_draw_buf([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* draw_buf);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_canvas_set_px([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y, lv_color_t color, [NativeTypeName("lv_opa_t")] c_uint8 opa);
+        public static extern void lv_canvas_set_px([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y, lv_color_t color, [NativeTypeName("lv_opa_t")] byte opa);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_canvas_set_palette([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] c_uint8 index, lv_color32_t color);
+        public static extern void lv_canvas_set_palette([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] byte index, lv_color32_t color);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_draw_buf_t *")]
         public static extern _lv_draw_buf_t* lv_canvas_get_draw_buf([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_color32_t lv_canvas_get_px([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 x, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern lv_color32_t lv_canvas_get_px([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int x, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_image_dsc_t* lv_canvas_get_image([NativeTypeName("lv_obj_t *")] _lv_obj_t* canvas);
@@ -5535,7 +5510,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_canvas_copy_buf([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_area_t *")] lv_area_t* canvas_area, [NativeTypeName("lv_draw_buf_t *")] _lv_draw_buf_t* dest_buf, [NativeTypeName("const lv_area_t *")] lv_area_t* dest_area);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_canvas_fill_bg([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t color, [NativeTypeName("lv_opa_t")] c_uint8 opa);
+        public static extern void lv_canvas_fill_bg([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_color_t color, [NativeTypeName("lv_opa_t")] byte opa);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_canvas_init_layer([NativeTypeName("lv_obj_t *")] _lv_obj_t* canvas, [NativeTypeName("lv_layer_t *")] _lv_layer_t* layer);
@@ -5545,7 +5520,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_canvas_buf_size([NativeTypeName("int32_t")] c_int32 w, [NativeTypeName("int32_t")] c_int32 h, [NativeTypeName("uint8_t")] c_uint8 bpp, [NativeTypeName("uint8_t")] c_uint8 stride);
+        public static extern uint lv_canvas_buf_size([NativeTypeName("int32_t")] int w, [NativeTypeName("int32_t")] int h, [NativeTypeName("uint8_t")] byte bpp, [NativeTypeName("uint8_t")] byte stride);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -5555,30 +5530,30 @@ namespace LVGLSharp.Interop
         public static extern void lv_chart_set_type([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_chart_type_t type);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_point_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 cnt);
+        public static extern void lv_chart_set_point_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_axis_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_chart_axis_t axis, [NativeTypeName("int32_t")] c_int32 min, [NativeTypeName("int32_t")] c_int32 max);
+        public static extern void lv_chart_set_axis_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_chart_axis_t axis, [NativeTypeName("int32_t")] int min, [NativeTypeName("int32_t")] int max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_chart_set_update_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_chart_update_mode_t update_mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_div_line_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] c_uint8 hdiv, [NativeTypeName("uint8_t")] c_uint8 vdiv);
+        public static extern void lv_chart_set_div_line_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint8_t")] byte hdiv, [NativeTypeName("uint8_t")] byte vdiv);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_chart_type_t lv_chart_get_type([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_chart_get_point_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_chart_get_point_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_chart_get_x_start_point([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser);
+        public static extern uint lv_chart_get_x_start_point([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_get_point_pos_by_id([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] c_uint32 id, lv_point_t* p_out);
+        public static extern void lv_chart_get_point_pos_by_id([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] uint id, lv_point_t* p_out);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_chart_refresh([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -5600,7 +5575,7 @@ namespace LVGLSharp.Interop
         public static extern lv_color_t lv_chart_get_series_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("const lv_chart_series_t *")] _lv_chart_series_t* series);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_x_start_point([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] c_uint32 id);
+        public static extern void lv_chart_set_x_start_point([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] uint id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_chart_series_t *")]
@@ -5614,95 +5589,95 @@ namespace LVGLSharp.Interop
         public static extern void lv_chart_set_cursor_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor, lv_point_t* pos);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_cursor_pos_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor, [NativeTypeName("int32_t")] c_int32 x);
+        public static extern void lv_chart_set_cursor_pos_x([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor, [NativeTypeName("int32_t")] int x);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_cursor_pos_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor, [NativeTypeName("int32_t")] c_int32 y);
+        public static extern void lv_chart_set_cursor_pos_y([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor, [NativeTypeName("int32_t")] int y);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_cursor_point([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] c_uint32 point_id);
+        public static extern void lv_chart_set_cursor_point([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] uint point_id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_point_t lv_chart_get_cursor_point([NativeTypeName("lv_obj_t *")] _lv_obj_t* chart, [NativeTypeName("lv_chart_cursor_t *")] _lv_chart_cursor_t* cursor);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_all_values([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_chart_set_all_values([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_next_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_chart_set_next_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_next_value2([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t")] c_int32 x_value, [NativeTypeName("int32_t")] c_int32 y_value);
+        public static extern void lv_chart_set_next_value2([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t")] int x_value, [NativeTypeName("int32_t")] int y_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_series_values([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("const int32_t[]")] c_int32* values, [NativeTypeName("size_t")] nuint values_cnt);
+        public static extern void lv_chart_set_series_values([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("const int32_t[]")] int* values, [NativeTypeName("size_t")] nuint values_cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_series_values2([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("const int32_t[]")] c_int32* x_values, [NativeTypeName("const int32_t[]")] c_int32* y_values, [NativeTypeName("size_t")] nuint values_cnt);
+        public static extern void lv_chart_set_series_values2([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("const int32_t[]")] int* x_values, [NativeTypeName("const int32_t[]")] int* y_values, [NativeTypeName("size_t")] nuint values_cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_series_value_by_id([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] c_uint32 id, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_chart_set_series_value_by_id([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] uint id, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_series_value_by_id2([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] c_uint32 id, [NativeTypeName("int32_t")] c_int32 x_value, [NativeTypeName("int32_t")] c_int32 y_value);
+        public static extern void lv_chart_set_series_value_by_id2([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("uint32_t")] uint id, [NativeTypeName("int32_t")] int x_value, [NativeTypeName("int32_t")] int y_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_series_ext_y_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t[]")] c_int32* array);
+        public static extern void lv_chart_set_series_ext_y_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t[]")] int* array);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_chart_set_series_ext_x_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t[]")] c_int32* array);
-
-        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("int32_t *")]
-        public static extern c_int32* lv_chart_get_series_y_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser);
+        public static extern void lv_chart_set_series_ext_x_array([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser, [NativeTypeName("int32_t[]")] int* array);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t *")]
-        public static extern c_int32* lv_chart_get_series_x_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser);
+        public static extern int* lv_chart_get_series_y_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser);
+
+        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        [return: NativeTypeName("int32_t *")]
+        public static extern int* lv_chart_get_series_x_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_chart_series_t *")] _lv_chart_series_t* ser);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_chart_get_pressed_point([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_chart_get_pressed_point([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_chart_get_first_point_center_offset([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_chart_get_first_point_center_offset([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
         public static extern _lv_obj_t* lv_checkbox_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_checkbox_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_checkbox_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_checkbox_set_text_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_checkbox_set_text_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_checkbox_get_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_checkbox_get_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
         public static extern _lv_obj_t* lv_dropdown_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_dropdown_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_dropdown_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_dropdown_set_options([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* options);
+        public static extern void lv_dropdown_set_options([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* options);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_dropdown_set_options_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* options);
+        public static extern void lv_dropdown_set_options_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* options);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_dropdown_add_option([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* option, [NativeTypeName("uint32_t")] c_uint32 pos);
+        public static extern void lv_dropdown_add_option([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* option, [NativeTypeName("uint32_t")] uint pos);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_dropdown_clear_options([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_dropdown_set_selected([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 sel_opt, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
+        public static extern void lv_dropdown_set_selected([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint sel_opt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_dropdown_set_dir([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_dir_t dir);
@@ -5719,30 +5694,30 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_dropdown_get_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_dropdown_get_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_dropdown_get_options([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_dropdown_get_options([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_dropdown_get_selected([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_dropdown_get_selected([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_dropdown_get_option_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_dropdown_get_option_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_dropdown_get_selected_str([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("char *")] c_int8* buf, [NativeTypeName("uint32_t")] c_uint32 buf_size);
+        public static extern void lv_dropdown_get_selected_str([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("char *")] sbyte* buf, [NativeTypeName("uint32_t")] uint buf_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_dropdown_get_option_index([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* option);
+        public static extern int lv_dropdown_get_option_index([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* option);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_dropdown_get_symbol([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_dropdown_get_symbol([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -5797,7 +5772,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_keyboard_set_popovers([NativeTypeName("lv_obj_t *")] _lv_obj_t* kb, [NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_keyboard_set_map([NativeTypeName("lv_obj_t *")] _lv_obj_t* kb, lv_keyboard_mode_t mode, [NativeTypeName("const char *const[]")] c_int8** map, [NativeTypeName("const lv_buttonmatrix_ctrl_t[]")] lv_buttonmatrix_ctrl_t* ctrl_map);
+        public static extern void lv_keyboard_set_map([NativeTypeName("lv_obj_t *")] _lv_obj_t* kb, lv_keyboard_mode_t mode, [NativeTypeName("const char *const[]")] sbyte** map, [NativeTypeName("const lv_buttonmatrix_ctrl_t[]")] lv_buttonmatrix_ctrl_t* ctrl_map);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -5812,15 +5787,15 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *const *")]
-        public static extern c_int8** lv_keyboard_get_map_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* kb);
+        public static extern sbyte** lv_keyboard_get_map_array([NativeTypeName("const lv_obj_t *")] _lv_obj_t* kb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_keyboard_get_selected_button([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_keyboard_get_selected_button([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_keyboard_get_button_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 btn_id);
+        public static extern sbyte* lv_keyboard_get_button_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint btn_id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_keyboard_def_event_cb([NativeTypeName("lv_event_t *")] _lv_event_t* e);
@@ -5833,7 +5808,7 @@ namespace LVGLSharp.Interop
         public static extern void lv_led_set_color([NativeTypeName("lv_obj_t *")] _lv_obj_t* led, lv_color_t color);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_led_set_brightness([NativeTypeName("lv_obj_t *")] _lv_obj_t* led, [NativeTypeName("uint8_t")] c_uint8 bright);
+        public static extern void lv_led_set_brightness([NativeTypeName("lv_obj_t *")] _lv_obj_t* led, [NativeTypeName("uint8_t")] byte bright);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_led_on([NativeTypeName("lv_obj_t *")] _lv_obj_t* led);
@@ -5846,17 +5821,17 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint8_t")]
-        public static extern c_uint8 lv_led_get_brightness([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern byte lv_led_get_brightness([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
         public static extern _lv_obj_t* lv_line_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_line_set_points([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_point_precise_t[]")] lv_point_precise_t* points, [NativeTypeName("uint32_t")] c_uint32 point_num);
+        public static extern void lv_line_set_points([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const lv_point_precise_t[]")] lv_point_precise_t* points, [NativeTypeName("uint32_t")] uint point_num);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_line_set_points_mutable([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_point_precise_t[]")] lv_point_precise_t* points, [NativeTypeName("uint32_t")] c_uint32 point_num);
+        public static extern void lv_line_set_points_mutable([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_point_precise_t[]")] lv_point_precise_t* points, [NativeTypeName("uint32_t")] uint point_num);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_line_set_y_invert([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
@@ -5867,7 +5842,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_line_get_point_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_line_get_point_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -5886,18 +5861,18 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_list_add_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern _lv_obj_t* lv_list_add_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_list_add_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("const void *")] void* icon, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern _lv_obj_t* lv_list_add_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("const void *")] void* icon, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_list_get_button_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("lv_obj_t *")] _lv_obj_t* btn);
+        public static extern sbyte* lv_list_get_button_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("lv_obj_t *")] _lv_obj_t* btn);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_list_set_button_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("lv_obj_t *")] _lv_obj_t* btn, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_list_set_button_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* list, [NativeTypeName("lv_obj_t *")] _lv_obj_t* btn, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -5905,7 +5880,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_menu_page_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* menu, [NativeTypeName("const char *const")] c_int8* title);
+        public static extern _lv_obj_t* lv_menu_page_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* menu, [NativeTypeName("const char *const")] sbyte* title);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -5923,10 +5898,10 @@ namespace LVGLSharp.Interop
         public static extern void lv_menu_set_page([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* page);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_menu_set_page_title([NativeTypeName("lv_obj_t *")] _lv_obj_t* page, [NativeTypeName("const char *const")] c_int8* title);
+        public static extern void lv_menu_set_page_title([NativeTypeName("lv_obj_t *")] _lv_obj_t* page, [NativeTypeName("const char *const")] sbyte* title);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_menu_set_page_title_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* page, [NativeTypeName("const char *const")] c_int8* title);
+        public static extern void lv_menu_set_page_title_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* page, [NativeTypeName("const char *const")] sbyte* title);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_menu_set_sidebar_page([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* page);
@@ -5977,7 +5952,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_msgbox_add_title([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* title);
+        public static extern _lv_obj_t* lv_msgbox_add_title([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* title);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -5985,11 +5960,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_msgbox_add_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* text);
+        public static extern _lv_obj_t* lv_msgbox_add_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* text);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_msgbox_add_footer_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* text);
+        public static extern _lv_obj_t* lv_msgbox_add_footer_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* text);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6022,32 +5997,32 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_roller_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_roller_set_options([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* options, lv_roller_mode_t mode);
+        public static extern void lv_roller_set_options([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* options, lv_roller_mode_t mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_roller_set_selected([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 sel_opt, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
+        public static extern void lv_roller_set_selected([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint sel_opt, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_roller_set_selected_str([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* sel_opt, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
+        public static extern c_bool1 lv_roller_set_selected_str([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* sel_opt, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_roller_set_visible_row_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row_cnt);
+        public static extern void lv_roller_set_visible_row_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row_cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_roller_get_selected([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_roller_get_selected([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_roller_get_selected_str([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("char *")] c_int8* buf, [NativeTypeName("uint32_t")] c_uint32 buf_size);
+        public static extern void lv_roller_get_selected_str([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("char *")] sbyte* buf, [NativeTypeName("uint32_t")] uint buf_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_roller_get_options([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_roller_get_options([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_roller_get_option_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_roller_get_option_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6057,31 +6032,31 @@ namespace LVGLSharp.Interop
         public static extern void lv_scale_set_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_scale_mode_t mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_total_tick_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 total_tick_count);
+        public static extern void lv_scale_set_total_tick_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint total_tick_count);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_major_tick_every([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 major_tick_every);
+        public static extern void lv_scale_set_major_tick_every([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint major_tick_every);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_scale_set_label_show([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 show_label);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 min, [NativeTypeName("int32_t")] c_int32 max);
+        public static extern void lv_scale_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int min, [NativeTypeName("int32_t")] int max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_angle_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 angle_range);
+        public static extern void lv_scale_set_angle_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint angle_range);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 rotation);
+        public static extern void lv_scale_set_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int rotation);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_line_needle_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* needle_line, [NativeTypeName("int32_t")] c_int32 needle_length, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_scale_set_line_needle_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* needle_line, [NativeTypeName("int32_t")] int needle_length, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_image_needle_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* needle_img, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_scale_set_image_needle_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_obj_t *")] _lv_obj_t* needle_img, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_text_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *[]")] c_int8** txt_src);
+        public static extern void lv_scale_set_text_src([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *[]")] sbyte** txt_src);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_scale_set_post_draw([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
@@ -6094,13 +6069,13 @@ namespace LVGLSharp.Interop
         public static extern _lv_scale_section_t* lv_scale_add_section([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_section_set_range([NativeTypeName("lv_scale_section_t *")] _lv_scale_section_t* section, [NativeTypeName("int32_t")] c_int32 min, [NativeTypeName("int32_t")] c_int32 max);
+        public static extern void lv_scale_section_set_range([NativeTypeName("lv_scale_section_t *")] _lv_scale_section_t* section, [NativeTypeName("int32_t")] int min, [NativeTypeName("int32_t")] int max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_set_section_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* scale, [NativeTypeName("lv_scale_section_t *")] _lv_scale_section_t* section, [NativeTypeName("int32_t")] c_int32 min, [NativeTypeName("int32_t")] c_int32 max);
+        public static extern void lv_scale_set_section_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* scale, [NativeTypeName("lv_scale_section_t *")] _lv_scale_section_t* section, [NativeTypeName("int32_t")] int min, [NativeTypeName("int32_t")] int max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_scale_section_set_style([NativeTypeName("lv_scale_section_t *")] _lv_scale_section_t* section, [NativeTypeName("lv_part_t")] c_uint32 part, lv_style_t* section_part_style);
+        public static extern void lv_scale_section_set_style([NativeTypeName("lv_scale_section_t *")] _lv_scale_section_t* section, [NativeTypeName("lv_part_t")] uint part, lv_style_t* section_part_style);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_scale_set_section_style_main([NativeTypeName("lv_obj_t *")] _lv_obj_t* scale, [NativeTypeName("lv_scale_section_t *")] _lv_scale_section_t* section, [NativeTypeName("const lv_style_t *")] lv_style_t* style);
@@ -6116,15 +6091,15 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_scale_get_total_tick_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_scale_get_total_tick_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_scale_get_major_tick_every([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_scale_get_major_tick_every([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_scale_get_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_scale_get_rotation([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -6132,28 +6107,28 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_scale_get_angle_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_scale_get_angle_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_scale_get_range_min_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_scale_get_range_min_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_scale_get_range_max_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_scale_get_range_max_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
         public static extern _lv_obj_t* lv_slider_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_slider_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
+        public static extern void lv_slider_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_slider_set_start_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
+        public static extern void lv_slider_set_start_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int value, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_slider_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 min, [NativeTypeName("int32_t")] c_int32 max);
+        public static extern void lv_slider_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int min, [NativeTypeName("int32_t")] int max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_slider_set_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_slider_mode_t mode);
@@ -6163,19 +6138,19 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_slider_get_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_slider_get_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_slider_get_left_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_slider_get_left_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_slider_get_min_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_slider_get_min_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_slider_get_max_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_slider_get_max_value([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -6209,13 +6184,13 @@ namespace LVGLSharp.Interop
         public static extern void lv_spangroup_delete_span([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_span_t *")] _lv_span_t* span);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_span_set_text([NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const char *")] c_int8* text);
+        public static extern void lv_span_set_text([NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const char *")] sbyte* text);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spangroup_set_span_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const char *")] c_int8* text);
+        public static extern void lv_spangroup_set_span_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const char *")] sbyte* text);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spangroup_set_span_text_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const char *")] c_int8* text);
+        public static extern void lv_spangroup_set_span_text_static([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const char *")] sbyte* text);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_spangroup_set_span_style([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const lv_style_t *")] lv_style_t* style);
@@ -6227,28 +6202,28 @@ namespace LVGLSharp.Interop
         public static extern void lv_spangroup_set_overflow([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_span_overflow_t overflow);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spangroup_set_indent([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 indent);
+        public static extern void lv_spangroup_set_indent([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int indent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_spangroup_set_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_span_mode_t mode);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spangroup_set_max_lines([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 lines);
+        public static extern void lv_spangroup_set_max_lines([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int lines);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_style_t* lv_span_get_style([NativeTypeName("lv_span_t *")] _lv_span_t* span);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_span_get_text([NativeTypeName("lv_span_t *")] _lv_span_t* span);
+        public static extern sbyte* lv_span_get_text([NativeTypeName("lv_span_t *")] _lv_span_t* span);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_span_t *")]
-        public static extern _lv_span_t* lv_spangroup_get_child([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 id);
+        public static extern _lv_span_t* lv_spangroup_get_child([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int id);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_spangroup_get_span_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_spangroup_get_span_count([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_text_align_t lv_spangroup_get_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -6258,26 +6233,26 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_spangroup_get_indent([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_spangroup_get_indent([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern lv_span_mode_t lv_spangroup_get_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_spangroup_get_max_lines([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_spangroup_get_max_lines([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_spangroup_get_max_line_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_spangroup_get_max_line_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_spangroup_get_expand_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 max_width);
+        public static extern uint lv_spangroup_get_expand_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint max_width);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_spangroup_get_expand_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 width);
+        public static extern int lv_spangroup_get_expand_height([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int width);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_span_coords_t")]
@@ -6297,10 +6272,10 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_textarea_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_add_char([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 c);
+        public static extern void lv_textarea_add_char([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint c);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_add_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_textarea_add_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_textarea_delete_char([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -6309,13 +6284,13 @@ namespace LVGLSharp.Interop
         public static extern void lv_textarea_delete_char_forward([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_textarea_set_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_placeholder_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_textarea_set_placeholder_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_cursor_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 pos);
+        public static extern void lv_textarea_set_cursor_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int pos);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_textarea_set_cursor_click_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
@@ -6324,36 +6299,36 @@ namespace LVGLSharp.Interop
         public static extern void lv_textarea_set_password_mode([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_password_bullet([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* bullet);
+        public static extern void lv_textarea_set_password_bullet([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* bullet);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_textarea_set_one_line([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_accepted_chars([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* list);
+        public static extern void lv_textarea_set_accepted_chars([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* list);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_max_length([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 num);
+        public static extern void lv_textarea_set_max_length([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint num);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_insert_replace([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_textarea_set_insert_replace([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_textarea_set_text_selection([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_textarea_set_password_show_time([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 time);
+        public static extern void lv_textarea_set_password_show_time([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint time);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_textarea_set_align([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_text_align_t align);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_textarea_get_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_textarea_get_text([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_textarea_get_placeholder_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_textarea_get_placeholder_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6361,7 +6336,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_textarea_get_cursor_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_textarea_get_cursor_pos([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -6373,7 +6348,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_textarea_get_password_bullet([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_textarea_get_password_bullet([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -6381,11 +6356,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_textarea_get_accepted_chars([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern sbyte* lv_textarea_get_accepted_chars([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_textarea_get_max_length([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_textarea_get_max_length([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
@@ -6397,11 +6372,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_textarea_get_password_show_time([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_textarea_get_password_show_time([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_textarea_get_current_char([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_textarea_get_current_char([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_textarea_clear_selection([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -6423,22 +6398,22 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_spinbox_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spinbox_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 v);
+        public static extern void lv_spinbox_set_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int v);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_spinbox_set_rollover([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("bool")] c_bool1 rollover);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spinbox_set_digit_format([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 digit_count, [NativeTypeName("uint32_t")] c_uint32 sep_pos);
+        public static extern void lv_spinbox_set_digit_format([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint digit_count, [NativeTypeName("uint32_t")] uint sep_pos);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spinbox_set_step([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 step);
+        public static extern void lv_spinbox_set_step([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint step);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spinbox_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 range_min, [NativeTypeName("int32_t")] c_int32 range_max);
+        public static extern void lv_spinbox_set_range([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int range_min, [NativeTypeName("int32_t")] int range_max);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spinbox_set_cursor_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 pos);
+        public static extern void lv_spinbox_set_cursor_pos([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint pos);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_spinbox_set_digit_step_direction([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_dir_t direction);
@@ -6449,11 +6424,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_spinbox_get_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_spinbox_get_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_spinbox_get_step([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern int lv_spinbox_get_step([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_spinbox_step_next([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
@@ -6472,7 +6447,7 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_spinner_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_spinner_set_anim_params([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 t, [NativeTypeName("uint32_t")] c_uint32 angle);
+        public static extern void lv_spinner_set_anim_params([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint t, [NativeTypeName("uint32_t")] uint angle);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6489,57 +6464,57 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_table_create([NativeTypeName("lv_obj_t *")] _lv_obj_t* parent);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_cell_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row, [NativeTypeName("uint32_t")] c_uint32 col, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern void lv_table_set_cell_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row, [NativeTypeName("uint32_t")] uint col, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_cell_value_fmt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row, [NativeTypeName("uint32_t")] c_uint32 col, [NativeTypeName("const char *")] c_int8* fmt, __arglist);
+        public static extern void lv_table_set_cell_value_fmt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row, [NativeTypeName("uint32_t")] uint col, [NativeTypeName("const char *")] sbyte* fmt, __arglist);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_row_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row_cnt);
+        public static extern void lv_table_set_row_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row_cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_column_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 col_cnt);
+        public static extern void lv_table_set_column_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint col_cnt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_column_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 col_id, [NativeTypeName("int32_t")] c_int32 w);
+        public static extern void lv_table_set_column_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint col_id, [NativeTypeName("int32_t")] int w);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_cell_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row, [NativeTypeName("uint32_t")] c_uint32 col, lv_table_cell_ctrl_t ctrl);
+        public static extern void lv_table_set_cell_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row, [NativeTypeName("uint32_t")] uint col, lv_table_cell_ctrl_t ctrl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_clear_cell_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row, [NativeTypeName("uint32_t")] c_uint32 col, lv_table_cell_ctrl_t ctrl);
+        public static extern void lv_table_clear_cell_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row, [NativeTypeName("uint32_t")] uint col, lv_table_cell_ctrl_t ctrl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_cell_user_data([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] c_uint16 row, [NativeTypeName("uint16_t")] c_uint16 col, void* user_data);
+        public static extern void lv_table_set_cell_user_data([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] ushort row, [NativeTypeName("uint16_t")] ushort col, void* user_data);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_set_selected_cell([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] c_uint16 row, [NativeTypeName("uint16_t")] c_uint16 col);
+        public static extern void lv_table_set_selected_cell([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] ushort row, [NativeTypeName("uint16_t")] ushort col);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_table_get_cell_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row, [NativeTypeName("uint32_t")] c_uint32 col);
+        public static extern sbyte* lv_table_get_cell_value([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row, [NativeTypeName("uint32_t")] uint col);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_table_get_row_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_table_get_row_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_table_get_column_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_table_get_column_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_table_get_column_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 col);
+        public static extern int lv_table_get_column_width([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint col);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("bool")]
-        public static extern c_bool1 lv_table_has_cell_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 row, [NativeTypeName("uint32_t")] c_uint32 col, lv_table_cell_ctrl_t ctrl);
+        public static extern c_bool1 lv_table_has_cell_ctrl([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint row, [NativeTypeName("uint32_t")] uint col, lv_table_cell_ctrl_t ctrl);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_table_get_selected_cell([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t *")] c_uint32* row, [NativeTypeName("uint32_t *")] c_uint32* col);
+        public static extern void lv_table_get_selected_cell([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t *")] uint* row, [NativeTypeName("uint32_t *")] uint* col);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void* lv_table_get_cell_user_data([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] c_uint16 row, [NativeTypeName("uint16_t")] c_uint16 col);
+        public static extern void* lv_table_get_cell_user_data([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint16_t")] ushort row, [NativeTypeName("uint16_t")] ushort col);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6547,27 +6522,27 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_tabview_add_tab([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] c_int8* name);
+        public static extern _lv_obj_t* lv_tabview_add_tab([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("const char *")] sbyte* name);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_tabview_rename_tab([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 idx, [NativeTypeName("const char *")] c_int8* new_name);
+        public static extern void lv_tabview_rename_tab([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint idx, [NativeTypeName("const char *")] sbyte* new_name);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_tabview_set_active([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] c_uint32 idx, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
+        public static extern void lv_tabview_set_active([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("uint32_t")] uint idx, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_tabview_set_tab_bar_position([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_dir_t dir);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_tabview_set_tab_bar_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] c_int32 size);
+        public static extern void lv_tabview_set_tab_bar_size([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("int32_t")] int size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_tabview_get_tab_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_tabview_get_tab_count([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("uint32_t")]
-        public static extern c_uint32 lv_tabview_get_tab_active([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
+        public static extern uint lv_tabview_get_tab_active([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6583,13 +6558,13 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_tileview_add_tile([NativeTypeName("lv_obj_t *")] _lv_obj_t* tv, [NativeTypeName("uint8_t")] c_uint8 col_id, [NativeTypeName("uint8_t")] c_uint8 row_id, lv_dir_t dir);
+        public static extern _lv_obj_t* lv_tileview_add_tile([NativeTypeName("lv_obj_t *")] _lv_obj_t* tv, [NativeTypeName("uint8_t")] byte col_id, [NativeTypeName("uint8_t")] byte row_id, lv_dir_t dir);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_tileview_set_tile([NativeTypeName("lv_obj_t *")] _lv_obj_t* tv, [NativeTypeName("lv_obj_t *")] _lv_obj_t* tile_obj, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_tileview_set_tile_by_index([NativeTypeName("lv_obj_t *")] _lv_obj_t* tv, [NativeTypeName("uint32_t")] c_uint32 col_id, [NativeTypeName("uint32_t")] c_uint32 row_id, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
+        public static extern void lv_tileview_set_tile_by_index([NativeTypeName("lv_obj_t *")] _lv_obj_t* tv, [NativeTypeName("uint32_t")] uint col_id, [NativeTypeName("uint32_t")] uint row_id, [NativeTypeName("lv_anim_enable_t")] c_bool1 anim_en);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6601,11 +6576,11 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_win_add_title([NativeTypeName("lv_obj_t *")] _lv_obj_t* win, [NativeTypeName("const char *")] c_int8* txt);
+        public static extern _lv_obj_t* lv_win_add_title([NativeTypeName("lv_obj_t *")] _lv_obj_t* win, [NativeTypeName("const char *")] sbyte* txt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
-        public static extern _lv_obj_t* lv_win_add_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* win, [NativeTypeName("const void *")] void* icon, [NativeTypeName("int32_t")] c_int32 btn_w);
+        public static extern _lv_obj_t* lv_win_add_button([NativeTypeName("lv_obj_t *")] _lv_obj_t* win, [NativeTypeName("const void *")] void* icon, [NativeTypeName("int32_t")] int btn_w);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_obj_t *")]
@@ -6616,35 +6591,35 @@ namespace LVGLSharp.Interop
         public static extern _lv_obj_t* lv_win_get_content([NativeTypeName("lv_obj_t *")] _lv_obj_t* win);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_subject_init_int(lv_subject_t* subject, [NativeTypeName("int32_t")] c_int32 value);
+        public static extern void lv_subject_init_int(lv_subject_t* subject, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_subject_set_int(lv_subject_t* subject, [NativeTypeName("int32_t")] c_int32 value);
-
-        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_subject_get_int(lv_subject_t* subject);
+        public static extern void lv_subject_set_int(lv_subject_t* subject, [NativeTypeName("int32_t")] int value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("int32_t")]
-        public static extern c_int32 lv_subject_get_previous_int(lv_subject_t* subject);
+        public static extern int lv_subject_get_int(lv_subject_t* subject);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_subject_init_string(lv_subject_t* subject, [NativeTypeName("char *")] c_int8* buf, [NativeTypeName("char *")] c_int8* prev_buf, [NativeTypeName("size_t")] nuint size, [NativeTypeName("const char *")] c_int8* value);
+        [return: NativeTypeName("int32_t")]
+        public static extern int lv_subject_get_previous_int(lv_subject_t* subject);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_subject_copy_string(lv_subject_t* subject, [NativeTypeName("const char *")] c_int8* buf);
+        public static extern void lv_subject_init_string(lv_subject_t* subject, [NativeTypeName("char *")] sbyte* buf, [NativeTypeName("char *")] sbyte* prev_buf, [NativeTypeName("size_t")] nuint size, [NativeTypeName("const char *")] sbyte* value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_subject_snprintf(lv_subject_t* subject, [NativeTypeName("const char *")] c_int8* format, __arglist);
+        public static extern void lv_subject_copy_string(lv_subject_t* subject, [NativeTypeName("const char *")] sbyte* buf);
+
+        [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void lv_subject_snprintf(lv_subject_t* subject, [NativeTypeName("const char *")] sbyte* format, __arglist);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_subject_get_string(lv_subject_t* subject);
+        public static extern sbyte* lv_subject_get_string(lv_subject_t* subject);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("const char *")]
-        public static extern c_int8* lv_subject_get_previous_string(lv_subject_t* subject);
+        public static extern sbyte* lv_subject_get_previous_string(lv_subject_t* subject);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_subject_init_pointer(lv_subject_t* subject, void* value);
@@ -6673,13 +6648,13 @@ namespace LVGLSharp.Interop
         public static extern lv_color_t lv_subject_get_previous_color(lv_subject_t* subject);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_subject_init_group(lv_subject_t* group_subject, [NativeTypeName("lv_subject_t *[]")] lv_subject_t** list, [NativeTypeName("uint32_t")] c_uint32 list_len);
+        public static extern void lv_subject_init_group(lv_subject_t* group_subject, [NativeTypeName("lv_subject_t *[]")] lv_subject_t** list, [NativeTypeName("uint32_t")] uint list_len);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void lv_subject_deinit(lv_subject_t* subject);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern lv_subject_t* lv_subject_get_group_element(lv_subject_t* subject, [NativeTypeName("int32_t")] c_int32 index);
+        public static extern lv_subject_t* lv_subject_get_group_element(lv_subject_t* subject, [NativeTypeName("int32_t")] int index);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
@@ -6714,51 +6689,51 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_flag_if_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_flag_if_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_flag_if_not_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_flag_if_not_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_flag_if_gt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_flag_if_gt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_flag_if_ge([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_flag_if_ge([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_flag_if_lt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_flag_if_lt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_flag_if_le([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_flag_if_le([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, lv_obj_flag_t flag, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_state_if_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] c_uint16 state, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_state_if_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] ushort state, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_state_if_not_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] c_uint16 state, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_state_if_not_eq([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] ushort state, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_state_if_gt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] c_uint16 state, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_state_if_gt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] ushort state, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_state_if_ge([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] c_uint16 state, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_state_if_ge([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] ushort state, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_state_if_lt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] c_uint16 state, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_state_if_lt([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] ushort state, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_obj_bind_state_if_le([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] c_uint16 state, [NativeTypeName("int32_t")] c_int32 ref_value);
+        public static extern _lv_observer_t* lv_obj_bind_state_if_le([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("lv_state_t")] ushort state, [NativeTypeName("int32_t")] int ref_value);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
@@ -6766,7 +6741,7 @@ namespace LVGLSharp.Interop
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
-        public static extern _lv_observer_t* lv_label_bind_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("const char *")] c_int8* fmt);
+        public static extern _lv_observer_t* lv_label_bind_text([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj, lv_subject_t* subject, [NativeTypeName("const char *")] sbyte* fmt);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_observer_t *")]
@@ -6800,19 +6775,19 @@ namespace LVGLSharp.Interop
         public static extern void lv_bin_decoder_close([NativeTypeName("lv_image_decoder_t *")] _lv_image_decoder_t* decoder, [NativeTypeName("lv_image_decoder_dsc_t *")] _lv_image_decoder_dsc_t* dsc);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_sw_i1_to_argb8888([NativeTypeName("const void *")] void* buf_i1, void* buf_argb8888, [NativeTypeName("uint32_t")] c_uint32 width, [NativeTypeName("uint32_t")] c_uint32 height, [NativeTypeName("uint32_t")] c_uint32 buf_i1_stride, [NativeTypeName("uint32_t")] c_uint32 buf_argb8888_stride, [NativeTypeName("uint32_t")] c_uint32 index0_color, [NativeTypeName("uint32_t")] c_uint32 index1_color);
+        public static extern void lv_draw_sw_i1_to_argb8888([NativeTypeName("const void *")] void* buf_i1, void* buf_argb8888, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height, [NativeTypeName("uint32_t")] uint buf_i1_stride, [NativeTypeName("uint32_t")] uint buf_argb8888_stride, [NativeTypeName("uint32_t")] uint index0_color, [NativeTypeName("uint32_t")] uint index1_color);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_sw_rgb565_swap(void* buf, [NativeTypeName("uint32_t")] c_uint32 buf_size_px);
+        public static extern void lv_draw_sw_rgb565_swap(void* buf, [NativeTypeName("uint32_t")] uint buf_size_px);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_sw_i1_invert(void* buf, [NativeTypeName("uint32_t")] c_uint32 buf_size);
+        public static extern void lv_draw_sw_i1_invert(void* buf, [NativeTypeName("uint32_t")] uint buf_size);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_sw_i1_convert_to_vtiled([NativeTypeName("const void *")] void* buf, [NativeTypeName("uint32_t")] c_uint32 buf_size, [NativeTypeName("uint32_t")] c_uint32 width, [NativeTypeName("uint32_t")] c_uint32 height, void* out_buf, [NativeTypeName("uint32_t")] c_uint32 out_buf_size, [NativeTypeName("bool")] c_bool1 bit_order_lsb);
+        public static extern void lv_draw_sw_i1_convert_to_vtiled([NativeTypeName("const void *")] void* buf, [NativeTypeName("uint32_t")] uint buf_size, [NativeTypeName("uint32_t")] uint width, [NativeTypeName("uint32_t")] uint height, void* out_buf, [NativeTypeName("uint32_t")] uint out_buf_size, [NativeTypeName("bool")] c_bool1 bit_order_lsb);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_draw_sw_rotate([NativeTypeName("const void *")] void* src, void* dest, [NativeTypeName("int32_t")] c_int32 src_width, [NativeTypeName("int32_t")] c_int32 src_height, [NativeTypeName("int32_t")] c_int32 src_stride, [NativeTypeName("int32_t")] c_int32 dest_stride, lv_display_rotation_t rotation, lv_color_format_t color_format);
+        public static extern void lv_draw_sw_rotate([NativeTypeName("const void *")] void* src, void* dest, [NativeTypeName("int32_t")] int src_width, [NativeTypeName("int32_t")] int src_height, [NativeTypeName("int32_t")] int src_stride, [NativeTypeName("int32_t")] int dest_stride, lv_display_rotation_t rotation, lv_color_format_t color_format);
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         [return: NativeTypeName("lv_theme_t *")]
@@ -6887,27 +6862,9 @@ namespace LVGLSharp.Interop
         public static extern void lv_theme_simple_deinit();
 
         [return: NativeTypeName("uint32_t")]
-        public static c_uint32 lv_task_handler()
+        public static uint lv_task_handler()
         {
             return lv_timer_handler();
-        }
-
-        public static void lv_obj_move_foreground([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj)
-        {
-            _lv_obj_t* parent = lv_obj_get_parent(obj);
-
-            if (parent == null)
-            {
-                do
-                {
-        ;
-                }
-                while ((0) != 0);
-
-                return;
-            }
-
-            lv_obj_move_to_index(obj, lv_obj_get_child_count(parent) - 1);
         }
 
         public static void lv_obj_move_background([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj)
@@ -6931,7 +6888,7 @@ namespace LVGLSharp.Interop
         }
 
         [return: NativeTypeName("const char *")]
-        public static ReadOnlySpan<byte> lv_version_info()
+        public static byte[] lv_version_info()
         {
             return new byte[] { 0x64, 0x65, 0x76, 0x00 };
         }
@@ -7007,6 +6964,9 @@ namespace LVGLSharp.Interop
 
         [NativeTypeName("#define LV_NEMA_HAL_STM32 1")]
         public const int LV_NEMA_HAL_STM32 = 1;
+
+        [NativeTypeName("#define LV_DRAW_SW_SUPPORT_RGB565_SWAPPED 1")]
+        public const int LV_DRAW_SW_SUPPORT_RGB565_SWAPPED = 1;
 
         [NativeTypeName("#define LV_USE_ANIMIMAGE LV_USE_ANIMIMG")]
         public const int LV_USE_ANIMIMAGE = 1;
@@ -7108,7 +7068,7 @@ namespace LVGLSharp.Interop
         public const int LV_BEZIER_VAL_SHIFT = 10;
 
         [NativeTypeName("#define LV_BEZIER_VAL_MAX (1L << LV_BEZIER_VAL_SHIFT)")]
-        public const int LV_BEZIER_VAL_MAX = (1 << 10);
+        public const nint LV_BEZIER_VAL_MAX = (1 << 10);
 
         [NativeTypeName("#define LV_ARRAY_DEFAULT_CAPACITY 4")]
         public const int LV_ARRAY_DEFAULT_CAPACITY = 4;
@@ -7387,10 +7347,10 @@ namespace LVGLSharp.Interop
         public const int LV_SCALE_NONE = 256;
 
         [NativeTypeName("#define LV_HOR_RES lv_display_get_horizontal_resolution(lv_display_get_default())")]
-        public static c_int32 LV_HOR_RES => lv_display_get_horizontal_resolution(lv_display_get_default());
+        public static int LV_HOR_RES => lv_display_get_horizontal_resolution(lv_display_get_default());
 
         [NativeTypeName("#define LV_VER_RES lv_display_get_vertical_resolution(lv_display_get_default())")]
-        public static c_int32 LV_VER_RES => lv_display_get_vertical_resolution(lv_display_get_default());
+        public static int LV_VER_RES => lv_display_get_vertical_resolution(lv_display_get_default());
 
         [NativeTypeName("#define LV_FS_MAX_FN_LENGTH 64")]
         public const int LV_FS_MAX_FN_LENGTH = 64;
@@ -7567,7 +7527,7 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, lv_obj_flag_t, void> lv_obj_clear_flag => &lv_obj_remove_flag;
 
         [NativeTypeName("#define lv_obj_clear_state lv_obj_remove_state")]
-        public static delegate*<_lv_obj_t*, c_uint16, void> lv_obj_clear_state => &lv_obj_remove_state;
+        public static delegate*<_lv_obj_t*, ushort, void> lv_obj_clear_state => &lv_obj_remove_state;
 
         [NativeTypeName("#define lv_indev_set_disp lv_indev_set_display")]
         public static delegate*<_lv_indev_t*, _lv_display_t*, void> lv_indev_set_disp => &lv_indev_set_display;
@@ -7594,28 +7554,28 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_display_t*, lv_display_rotation_t, void> lv_disp_set_rotation => &lv_display_set_rotation;
 
         [NativeTypeName("#define lv_disp_get_hor_res lv_display_get_horizontal_resolution")]
-        public static delegate*<_lv_display_t*, c_int32> lv_disp_get_hor_res => &lv_display_get_horizontal_resolution;
+        public static delegate*<_lv_display_t*, int> lv_disp_get_hor_res => &lv_display_get_horizontal_resolution;
 
         [NativeTypeName("#define lv_disp_get_ver_res lv_display_get_vertical_resolution")]
-        public static delegate*<_lv_display_t*, c_int32> lv_disp_get_ver_res => &lv_display_get_vertical_resolution;
+        public static delegate*<_lv_display_t*, int> lv_disp_get_ver_res => &lv_display_get_vertical_resolution;
 
         [NativeTypeName("#define lv_disp_get_physical_hor_res lv_display_get_physical_horizontal_resolution")]
-        public static delegate*<_lv_display_t*, c_int32> lv_disp_get_physical_hor_res => &lv_display_get_physical_horizontal_resolution;
+        public static delegate*<_lv_display_t*, int> lv_disp_get_physical_hor_res => &lv_display_get_physical_horizontal_resolution;
 
         [NativeTypeName("#define lv_disp_get_physical_ver_res lv_display_get_physical_vertical_resolution")]
-        public static delegate*<_lv_display_t*, c_int32> lv_disp_get_physical_ver_res => &lv_display_get_physical_vertical_resolution;
+        public static delegate*<_lv_display_t*, int> lv_disp_get_physical_ver_res => &lv_display_get_physical_vertical_resolution;
 
         [NativeTypeName("#define lv_disp_get_offset_x lv_display_get_offset_x")]
-        public static delegate*<_lv_display_t*, c_int32> lv_disp_get_offset_x => &lv_display_get_offset_x;
+        public static delegate*<_lv_display_t*, int> lv_disp_get_offset_x => &lv_display_get_offset_x;
 
         [NativeTypeName("#define lv_disp_get_offset_y lv_display_get_offset_y")]
-        public static delegate*<_lv_display_t*, c_int32> lv_disp_get_offset_y => &lv_display_get_offset_y;
+        public static delegate*<_lv_display_t*, int> lv_disp_get_offset_y => &lv_display_get_offset_y;
 
         [NativeTypeName("#define lv_disp_get_rotation lv_display_get_rotation")]
         public static delegate*<_lv_display_t*, lv_display_rotation_t> lv_disp_get_rotation => &lv_display_get_rotation;
 
         [NativeTypeName("#define lv_disp_get_dpi lv_display_get_dpi")]
-        public static delegate*<_lv_display_t*, c_int32> lv_disp_get_dpi => &lv_display_get_dpi;
+        public static delegate*<_lv_display_t*, int> lv_disp_get_dpi => &lv_display_get_dpi;
 
         [NativeTypeName("#define lv_disp_get_antialiasing lv_display_get_antialiasing")]
         public static delegate*<_lv_display_t*, c_bool1> lv_disp_get_antialiasing => &lv_display_get_antialiasing;
@@ -7639,7 +7599,7 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, void> lv_scr_load => &lv_screen_load;
 
         [NativeTypeName("#define lv_scr_load_anim lv_screen_load_anim")]
-        public static delegate*<_lv_obj_t*, lv_screen_load_anim_t, c_uint32, c_uint32, c_bool1, void> lv_scr_load_anim => &lv_screen_load_anim;
+        public static delegate*<_lv_obj_t*, lv_screen_load_anim_t, uint, uint, c_bool1, void> lv_scr_load_anim => &lv_screen_load_anim;
 
         [NativeTypeName("#define lv_disp_get_layer_top lv_display_get_layer_top")]
         public static delegate*<_lv_display_t*, _lv_obj_t*> lv_disp_get_layer_top => &lv_display_get_layer_top;
@@ -7657,7 +7617,7 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_display_t*, _lv_theme_t*> lv_disp_get_theme => &lv_display_get_theme;
 
         [NativeTypeName("#define lv_disp_get_inactive_time lv_display_get_inactive_time")]
-        public static delegate*<_lv_display_t*, c_uint32> lv_disp_get_inactive_time => &lv_display_get_inactive_time;
+        public static delegate*<_lv_display_t*, uint> lv_disp_get_inactive_time => &lv_display_get_inactive_time;
 
         [NativeTypeName("#define lv_disp_trig_activity lv_display_trigger_activity")]
         public static delegate*<_lv_display_t*, void> lv_disp_trig_activity => &lv_display_trigger_activity;
@@ -7678,7 +7638,7 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_timer_t*, void> lv_timer_del => &lv_timer_delete;
 
         [NativeTypeName("#define lv_anim_del lv_anim_delete")]
-        public static delegate*<void*, delegate* unmanaged[Cdecl]<void*, c_int32, void>, c_bool1> lv_anim_del => &lv_anim_delete;
+        public static delegate*<void*, delegate* unmanaged[Cdecl]<void*, int, void>, c_bool1> lv_anim_del => &lv_anim_delete;
 
         [NativeTypeName("#define lv_anim_del_all lv_anim_delete_all")]
         public static delegate*<void> lv_anim_del_all => &lv_anim_delete_all;
@@ -7690,10 +7650,10 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_group_t*, void> lv_group_del => &lv_group_delete;
 
         [NativeTypeName("#define lv_txt_get_size lv_text_get_size")]
-        public static delegate*<lv_point_t*, c_int8*, _lv_font_t*, c_int32, c_int32, c_int32, lv_text_flag_t, void> lv_txt_get_size => &lv_text_get_size;
+        public static delegate*<lv_point_t*, sbyte*, _lv_font_t*, int, int, int, lv_text_flag_t, void> lv_txt_get_size => &lv_text_get_size;
 
         [NativeTypeName("#define lv_txt_get_width lv_text_get_width")]
-        public static delegate*<c_int8*, c_uint32, _lv_font_t*, c_int32, c_int32> lv_txt_get_width => &lv_text_get_width;
+        public static delegate*<sbyte*, uint, _lv_font_t*, int, int> lv_txt_get_width => &lv_text_get_width;
 
         [NativeTypeName("#define lv_img_create lv_image_create")]
         public static delegate*<_lv_obj_t*, _lv_obj_t*> lv_img_create => &lv_image_create;
@@ -7702,19 +7662,19 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, void*, void> lv_img_set_src => &lv_image_set_src;
 
         [NativeTypeName("#define lv_img_set_offset_x lv_image_set_offset_x")]
-        public static delegate*<_lv_obj_t*, c_int32, void> lv_img_set_offset_x => &lv_image_set_offset_x;
+        public static delegate*<_lv_obj_t*, int, void> lv_img_set_offset_x => &lv_image_set_offset_x;
 
         [NativeTypeName("#define lv_img_set_offset_y lv_image_set_offset_y")]
-        public static delegate*<_lv_obj_t*, c_int32, void> lv_img_set_offset_y => &lv_image_set_offset_y;
+        public static delegate*<_lv_obj_t*, int, void> lv_img_set_offset_y => &lv_image_set_offset_y;
 
         [NativeTypeName("#define lv_img_set_angle lv_image_set_rotation")]
-        public static delegate*<_lv_obj_t*, c_int32, void> lv_img_set_angle => &lv_image_set_rotation;
+        public static delegate*<_lv_obj_t*, int, void> lv_img_set_angle => &lv_image_set_rotation;
 
         [NativeTypeName("#define lv_img_set_pivot lv_image_set_pivot")]
-        public static delegate*<_lv_obj_t*, c_int32, c_int32, void> lv_img_set_pivot => &lv_image_set_pivot;
+        public static delegate*<_lv_obj_t*, int, int, void> lv_img_set_pivot => &lv_image_set_pivot;
 
         [NativeTypeName("#define lv_img_set_zoom lv_image_set_scale")]
-        public static delegate*<_lv_obj_t*, c_uint32, void> lv_img_set_zoom => &lv_image_set_scale;
+        public static delegate*<_lv_obj_t*, uint, void> lv_img_set_zoom => &lv_image_set_scale;
 
         [NativeTypeName("#define lv_img_set_antialias lv_image_set_antialias")]
         public static delegate*<_lv_obj_t*, c_bool1, void> lv_img_set_antialias => &lv_image_set_antialias;
@@ -7723,19 +7683,19 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, void*> lv_img_get_src => &lv_image_get_src;
 
         [NativeTypeName("#define lv_img_get_offset_x lv_image_get_offset_x")]
-        public static delegate*<_lv_obj_t*, c_int32> lv_img_get_offset_x => &lv_image_get_offset_x;
+        public static delegate*<_lv_obj_t*, int> lv_img_get_offset_x => &lv_image_get_offset_x;
 
         [NativeTypeName("#define lv_img_get_offset_y lv_image_get_offset_y")]
-        public static delegate*<_lv_obj_t*, c_int32> lv_img_get_offset_y => &lv_image_get_offset_y;
+        public static delegate*<_lv_obj_t*, int> lv_img_get_offset_y => &lv_image_get_offset_y;
 
         [NativeTypeName("#define lv_img_get_angle lv_image_get_rotation")]
-        public static delegate*<_lv_obj_t*, c_int32> lv_img_get_angle => &lv_image_get_rotation;
+        public static delegate*<_lv_obj_t*, int> lv_img_get_angle => &lv_image_get_rotation;
 
         [NativeTypeName("#define lv_img_get_pivot lv_image_get_pivot")]
         public static delegate*<_lv_obj_t*, lv_point_t*, void> lv_img_get_pivot => &lv_image_get_pivot;
 
         [NativeTypeName("#define lv_img_get_zoom lv_image_get_scale")]
-        public static delegate*<_lv_obj_t*, c_int32> lv_img_get_zoom => &lv_image_get_scale;
+        public static delegate*<_lv_obj_t*, int> lv_img_get_zoom => &lv_image_get_scale;
 
         [NativeTypeName("#define lv_img_get_antialias lv_image_get_antialias")]
         public static delegate*<_lv_obj_t*, c_bool1> lv_img_get_antialias => &lv_image_get_antialias;
@@ -7759,13 +7719,13 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, lv_imagebutton_state_t, void*> lv_imgbtn_get_src_right => &lv_imagebutton_get_src_right;
 
         [NativeTypeName("#define lv_list_set_btn_text lv_list_set_button_text")]
-        public static delegate*<_lv_obj_t*, _lv_obj_t*, c_int8*, void> lv_list_set_btn_text => &lv_list_set_button_text;
+        public static delegate*<_lv_obj_t*, _lv_obj_t*, sbyte*, void> lv_list_set_btn_text => &lv_list_set_button_text;
 
         [NativeTypeName("#define lv_list_get_btn_text lv_list_get_button_text")]
-        public static delegate*<_lv_obj_t*, _lv_obj_t*, c_int8*> lv_list_get_btn_text => &lv_list_get_button_text;
+        public static delegate*<_lv_obj_t*, _lv_obj_t*, sbyte*> lv_list_get_btn_text => &lv_list_get_button_text;
 
         [NativeTypeName("#define lv_list_add_btn lv_list_add_button")]
-        public static delegate*<_lv_obj_t*, void*, c_int8*, _lv_obj_t*> lv_list_add_btn => &lv_list_add_button;
+        public static delegate*<_lv_obj_t*, void*, sbyte*, _lv_obj_t*> lv_list_add_btn => &lv_list_add_button;
 
         [NativeTypeName("#define lv_btn_create lv_button_create")]
         public static delegate*<_lv_obj_t*, _lv_obj_t*> lv_btn_create => &lv_button_create;
@@ -7774,19 +7734,19 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, _lv_obj_t*> lv_btnmatrix_create => &lv_buttonmatrix_create;
 
         [NativeTypeName("#define lv_btnmatrix_set_map lv_buttonmatrix_set_map")]
-        public static delegate*<_lv_obj_t*, c_int8**, void> lv_btnmatrix_set_map => &lv_buttonmatrix_set_map;
+        public static delegate*<_lv_obj_t*, sbyte**, void> lv_btnmatrix_set_map => &lv_buttonmatrix_set_map;
 
         [NativeTypeName("#define lv_btnmatrix_set_ctrl_map lv_buttonmatrix_set_ctrl_map")]
         public static delegate*<_lv_obj_t*, lv_buttonmatrix_ctrl_t*, void> lv_btnmatrix_set_ctrl_map => &lv_buttonmatrix_set_ctrl_map;
 
         [NativeTypeName("#define lv_btnmatrix_set_selected_btn lv_buttonmatrix_set_selected_button")]
-        public static delegate*<_lv_obj_t*, c_uint32, void> lv_btnmatrix_set_selected_btn => &lv_buttonmatrix_set_selected_button;
+        public static delegate*<_lv_obj_t*, uint, void> lv_btnmatrix_set_selected_btn => &lv_buttonmatrix_set_selected_button;
 
         [NativeTypeName("#define lv_btnmatrix_set_btn_ctrl lv_buttonmatrix_set_button_ctrl")]
-        public static delegate*<_lv_obj_t*, c_uint32, lv_buttonmatrix_ctrl_t, void> lv_btnmatrix_set_btn_ctrl => &lv_buttonmatrix_set_button_ctrl;
+        public static delegate*<_lv_obj_t*, uint, lv_buttonmatrix_ctrl_t, void> lv_btnmatrix_set_btn_ctrl => &lv_buttonmatrix_set_button_ctrl;
 
         [NativeTypeName("#define lv_btnmatrix_clear_btn_ctrl lv_buttonmatrix_clear_button_ctrl")]
-        public static delegate*<_lv_obj_t*, c_uint32, lv_buttonmatrix_ctrl_t, void> lv_btnmatrix_clear_btn_ctrl => &lv_buttonmatrix_clear_button_ctrl;
+        public static delegate*<_lv_obj_t*, uint, lv_buttonmatrix_ctrl_t, void> lv_btnmatrix_clear_btn_ctrl => &lv_buttonmatrix_clear_button_ctrl;
 
         [NativeTypeName("#define lv_btnmatrix_set_btn_ctrl_all lv_buttonmatrix_set_button_ctrl_all")]
         public static delegate*<_lv_obj_t*, lv_buttonmatrix_ctrl_t, void> lv_btnmatrix_set_btn_ctrl_all => &lv_buttonmatrix_set_button_ctrl_all;
@@ -7795,22 +7755,22 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, lv_buttonmatrix_ctrl_t, void> lv_btnmatrix_clear_btn_ctrl_all => &lv_buttonmatrix_clear_button_ctrl_all;
 
         [NativeTypeName("#define lv_btnmatrix_set_btn_width lv_buttonmatrix_set_button_width")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint32, void> lv_btnmatrix_set_btn_width => &lv_buttonmatrix_set_button_width;
+        public static delegate*<_lv_obj_t*, uint, uint, void> lv_btnmatrix_set_btn_width => &lv_buttonmatrix_set_button_width;
 
         [NativeTypeName("#define lv_btnmatrix_set_one_checked lv_buttonmatrix_set_one_checked")]
         public static delegate*<_lv_obj_t*, c_bool1, void> lv_btnmatrix_set_one_checked => &lv_buttonmatrix_set_one_checked;
 
         [NativeTypeName("#define lv_btnmatrix_get_map lv_buttonmatrix_get_map")]
-        public static delegate*<_lv_obj_t*, c_int8**> lv_btnmatrix_get_map => &lv_buttonmatrix_get_map;
+        public static delegate*<_lv_obj_t*, sbyte**> lv_btnmatrix_get_map => &lv_buttonmatrix_get_map;
 
         [NativeTypeName("#define lv_btnmatrix_get_selected_btn lv_buttonmatrix_get_selected_button")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_btnmatrix_get_selected_btn => &lv_buttonmatrix_get_selected_button;
+        public static delegate*<_lv_obj_t*, uint> lv_btnmatrix_get_selected_btn => &lv_buttonmatrix_get_selected_button;
 
         [NativeTypeName("#define lv_btnmatrix_get_btn_text lv_buttonmatrix_get_button_text")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_int8*> lv_btnmatrix_get_btn_text => &lv_buttonmatrix_get_button_text;
+        public static delegate*<_lv_obj_t*, uint, sbyte*> lv_btnmatrix_get_btn_text => &lv_buttonmatrix_get_button_text;
 
         [NativeTypeName("#define lv_btnmatrix_has_button_ctrl lv_buttonmatrix_has_button_ctrl")]
-        public static delegate*<_lv_obj_t*, c_uint32, lv_buttonmatrix_ctrl_t, c_bool1> lv_btnmatrix_has_button_ctrl => &lv_buttonmatrix_has_button_ctrl;
+        public static delegate*<_lv_obj_t*, uint, lv_buttonmatrix_ctrl_t, c_bool1> lv_btnmatrix_has_button_ctrl => &lv_buttonmatrix_has_button_ctrl;
 
         [NativeTypeName("#define lv_btnmatrix_get_one_checked lv_buttonmatrix_get_one_checked")]
         public static delegate*<_lv_obj_t*, c_bool1> lv_btnmatrix_get_one_checked => &lv_buttonmatrix_get_one_checked;
@@ -7819,49 +7779,49 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, _lv_obj_t*> lv_tabview_get_tab_btns => &lv_tabview_get_tab_bar;
 
         [NativeTypeName("#define lv_tabview_get_tab_act lv_tabview_get_tab_active")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_tabview_get_tab_act => &lv_tabview_get_tab_active;
+        public static delegate*<_lv_obj_t*, uint> lv_tabview_get_tab_act => &lv_tabview_get_tab_active;
 
         [NativeTypeName("#define lv_tabview_set_act lv_tabview_set_active")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_bool1, void> lv_tabview_set_act => &lv_tabview_set_active;
+        public static delegate*<_lv_obj_t*, uint, c_bool1, void> lv_tabview_set_act => &lv_tabview_set_active;
 
         [NativeTypeName("#define lv_tileview_get_tile_act lv_tileview_get_tile_active")]
         public static delegate*<_lv_obj_t*, _lv_obj_t*> lv_tileview_get_tile_act => &lv_tileview_get_tile_active;
 
         [NativeTypeName("#define lv_obj_set_tile_id lv_tileview_set_tile_by_index")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint32, c_bool1, void> lv_obj_set_tile_id => &lv_tileview_set_tile_by_index;
+        public static delegate*<_lv_obj_t*, uint, uint, c_bool1, void> lv_obj_set_tile_id => &lv_tileview_set_tile_by_index;
 
         [NativeTypeName("#define lv_obj_set_tile lv_tileview_set_tile")]
         public static delegate*<_lv_obj_t*, _lv_obj_t*, c_bool1, void> lv_obj_set_tile => &lv_tileview_set_tile;
 
         [NativeTypeName("#define lv_roller_set_visible_row_cnt lv_roller_set_visible_row_count")]
-        public static delegate*<_lv_obj_t*, c_uint32, void> lv_roller_set_visible_row_cnt => &lv_roller_set_visible_row_count;
+        public static delegate*<_lv_obj_t*, uint, void> lv_roller_set_visible_row_cnt => &lv_roller_set_visible_row_count;
 
         [NativeTypeName("#define lv_roller_get_option_cnt lv_roller_get_option_count")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_roller_get_option_cnt => &lv_roller_get_option_count;
+        public static delegate*<_lv_obj_t*, uint> lv_roller_get_option_cnt => &lv_roller_get_option_count;
 
         [NativeTypeName("#define lv_table_set_col_cnt lv_table_set_column_count")]
-        public static delegate*<_lv_obj_t*, c_uint32, void> lv_table_set_col_cnt => &lv_table_set_column_count;
+        public static delegate*<_lv_obj_t*, uint, void> lv_table_set_col_cnt => &lv_table_set_column_count;
 
         [NativeTypeName("#define lv_table_set_row_cnt lv_table_set_row_count")]
-        public static delegate*<_lv_obj_t*, c_uint32, void> lv_table_set_row_cnt => &lv_table_set_row_count;
+        public static delegate*<_lv_obj_t*, uint, void> lv_table_set_row_cnt => &lv_table_set_row_count;
 
         [NativeTypeName("#define lv_table_get_col_cnt lv_table_get_column_count")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_table_get_col_cnt => &lv_table_get_column_count;
+        public static delegate*<_lv_obj_t*, uint> lv_table_get_col_cnt => &lv_table_get_column_count;
 
         [NativeTypeName("#define lv_table_get_row_cnt lv_table_get_row_count")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_table_get_row_cnt => &lv_table_get_row_count;
+        public static delegate*<_lv_obj_t*, uint> lv_table_get_row_cnt => &lv_table_get_row_count;
 
         [NativeTypeName("#define lv_table_set_col_width lv_table_set_column_width")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_int32, void> lv_table_set_col_width => &lv_table_set_column_width;
+        public static delegate*<_lv_obj_t*, uint, int, void> lv_table_set_col_width => &lv_table_set_column_width;
 
         [NativeTypeName("#define lv_table_get_col_width lv_table_get_column_width")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_int32> lv_table_get_col_width => &lv_table_get_column_width;
+        public static delegate*<_lv_obj_t*, uint, int> lv_table_get_col_width => &lv_table_get_column_width;
 
         [NativeTypeName("#define lv_dropdown_get_option_cnt lv_dropdown_get_option_count")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_dropdown_get_option_cnt => &lv_dropdown_get_option_count;
+        public static delegate*<_lv_obj_t*, uint> lv_dropdown_get_option_cnt => &lv_dropdown_get_option_count;
 
         [NativeTypeName("#define lv_obj_get_child_cnt lv_obj_get_child_count")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_obj_get_child_cnt => &lv_obj_get_child_count;
+        public static delegate*<_lv_obj_t*, uint> lv_obj_get_child_cnt => &lv_obj_get_child_count;
 
         [NativeTypeName("#define lv_obj_get_disp lv_obj_get_display")]
         public static delegate*<_lv_obj_t*, _lv_display_t*> lv_obj_get_disp => &lv_obj_get_display;
@@ -7891,94 +7851,94 @@ namespace LVGLSharp.Interop
         public const int LV_STYLE_TRANSFORM_ANGLE = LV_STYLE_TRANSFORM_ROTATION;
 
         [NativeTypeName("#define lv_obj_get_style_anim_time lv_obj_get_style_anim_duration")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint32> lv_obj_get_style_anim_time => &lv_obj_get_style_anim_duration;
+        public static delegate*<_lv_obj_t*, uint, uint> lv_obj_get_style_anim_time => &lv_obj_get_style_anim_duration;
 
         [NativeTypeName("#define lv_obj_get_style_img_opa lv_obj_get_style_image_opa")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint8> lv_obj_get_style_img_opa => &lv_obj_get_style_image_opa;
+        public static delegate*<_lv_obj_t*, uint, byte> lv_obj_get_style_img_opa => &lv_obj_get_style_image_opa;
 
         [NativeTypeName("#define lv_obj_get_style_img_recolor lv_obj_get_style_image_recolor")]
-        public static delegate*<_lv_obj_t*, c_uint32, lv_color_t> lv_obj_get_style_img_recolor => &lv_obj_get_style_image_recolor;
+        public static delegate*<_lv_obj_t*, uint, lv_color_t> lv_obj_get_style_img_recolor => &lv_obj_get_style_image_recolor;
 
         [NativeTypeName("#define lv_obj_get_style_img_recolor_filtered lv_obj_get_style_image_recolor_filtered")]
-        public static delegate*<_lv_obj_t*, c_uint32, lv_color_t> lv_obj_get_style_img_recolor_filtered => &lv_obj_get_style_image_recolor_filtered;
+        public static delegate*<_lv_obj_t*, uint, lv_color_t> lv_obj_get_style_img_recolor_filtered => &lv_obj_get_style_image_recolor_filtered;
 
         [NativeTypeName("#define lv_obj_get_style_img_recolor_opa lv_obj_get_style_image_recolor_opa")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint8> lv_obj_get_style_img_recolor_opa => &lv_obj_get_style_image_recolor_opa;
+        public static delegate*<_lv_obj_t*, uint, byte> lv_obj_get_style_img_recolor_opa => &lv_obj_get_style_image_recolor_opa;
 
         [NativeTypeName("#define lv_obj_get_style_shadow_ofs_x lv_obj_get_style_shadow_offset_x")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_int32> lv_obj_get_style_shadow_ofs_x => &lv_obj_get_style_shadow_offset_x;
+        public static delegate*<_lv_obj_t*, uint, int> lv_obj_get_style_shadow_ofs_x => &lv_obj_get_style_shadow_offset_x;
 
         [NativeTypeName("#define lv_obj_get_style_shadow_ofs_y lv_obj_get_style_shadow_offset_y")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_int32> lv_obj_get_style_shadow_ofs_y => &lv_obj_get_style_shadow_offset_y;
+        public static delegate*<_lv_obj_t*, uint, int> lv_obj_get_style_shadow_ofs_y => &lv_obj_get_style_shadow_offset_y;
 
         [NativeTypeName("#define lv_obj_get_style_transform_angle lv_obj_get_style_transform_rotation")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_int32> lv_obj_get_style_transform_angle => &lv_obj_get_style_transform_rotation;
+        public static delegate*<_lv_obj_t*, uint, int> lv_obj_get_style_transform_angle => &lv_obj_get_style_transform_rotation;
 
         [NativeTypeName("#define lv_obj_get_style_bg_img_src lv_obj_get_style_bg_image_src")]
-        public static delegate*<_lv_obj_t*, c_uint32, void*> lv_obj_get_style_bg_img_src => &lv_obj_get_style_bg_image_src;
+        public static delegate*<_lv_obj_t*, uint, void*> lv_obj_get_style_bg_img_src => &lv_obj_get_style_bg_image_src;
 
         [NativeTypeName("#define lv_obj_get_style_bg_img_recolor lv_obj_get_style_bg_image_recolor")]
-        public static delegate*<_lv_obj_t*, c_uint32, lv_color_t> lv_obj_get_style_bg_img_recolor => &lv_obj_get_style_bg_image_recolor;
+        public static delegate*<_lv_obj_t*, uint, lv_color_t> lv_obj_get_style_bg_img_recolor => &lv_obj_get_style_bg_image_recolor;
 
         [NativeTypeName("#define lv_obj_get_style_bg_img_recolor_opa lv_obj_get_style_bg_image_recolor_opa")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint8> lv_obj_get_style_bg_img_recolor_opa => &lv_obj_get_style_bg_image_recolor_opa;
+        public static delegate*<_lv_obj_t*, uint, byte> lv_obj_get_style_bg_img_recolor_opa => &lv_obj_get_style_bg_image_recolor_opa;
 
         [NativeTypeName("#define lv_obj_set_style_anim_time lv_obj_set_style_anim_duration")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint32, void> lv_obj_set_style_anim_time => &lv_obj_set_style_anim_duration;
+        public static delegate*<_lv_obj_t*, uint, uint, void> lv_obj_set_style_anim_time => &lv_obj_set_style_anim_duration;
 
         [NativeTypeName("#define lv_obj_set_style_img_opa lv_obj_set_style_image_opa")]
-        public static delegate*<_lv_obj_t*, c_uint8, c_uint32, void> lv_obj_set_style_img_opa => &lv_obj_set_style_image_opa;
+        public static delegate*<_lv_obj_t*, byte, uint, void> lv_obj_set_style_img_opa => &lv_obj_set_style_image_opa;
 
         [NativeTypeName("#define lv_obj_set_style_img_recolor lv_obj_set_style_image_recolor")]
-        public static delegate*<_lv_obj_t*, lv_color_t, c_uint32, void> lv_obj_set_style_img_recolor => &lv_obj_set_style_image_recolor;
+        public static delegate*<_lv_obj_t*, lv_color_t, uint, void> lv_obj_set_style_img_recolor => &lv_obj_set_style_image_recolor;
 
         [NativeTypeName("#define lv_obj_set_style_img_recolor_opa lv_obj_set_style_image_recolor_opa")]
-        public static delegate*<_lv_obj_t*, c_uint8, c_uint32, void> lv_obj_set_style_img_recolor_opa => &lv_obj_set_style_image_recolor_opa;
+        public static delegate*<_lv_obj_t*, byte, uint, void> lv_obj_set_style_img_recolor_opa => &lv_obj_set_style_image_recolor_opa;
 
         [NativeTypeName("#define lv_obj_set_style_shadow_ofs_x lv_obj_set_style_shadow_offset_x")]
-        public static delegate*<_lv_obj_t*, c_int32, c_uint32, void> lv_obj_set_style_shadow_ofs_x => &lv_obj_set_style_shadow_offset_x;
+        public static delegate*<_lv_obj_t*, int, uint, void> lv_obj_set_style_shadow_ofs_x => &lv_obj_set_style_shadow_offset_x;
 
         [NativeTypeName("#define lv_obj_set_style_shadow_ofs_y lv_obj_set_style_shadow_offset_y")]
-        public static delegate*<_lv_obj_t*, c_int32, c_uint32, void> lv_obj_set_style_shadow_ofs_y => &lv_obj_set_style_shadow_offset_y;
+        public static delegate*<_lv_obj_t*, int, uint, void> lv_obj_set_style_shadow_ofs_y => &lv_obj_set_style_shadow_offset_y;
 
         [NativeTypeName("#define lv_obj_set_style_transform_zoom lv_obj_set_style_transform_scale")]
-        public static delegate*<_lv_obj_t*, c_int32, c_uint32, void> lv_obj_set_style_transform_zoom => &lv_obj_set_style_transform_scale;
+        public static delegate*<_lv_obj_t*, int, uint, void> lv_obj_set_style_transform_zoom => &lv_obj_set_style_transform_scale;
 
         [NativeTypeName("#define lv_obj_set_style_transform_angle lv_obj_set_style_transform_rotation")]
-        public static delegate*<_lv_obj_t*, c_int32, c_uint32, void> lv_obj_set_style_transform_angle => &lv_obj_set_style_transform_rotation;
+        public static delegate*<_lv_obj_t*, int, uint, void> lv_obj_set_style_transform_angle => &lv_obj_set_style_transform_rotation;
 
         [NativeTypeName("#define lv_obj_set_style_bg_img_src lv_obj_set_style_bg_image_src")]
-        public static delegate*<_lv_obj_t*, void*, c_uint32, void> lv_obj_set_style_bg_img_src => &lv_obj_set_style_bg_image_src;
+        public static delegate*<_lv_obj_t*, void*, uint, void> lv_obj_set_style_bg_img_src => &lv_obj_set_style_bg_image_src;
 
         [NativeTypeName("#define lv_obj_set_style_bg_img_recolor lv_obj_set_style_bg_image_recolor")]
-        public static delegate*<_lv_obj_t*, lv_color_t, c_uint32, void> lv_obj_set_style_bg_img_recolor => &lv_obj_set_style_bg_image_recolor;
+        public static delegate*<_lv_obj_t*, lv_color_t, uint, void> lv_obj_set_style_bg_img_recolor => &lv_obj_set_style_bg_image_recolor;
 
         [NativeTypeName("#define lv_obj_set_style_bg_img_recolor_opa lv_obj_set_style_bg_image_recolor_opa")]
-        public static delegate*<_lv_obj_t*, c_uint8, c_uint32, void> lv_obj_set_style_bg_img_recolor_opa => &lv_obj_set_style_bg_image_recolor_opa;
+        public static delegate*<_lv_obj_t*, byte, uint, void> lv_obj_set_style_bg_img_recolor_opa => &lv_obj_set_style_bg_image_recolor_opa;
 
         [NativeTypeName("#define lv_style_set_anim_time lv_style_set_anim_duration")]
-        public static delegate*<lv_style_t*, c_uint32, void> lv_style_set_anim_time => &lv_style_set_anim_duration;
+        public static delegate*<lv_style_t*, uint, void> lv_style_set_anim_time => &lv_style_set_anim_duration;
 
         [NativeTypeName("#define lv_style_set_img_opa lv_style_set_image_opa")]
-        public static delegate*<lv_style_t*, c_uint8, void> lv_style_set_img_opa => &lv_style_set_image_opa;
+        public static delegate*<lv_style_t*, byte, void> lv_style_set_img_opa => &lv_style_set_image_opa;
 
         [NativeTypeName("#define lv_style_set_img_recolor lv_style_set_image_recolor")]
         public static delegate*<lv_style_t*, lv_color_t, void> lv_style_set_img_recolor => &lv_style_set_image_recolor;
 
         [NativeTypeName("#define lv_style_set_img_recolor_opa lv_style_set_image_recolor_opa")]
-        public static delegate*<lv_style_t*, c_uint8, void> lv_style_set_img_recolor_opa => &lv_style_set_image_recolor_opa;
+        public static delegate*<lv_style_t*, byte, void> lv_style_set_img_recolor_opa => &lv_style_set_image_recolor_opa;
 
         [NativeTypeName("#define lv_style_set_shadow_ofs_x lv_style_set_shadow_offset_x")]
-        public static delegate*<lv_style_t*, c_int32, void> lv_style_set_shadow_ofs_x => &lv_style_set_shadow_offset_x;
+        public static delegate*<lv_style_t*, int, void> lv_style_set_shadow_ofs_x => &lv_style_set_shadow_offset_x;
 
         [NativeTypeName("#define lv_style_set_shadow_ofs_y lv_style_set_shadow_offset_y")]
-        public static delegate*<lv_style_t*, c_int32, void> lv_style_set_shadow_ofs_y => &lv_style_set_shadow_offset_y;
+        public static delegate*<lv_style_t*, int, void> lv_style_set_shadow_ofs_y => &lv_style_set_shadow_offset_y;
 
         [NativeTypeName("#define lv_style_set_transform_angle lv_style_set_transform_rotation")]
-        public static delegate*<lv_style_t*, c_int32, void> lv_style_set_transform_angle => &lv_style_set_transform_rotation;
+        public static delegate*<lv_style_t*, int, void> lv_style_set_transform_angle => &lv_style_set_transform_rotation;
 
         [NativeTypeName("#define lv_style_set_transform_zoom lv_style_set_transform_scale")]
-        public static delegate*<lv_style_t*, c_int32, void> lv_style_set_transform_zoom => &lv_style_set_transform_scale;
+        public static delegate*<lv_style_t*, int, void> lv_style_set_transform_zoom => &lv_style_set_transform_scale;
 
         [NativeTypeName("#define lv_style_set_bg_img_src lv_style_set_bg_image_src")]
         public static delegate*<lv_style_t*, void*, void> lv_style_set_bg_img_src => &lv_style_set_bg_image_src;
@@ -7987,13 +7947,13 @@ namespace LVGLSharp.Interop
         public static delegate*<lv_style_t*, lv_color_t, void> lv_style_set_bg_img_recolor => &lv_style_set_bg_image_recolor;
 
         [NativeTypeName("#define lv_style_set_bg_img_recolor_opa lv_style_set_bg_image_recolor_opa")]
-        public static delegate*<lv_style_t*, c_uint8, void> lv_style_set_bg_img_recolor_opa => &lv_style_set_bg_image_recolor_opa;
+        public static delegate*<lv_style_t*, byte, void> lv_style_set_bg_img_recolor_opa => &lv_style_set_bg_image_recolor_opa;
 
         [NativeTypeName("#define lv_keyboard_get_selected_btn lv_keyboard_get_selected_button")]
-        public static delegate*<_lv_obj_t*, c_uint32> lv_keyboard_get_selected_btn => &lv_keyboard_get_selected_button;
+        public static delegate*<_lv_obj_t*, uint> lv_keyboard_get_selected_btn => &lv_keyboard_get_selected_button;
 
         [NativeTypeName("#define lv_keyboard_get_btn_text lv_keyboard_get_button_text")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_int8*> lv_keyboard_get_btn_text => &lv_keyboard_get_button_text;
+        public static delegate*<_lv_obj_t*, uint, sbyte*> lv_keyboard_get_btn_text => &lv_keyboard_get_button_text;
 
         [NativeTypeName("#define LV_ZOOM_NONE LV_SCALE_NONE")]
         public const int LV_ZOOM_NONE = 256;
@@ -8020,10 +7980,10 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_draw_buf_handlers_t*, void*, lv_color_format_t, void*> lv_draw_buf_align_user => &lv_draw_buf_align_ex;
 
         [NativeTypeName("#define lv_draw_buf_create_user lv_draw_buf_create_ex")]
-        public static delegate*<_lv_draw_buf_handlers_t*, c_uint32, c_uint32, lv_color_format_t, c_uint32, _lv_draw_buf_t*> lv_draw_buf_create_user => &lv_draw_buf_create_ex;
+        public static delegate*<_lv_draw_buf_handlers_t*, uint, uint, lv_color_format_t, uint, _lv_draw_buf_t*> lv_draw_buf_create_user => &lv_draw_buf_create_ex;
 
         [NativeTypeName("#define lv_draw_buf_width_to_stride_user lv_draw_buf_width_to_stride_ex")]
-        public static delegate*<_lv_draw_buf_handlers_t*, c_uint32, lv_color_format_t, c_uint32> lv_draw_buf_width_to_stride_user => &lv_draw_buf_width_to_stride_ex;
+        public static delegate*<_lv_draw_buf_handlers_t*, uint, lv_color_format_t, uint> lv_draw_buf_width_to_stride_user => &lv_draw_buf_width_to_stride_ex;
 
         [NativeTypeName("#define lv_draw_buf_dup_user lv_draw_buf_dup_ex")]
         public static delegate*<_lv_draw_buf_handlers_t*, _lv_draw_buf_t*, _lv_draw_buf_t*> lv_draw_buf_dup_user => &lv_draw_buf_dup_ex;
@@ -8047,7 +8007,7 @@ namespace LVGLSharp.Interop
         public const int _LV_FLEX_COLUMN = (1 << 0);
 
         [NativeTypeName("#define _lv_ll_init lv_ll_init")]
-        public static delegate*<lv_ll_t*, c_uint32, void> _lv_ll_init => &lv_ll_init;
+        public static delegate*<lv_ll_t*, uint, void> _lv_ll_init => &lv_ll_init;
 
         [NativeTypeName("#define _lv_ll_ins_head lv_ll_ins_head")]
         public static delegate*<lv_ll_t*, void*> _lv_ll_ins_head => &lv_ll_ins_head;
@@ -8071,7 +8031,7 @@ namespace LVGLSharp.Interop
         public static delegate*<lv_ll_t*, void*, void*> _lv_ll_get_prev => &lv_ll_get_prev;
 
         [NativeTypeName("#define _lv_ll_get_len lv_ll_get_len")]
-        public static delegate*<lv_ll_t*, c_uint32> _lv_ll_get_len => &lv_ll_get_len;
+        public static delegate*<lv_ll_t*, uint> _lv_ll_get_len => &lv_ll_get_len;
 
         [NativeTypeName("#define _lv_ll_move_before lv_ll_move_before")]
         public static delegate*<lv_ll_t*, void*, void*, void> _lv_ll_move_before => &lv_ll_move_before;
@@ -8101,28 +8061,28 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, lv_obj_flag_t, c_bool1, void> lv_obj_update_flag => &lv_obj_set_flag;
 
         [NativeTypeName("#define lv_chart_set_all_value lv_chart_set_all_values")]
-        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, c_int32, void> lv_chart_set_all_value => &lv_chart_set_all_values;
+        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, int, void> lv_chart_set_all_value => &lv_chart_set_all_values;
 
         [NativeTypeName("#define lv_calendar_set_showed_date lv_calendar_set_month_shown")]
-        public static delegate*<_lv_obj_t*, c_uint32, c_uint32, void> lv_calendar_set_showed_date => &lv_calendar_set_month_shown;
+        public static delegate*<_lv_obj_t*, uint, uint, void> lv_calendar_set_showed_date => &lv_calendar_set_month_shown;
 
         [NativeTypeName("#define lv_chart_set_range lv_chart_set_axis_range")]
-        public static delegate*<_lv_obj_t*, lv_chart_axis_t, c_int32, c_int32, void> lv_chart_set_range => &lv_chart_set_axis_range;
+        public static delegate*<_lv_obj_t*, lv_chart_axis_t, int, int, void> lv_chart_set_range => &lv_chart_set_axis_range;
 
         [NativeTypeName("#define lv_chart_set_value_by_id lv_chart_set_series_value_by_id")]
-        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, c_uint32, c_int32, void> lv_chart_set_value_by_id => &lv_chart_set_series_value_by_id;
+        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, uint, int, void> lv_chart_set_value_by_id => &lv_chart_set_series_value_by_id;
 
         [NativeTypeName("#define lv_chart_get_x_array lv_chart_get_series_x_array")]
-        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, c_int32*> lv_chart_get_x_array => &lv_chart_get_series_x_array;
+        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, int*> lv_chart_get_x_array => &lv_chart_get_series_x_array;
 
         [NativeTypeName("#define lv_chart_get_y_array lv_chart_get_series_y_array")]
-        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, c_int32*> lv_chart_get_y_array => &lv_chart_get_series_y_array;
+        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, int*> lv_chart_get_y_array => &lv_chart_get_series_y_array;
 
         [NativeTypeName("#define lv_chart_set_ext_x_array lv_chart_set_series_ext_x_array")]
-        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, c_int32*, void> lv_chart_set_ext_x_array => &lv_chart_set_series_ext_x_array;
+        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, int*, void> lv_chart_set_ext_x_array => &lv_chart_set_series_ext_x_array;
 
         [NativeTypeName("#define lv_chart_set_ext_y_array lv_chart_set_series_ext_y_array")]
-        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, c_int32*, void> lv_chart_set_ext_y_array => &lv_chart_set_series_ext_y_array;
+        public static delegate*<_lv_obj_t*, _lv_chart_series_t*, int*, void> lv_chart_set_ext_y_array => &lv_chart_set_series_ext_y_array;
 
         [NativeTypeName("#define LV_LABEL_LONG_WRAP LV_LABEL_LONG_MODE_WRAP")]
         public const lv_label_long_mode_t LV_LABEL_LONG_WRAP = LV_LABEL_LONG_MODE_WRAP;
@@ -8140,19 +8100,19 @@ namespace LVGLSharp.Interop
         public const lv_label_long_mode_t LV_LABEL_LONG_CLIP = LV_LABEL_LONG_MODE_CLIP;
 
         [NativeTypeName("#define lv_anim_set_time lv_anim_set_duration")]
-        public static delegate*<_lv_anim_t*, c_uint32, void> lv_anim_set_time => &lv_anim_set_duration;
+        public static delegate*<_lv_anim_t*, uint, void> lv_anim_set_time => &lv_anim_set_duration;
 
         [NativeTypeName("#define lv_anim_set_playback_time lv_anim_set_reverse_duration")]
-        public static delegate*<_lv_anim_t*, c_uint32, void> lv_anim_set_playback_time => &lv_anim_set_reverse_duration;
+        public static delegate*<_lv_anim_t*, uint, void> lv_anim_set_playback_time => &lv_anim_set_reverse_duration;
 
         [NativeTypeName("#define lv_anim_set_playback_delay lv_anim_set_reverse_delay")]
-        public static delegate*<_lv_anim_t*, c_uint32, void> lv_anim_set_playback_delay => &lv_anim_set_reverse_delay;
+        public static delegate*<_lv_anim_t*, uint, void> lv_anim_set_playback_delay => &lv_anim_set_reverse_delay;
 
         [NativeTypeName("#define lv_anim_set_playback_duration lv_anim_set_reverse_duration")]
-        public static delegate*<_lv_anim_t*, c_uint32, void> lv_anim_set_playback_duration => &lv_anim_set_reverse_duration;
+        public static delegate*<_lv_anim_t*, uint, void> lv_anim_set_playback_duration => &lv_anim_set_reverse_duration;
 
         [NativeTypeName("#define lv_gradient_init_stops lv_grad_init_stops")]
-        public static delegate*<lv_grad_dsc_t*, lv_color_t*, c_uint8*, c_uint8*, int, void> lv_gradient_init_stops => &lv_grad_init_stops;
+        public static delegate*<lv_grad_dsc_t*, lv_color_t*, byte*, byte*, int, void> lv_gradient_init_stops => &lv_grad_init_stops;
 
         [NativeTypeName("#define lv_spangroup_new_span lv_spangroup_add_span")]
         public static delegate*<_lv_obj_t*, _lv_span_t*> lv_spangroup_new_span => &lv_spangroup_add_span;
@@ -8161,7 +8121,7 @@ namespace LVGLSharp.Interop
         public static delegate*<_lv_obj_t*, void> lv_spangroup_refr_mode => &lv_spangroup_refresh;
 
         [NativeTypeName("#define lv_slider_set_left_value lv_slider_set_start_value")]
-        public static delegate*<_lv_obj_t*, c_int32, c_bool1, void> lv_slider_set_left_value => &lv_slider_set_start_value;
+        public static delegate*<_lv_obj_t*, int, c_bool1, void> lv_slider_set_left_value => &lv_slider_set_start_value;
 
         [NativeTypeName("#define lv_calendar_header_arrow_create lv_calendar_add_header_arrow")]
         public static delegate*<_lv_obj_t*, _lv_obj_t*> lv_calendar_header_arrow_create => &lv_calendar_add_header_arrow;

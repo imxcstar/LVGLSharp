@@ -1,48 +1,59 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public partial struct lv_color16_t
     {
-        public c_uint16 _bitfield;
+        [NativeBitfield("blue", offset: 0, length: 5)]
+        [NativeBitfield("green", offset: 5, length: 6)]
+        [NativeBitfield("red", offset: 11, length: 5)]
+        public ushort _bitfield;
 
         [NativeTypeName("uint16_t : 5")]
-        public c_uint16 blue
+        public ushort blue
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint16)(_bitfield & 0x1Fu);
+                return (ushort)(_bitfield & 0x1Fu);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint16)((_bitfield & ~0x1Fu) | (value & 0x1Fu));
+                _bitfield = (ushort)((_bitfield & ~0x1Fu) | (value & 0x1Fu));
             }
         }
 
         [NativeTypeName("uint16_t : 6")]
-        public c_uint16 green
+        public ushort green
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint16)((_bitfield >> 5) & 0x3Fu);
+                return (ushort)((_bitfield >> 5) & 0x3Fu);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint16)((_bitfield & ~(0x3Fu << 5)) | ((value & 0x3Fu) << 5));
+                _bitfield = (ushort)((_bitfield & ~(0x3Fu << 5)) | ((value & 0x3Fu) << 5));
             }
         }
 
         [NativeTypeName("uint16_t : 5")]
-        public c_uint16 red
+        public ushort red
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint16)((_bitfield >> 11) & 0x1Fu);
+                return (ushort)((_bitfield >> 11) & 0x1Fu);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint16)((_bitfield & ~(0x1Fu << 11)) | ((value & 0x1Fu) << 11));
+                _bitfield = (ushort)((_bitfield & ~(0x1Fu << 11)) | ((value & 0x1Fu) << 11));
             }
         }
     }

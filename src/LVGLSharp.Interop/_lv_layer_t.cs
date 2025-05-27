@@ -14,12 +14,12 @@ namespace LVGLSharp.Interop
         public lv_area_t phy_clip_area;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
         public lv_color32_t recolor;
 
         [NativeTypeName("int32_t")]
-        public c_int32 partial_y_offset;
+        public int partial_y_offset;
 
         [NativeTypeName("lv_draw_task_t *")]
         public _lv_draw_task_t* draw_task_head;

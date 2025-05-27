@@ -3,15 +3,15 @@ namespace LVGLSharp.Interop
     public partial struct lv_anim_bezier3_para_t
     {
         [NativeTypeName("int16_t")]
-        public c_int16 x1;
+        public short x1;
 
         [NativeTypeName("int16_t")]
-        public c_int16 y1;
+        public short y1;
 
         [NativeTypeName("int16_t")]
-        public c_int16 x2;
+        public short x2;
 
         [NativeTypeName("int16_t")]
-        public c_int16 y2;
+        public short y2;
     }
 }

@@ -21,54 +21,12 @@ namespace LVGLSharp.Interop
     public static unsafe partial class LVGL
     {
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct BufferWrapper : IDisposable
-        {
-            public sbyte* Ptr;
-
-            private byte[] _buffer;
-            private GCHandle _handle;
-
-            public BufferWrapper(byte[] buffer)
-            {
-                _buffer = buffer ?? throw new ArgumentNullException(nameof(buffer));
-                _handle = GCHandle.Alloc(_buffer, GCHandleType.Pinned);
-                Ptr = (sbyte*)_handle.AddrOfPinnedObject();
-            }
-
-            // 隐式转换 BufferWrapper -> byte[]
-            public static implicit operator byte[](BufferWrapper wrapper)
-            {
-                return wrapper._buffer;
-            }
-
-            // 隐式转换 BufferWrapper -> sbyte*
-            public static implicit operator sbyte*(BufferWrapper wrapper)
-            {
-                return wrapper.Ptr;
-            }
-
-            // 新增：隐式转换 byte[] -> BufferWrapper
-            public static implicit operator BufferWrapper(byte[] buffer)
-            {
-                return new BufferWrapper(buffer);
-            }
-
-            public void Dispose()
-            {
-                if (_handle.IsAllocated)
-                    _handle.Free();
-                Ptr = null;
-            }
-        }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public struct c_bool1
         {
             public byte Value;
             public c_bool1(bool v) => Value = (byte)(v ? 1 : 0);
             public c_bool1(byte v) => Value = (byte)(v != 0 ? 1 : 0);
 
-            // C风格的从数值类型隐式转换
             public static implicit operator c_bool1(sbyte v) => new c_bool1((byte)(v != 0 ? 1 : 0));
             public static implicit operator c_bool1(short v) => new c_bool1((byte)(v != 0 ? 1 : 0));
             public static implicit operator c_bool1(int v) => new c_bool1((byte)(v != 0 ? 1 : 0));
@@ -80,7 +38,6 @@ namespace LVGLSharp.Interop
             public static implicit operator c_bool1(float v) => new c_bool1((byte)(v != 0 ? 1 : 0));
             public static implicit operator c_bool1(double v) => new c_bool1((byte)(v != 0 ? 1 : 0));
 
-            // 转回基础类型
             public static implicit operator bool(c_bool1 v) => v.Value != 0;
             public static implicit operator c_bool1(bool v) => v ? 1 : 0;
             public static implicit operator byte(c_bool1 v) => v.Value;
@@ -88,205 +45,31 @@ namespace LVGLSharp.Interop
             public override string ToString() => (Value != 0).ToString();
         }
 
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_int8
+        [return: NativeTypeName("uint16_t")]
+        public static ushort lv_color_swap_16([NativeTypeName("uint16_t")] ushort c)
         {
-            public sbyte Value;
-            public c_int8(sbyte v) => Value = v;
-
-            public static implicit operator c_int16(c_int8 v) => new c_int16(v.Value);
-            public static implicit operator c_int32(c_int8 v) => new c_int32(v.Value);
-            public static implicit operator c_int64(c_int8 v) => new c_int64(v.Value);
-            public static implicit operator c_float32(c_int8 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_int8 v) => new c_float64(v.Value);
-
-            public static implicit operator sbyte(c_int8 v) => v.Value;
-            public static implicit operator c_int8(sbyte v) => new c_int8(v);
-
-            // C风格：隐式转布尔
-            public static implicit operator c_bool1(c_int8 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
+            return (ushort)((c >> 8) | (c << 8));
         }
 
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_uint8
+        [return: NativeTypeName("uint16_t")]
+        public static ushort lv_swap_bytes_16([NativeTypeName("uint16_t")] ushort x)
         {
-            public byte Value;
-            public c_uint8(byte v) => Value = v;
-
-            public static implicit operator c_uint16(c_uint8 v) => new c_uint16(v.Value);
-            public static implicit operator c_uint32(c_uint8 v) => new c_uint32(v.Value);
-            public static implicit operator c_uint64(c_uint8 v) => new c_uint64(v.Value);
-            public static implicit operator c_float32(c_uint8 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_uint8 v) => new c_float64(v.Value);
-
-            public static implicit operator byte(c_uint8 v) => v.Value;
-            public static implicit operator c_uint8(byte v) => new c_uint8(v);
-            public static implicit operator c_uint8(c_int32 v) => new c_uint8((byte)v.Value);
-            public static implicit operator c_uint8(c_uint32 v) => new c_uint8((byte)v.Value);
-
-            public static implicit operator c_bool1(c_uint8 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
+            return (ushort)((x << 8) | (x >> 8));
         }
 
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_int16
+
+        [return: NativeTypeName("uint32_t")]
+        public static uint lv_style_get_prop_group([NativeTypeName("lv_style_prop_t")] byte prop)
         {
-            public short Value;
-            public c_int16(short v) => Value = v;
+            uint group = (uint)(prop >> 2);
 
-            public static implicit operator c_int32(c_int16 v) => new c_int32(v.Value);
-            public static implicit operator c_int64(c_int16 v) => new c_int64(v.Value);
-            public static implicit operator c_float32(c_int16 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_int16 v) => new c_float64(v.Value);
+            if (group > 30)
+            {
+                group = 31;
+            }
 
-            public static implicit operator short(c_int16 v) => v.Value;
-            public static implicit operator c_int16(short v) => new c_int16(v);
-
-            public static implicit operator c_bool1(c_int16 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
+            return group;
         }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_uint16
-        {
-            public ushort Value;
-            public c_uint16(ushort v) => Value = v;
-
-            public static implicit operator c_uint32(c_uint16 v) => new c_uint32(v.Value);
-            public static implicit operator c_uint64(c_uint16 v) => new c_uint64(v.Value);
-            public static implicit operator c_float32(c_uint16 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_uint16 v) => new c_float64(v.Value);
-
-            public static implicit operator ushort(c_uint16 v) => v.Value;
-            public static implicit operator c_uint16(ushort v) => new c_uint16(v);
-            public static implicit operator c_uint16(int v) => new c_uint16((ushort)v);
-
-            public static implicit operator c_bool1(c_uint16 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
-        }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_int32
-        {
-            public int Value;
-            public c_int32(int v) => Value = v;
-
-            public static implicit operator c_int64(c_int32 v) => new c_int64(v.Value);
-            public static implicit operator c_float32(c_int32 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_int32 v) => new c_float64(v.Value);
-
-            public static implicit operator int(c_int32 v) => v.Value;
-            public static implicit operator c_int32(int v) => new c_int32(v);
-
-            public static implicit operator c_uint16(c_int32 v) => new c_uint16((ushort)v.Value);
-            public static implicit operator c_uint32(c_int32 v) => new c_uint32((uint)v.Value);
-
-            public static implicit operator lv_grad_dir_t(c_int32 v) => (lv_grad_dir_t)v.Value;
-            public static implicit operator lv_align_t(c_int32 v) => (lv_align_t)v.Value;
-            public static implicit operator lv_border_side_t(c_int32 v) => (lv_border_side_t)v.Value;
-            public static implicit operator lv_text_decor_t(c_int32 v) => (lv_text_decor_t)v.Value;
-            public static implicit operator lv_text_align_t(c_int32 v) => (lv_text_align_t)v.Value;
-            public static implicit operator lv_blend_mode_t(c_int32 v) => (lv_blend_mode_t)v.Value;
-            public static implicit operator lv_base_dir_t(c_int32 v) => (lv_base_dir_t)v.Value;
-            public static implicit operator lv_flex_flow_t(c_int32 v) => (lv_flex_flow_t)v.Value;
-            public static implicit operator lv_flex_align_t(c_int32 v) => (lv_flex_align_t)v.Value;
-            public static implicit operator lv_grid_align_t(c_int32 v) => (lv_grid_align_t)v.Value;
-
-            public static implicit operator c_bool1(c_int32 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
-        }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_uint32
-        {
-            public uint Value;
-            public c_uint32(uint v) => Value = v;
-
-            public static implicit operator c_uint64(c_uint32 v) => new c_uint64(v.Value);
-            public static implicit operator c_float32(c_uint32 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_uint32 v) => new c_float64(v.Value);
-
-            public static implicit operator uint(c_uint32 v) => v.Value;
-            public static implicit operator int(c_uint32 v) => (int)v.Value;
-            public static implicit operator c_uint32(int v) => new c_uint32((uint)v);
-            public static implicit operator c_uint32(uint v) => new c_uint32(v);
-            public static implicit operator c_uint32(long v) => new c_uint32((uint)v);
-
-            public static implicit operator c_bool1(c_uint32 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
-        }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_int64
-        {
-            public long Value;
-            public c_int64(long v) => Value = v;
-
-            public static implicit operator c_float32(c_int64 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_int64 v) => new c_float64(v.Value);
-
-            public static implicit operator long(c_int64 v) => v.Value;
-            public static implicit operator c_int64(long v) => new c_int64(v);
-
-            public static implicit operator c_bool1(c_int64 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
-        }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_uint64
-        {
-            public ulong Value;
-            public c_uint64(ulong v) => Value = v;
-
-            public static implicit operator c_float32(c_uint64 v) => new c_float32(v.Value);
-            public static implicit operator c_float64(c_uint64 v) => new c_float64(v.Value);
-
-            public static implicit operator ulong(c_uint64 v) => v.Value;
-            public static implicit operator c_uint64(ulong v) => new c_uint64(v);
-
-            public static implicit operator c_bool1(c_uint64 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
-        }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_float32
-        {
-            public float Value;
-            public c_float32(float v) => Value = v;
-
-            public static implicit operator c_float64(c_float32 v) => new c_float64(v.Value);
-
-            public static implicit operator float(c_float32 v) => v.Value;
-            public static implicit operator c_float32(float v) => new c_float32(v);
-
-            public static implicit operator c_bool1(c_float32 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
-        }
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct c_float64
-        {
-            public double Value;
-            public c_float64(double v) => Value = v;
-
-            public static implicit operator double(c_float64 v) => v.Value;
-            public static implicit operator c_float64(double v) => new c_float64(v);
-
-            public static implicit operator c_bool1(c_float64 v) => new c_bool1(v.Value != 0);
-
-            public override string ToString() => Value.ToString();
-        }
-
 
         [return: NativeTypeName("lv_state_t")]
         public static ushort lv_obj_style_get_selector_state([NativeTypeName("lv_style_selector_t")] uint selector)
@@ -294,6 +77,23 @@ namespace LVGLSharp.Interop
             return (ushort)(selector & 0xFFFF);
         }
 
+        public static void lv_obj_move_foreground([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj)
+        {
+            _lv_obj_t* parent = lv_obj_get_parent(obj);
+
+            if (parent == null)
+            {
+                do
+                {
+                    ;
+                }
+                while ((0) != 0);
+
+                return;
+            }
+
+            lv_obj_move_to_index(obj, (int)(lv_obj_get_child_count(parent) - 1));
+        }
 
         [return: NativeTypeName("int32_t")]
         public static int lv_obj_get_style_space_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)

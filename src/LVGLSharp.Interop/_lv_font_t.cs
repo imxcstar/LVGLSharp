@@ -1,9 +1,11 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public unsafe partial struct _lv_font_t
     {
         [NativeTypeName("bool (*)(const lv_font_t *, lv_font_glyph_dsc_t *, uint32_t, uint32_t)")]
-        public delegate* unmanaged[Cdecl]<_lv_font_t*, lv_font_glyph_dsc_t*, c_uint32, c_uint32, c_bool1> get_glyph_dsc;
+        public delegate* unmanaged[Cdecl]<_lv_font_t*, lv_font_glyph_dsc_t*, uint, uint, c_bool1> get_glyph_dsc;
 
         [NativeTypeName("const void *(*)(lv_font_glyph_dsc_t *, lv_draw_buf_t *)")]
         public delegate* unmanaged[Cdecl]<lv_font_glyph_dsc_t*, _lv_draw_buf_t*, void*> get_glyph_bitmap;
@@ -12,60 +14,69 @@ namespace LVGLSharp.Interop
         public delegate* unmanaged[Cdecl]<_lv_font_t*, lv_font_glyph_dsc_t*, void> release_glyph;
 
         [NativeTypeName("int32_t")]
-        public c_int32 line_height;
+        public int line_height;
 
         [NativeTypeName("int32_t")]
-        public c_int32 base_line;
+        public int base_line;
 
-        public c_uint8 _bitfield;
+        [NativeBitfield("subpx", offset: 0, length: 2)]
+        [NativeBitfield("kerning", offset: 2, length: 1)]
+        [NativeBitfield("static_bitmap", offset: 3, length: 1)]
+        public byte _bitfield;
 
         [NativeTypeName("uint8_t : 2")]
-        public c_uint8 subpx
+        public byte subpx
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)(_bitfield & 0x3u);
+                return (byte)(_bitfield & 0x3u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~0x3u) | (value & 0x3u));
+                _bitfield = (byte)((_bitfield & ~0x3u) | (value & 0x3u));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 kerning
+        public byte kerning
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 2) & 0x1u);
+                return (byte)((_bitfield >> 2) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 2)) | ((value & 0x1u) << 2));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 2)) | ((value & 0x1u) << 2));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 static_bitmap
+        public byte static_bitmap
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 3) & 0x1u);
+                return (byte)((_bitfield >> 3) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 3)) | ((value & 0x1u) << 3));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 3)) | ((value & 0x1u) << 3));
             }
         }
 
         [NativeTypeName("int8_t")]
-        public c_int8 underline_position;
+        public sbyte underline_position;
 
         [NativeTypeName("int8_t")]
-        public c_int8 underline_thickness;
+        public sbyte underline_thickness;
 
         [NativeTypeName("const void *")]
         public void* dsc;

@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public partial struct lv_draw_line_dsc_t
@@ -11,58 +13,67 @@ namespace LVGLSharp.Interop
         public lv_color_t color;
 
         [NativeTypeName("int32_t")]
-        public c_int32 width;
+        public int width;
 
         [NativeTypeName("int32_t")]
-        public c_int32 dash_width;
+        public int dash_width;
 
         [NativeTypeName("int32_t")]
-        public c_int32 dash_gap;
+        public int dash_gap;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
-        public c_uint8 _bitfield;
+        [NativeBitfield("round_start", offset: 0, length: 1)]
+        [NativeBitfield("round_end", offset: 1, length: 1)]
+        [NativeBitfield("raw_end", offset: 2, length: 1)]
+        public byte _bitfield;
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 round_start
+        public byte round_start
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)(_bitfield & 0x1u);
+                return (byte)(_bitfield & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~0x1u) | (value & 0x1u));
+                _bitfield = (byte)((_bitfield & ~0x1u) | (value & 0x1u));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 round_end
+        public byte round_end
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 1) & 0x1u);
+                return (byte)((_bitfield >> 1) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 1)) | ((value & 0x1u) << 1));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 1)) | ((value & 0x1u) << 1));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 raw_end
+        public byte raw_end
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 2) & 0x1u);
+                return (byte)((_bitfield >> 2) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 2)) | ((value & 0x1u) << 2));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 2)) | ((value & 0x1u) << 2));
             }
         }
     }

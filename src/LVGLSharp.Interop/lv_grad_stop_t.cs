@@ -5,9 +5,9 @@ namespace LVGLSharp.Interop
         public lv_color_t color;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 frac;
+        public byte frac;
     }
 }

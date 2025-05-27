@@ -3,15 +3,15 @@ namespace LVGLSharp.Interop
     public partial struct lv_color32_t
     {
         [NativeTypeName("uint8_t")]
-        public c_uint8 blue;
+        public byte blue;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 green;
+        public byte green;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 red;
+        public byte red;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 alpha;
+        public byte alpha;
     }
 }

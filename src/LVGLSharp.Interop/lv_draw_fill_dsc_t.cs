@@ -5,10 +5,10 @@ namespace LVGLSharp.Interop
         public lv_draw_dsc_base_t @base;
 
         [NativeTypeName("int32_t")]
-        public c_int32 radius;
+        public int radius;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
         public lv_color_t color;
 

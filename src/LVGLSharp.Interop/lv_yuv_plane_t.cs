@@ -5,6 +5,6 @@ namespace LVGLSharp.Interop
         public void* buf;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 stride;
+        public uint stride;
     }
 }

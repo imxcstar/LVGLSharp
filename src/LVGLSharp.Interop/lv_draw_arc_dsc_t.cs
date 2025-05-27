@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public unsafe partial struct lv_draw_arc_dsc_t
@@ -7,38 +9,41 @@ namespace LVGLSharp.Interop
         public lv_color_t color;
 
         [NativeTypeName("int32_t")]
-        public c_int32 width;
+        public int width;
 
         [NativeTypeName("lv_value_precise_t")]
-        public c_int32 start_angle;
+        public int start_angle;
 
         [NativeTypeName("lv_value_precise_t")]
-        public c_int32 end_angle;
+        public int end_angle;
 
         public lv_point_t center;
 
         [NativeTypeName("uint16_t")]
-        public c_uint16 radius;
+        public ushort radius;
 
         [NativeTypeName("const void *")]
         public void* img_src;
 
         [NativeTypeName("lv_opa_t")]
-        public c_uint8 opa;
+        public byte opa;
 
-        public c_uint8 _bitfield;
+        [NativeBitfield("rounded", offset: 0, length: 1)]
+        public byte _bitfield;
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 rounded
+        public byte rounded
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)(_bitfield & 0x1u);
+                return (byte)(_bitfield & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~0x1u) | (value & 0x1u));
+                _bitfield = (byte)((_bitfield & ~0x1u) | (value & 0x1u));
             }
         }
     }

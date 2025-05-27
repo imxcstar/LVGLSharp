@@ -1,17 +1,23 @@
+using System.Runtime.CompilerServices;
+
 namespace LVGLSharp.Interop
 {
     public partial struct lv_font_fmt_txt_glyph_dsc_t
     {
-        public c_uint32 _bitfield;
+        [NativeBitfield("bitmap_index", offset: 0, length: 20)]
+        [NativeBitfield("adv_w", offset: 20, length: 12)]
+        public uint _bitfield;
 
         [NativeTypeName("uint32_t : 20")]
-        public c_uint32 bitmap_index
+        public uint bitmap_index
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
                 return _bitfield & 0xFFFFFu;
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
                 _bitfield = (_bitfield & ~0xFFFFFu) | (value & 0xFFFFFu);
@@ -19,13 +25,15 @@ namespace LVGLSharp.Interop
         }
 
         [NativeTypeName("uint32_t : 12")]
-        public c_uint32 adv_w
+        public uint adv_w
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
                 return (_bitfield >> 20) & 0xFFFu;
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
                 _bitfield = (_bitfield & ~(0xFFFu << 20)) | ((value & 0xFFFu) << 20);
@@ -33,15 +41,15 @@ namespace LVGLSharp.Interop
         }
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 box_w;
+        public byte box_w;
 
         [NativeTypeName("uint8_t")]
-        public c_uint8 box_h;
+        public byte box_h;
 
         [NativeTypeName("int8_t")]
-        public c_int8 ofs_x;
+        public sbyte ofs_x;
 
         [NativeTypeName("int8_t")]
-        public c_int8 ofs_y;
+        public sbyte ofs_y;
     }
 }

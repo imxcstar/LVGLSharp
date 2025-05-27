@@ -6,13 +6,13 @@ namespace LVGLSharp.Interop
         public _lv_cache_class_t* clz;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 node_size;
+        public uint node_size;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 max_size;
+        public uint max_size;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 size;
+        public uint size;
 
         [NativeTypeName("lv_cache_ops_t")]
         public _lv_cache_ops_t ops;
@@ -21,6 +21,6 @@ namespace LVGLSharp.Interop
         public int @lock;
 
         [NativeTypeName("const char *")]
-        public c_int8* name;
+        public sbyte* name;
     }
 }

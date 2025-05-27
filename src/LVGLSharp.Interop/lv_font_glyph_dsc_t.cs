@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace LVGLSharp.Interop
@@ -8,57 +9,63 @@ namespace LVGLSharp.Interop
         public _lv_font_t* resolved_font;
 
         [NativeTypeName("uint16_t")]
-        public c_uint16 adv_w;
+        public ushort adv_w;
 
         [NativeTypeName("uint16_t")]
-        public c_uint16 box_w;
+        public ushort box_w;
 
         [NativeTypeName("uint16_t")]
-        public c_uint16 box_h;
+        public ushort box_h;
 
         [NativeTypeName("int16_t")]
-        public c_int16 ofs_x;
+        public short ofs_x;
 
         [NativeTypeName("int16_t")]
-        public c_int16 ofs_y;
+        public short ofs_y;
 
         [NativeTypeName("uint16_t")]
-        public c_uint16 stride;
+        public ushort stride;
 
         public lv_font_glyph_format_t format;
 
-        public c_uint8 _bitfield;
+        [NativeBitfield("is_placeholder", offset: 0, length: 1)]
+        [NativeBitfield("req_raw_bitmap", offset: 1, length: 1)]
+        public byte _bitfield;
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 is_placeholder
+        public byte is_placeholder
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)(_bitfield & 0x1u);
+                return (byte)(_bitfield & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~0x1u) | (value & 0x1u));
+                _bitfield = (byte)((_bitfield & ~0x1u) | (value & 0x1u));
             }
         }
 
         [NativeTypeName("uint8_t : 1")]
-        public c_uint8 req_raw_bitmap
+        public byte req_raw_bitmap
         {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             readonly get
             {
-                return (c_uint8)((_bitfield >> 1) & 0x1u);
+                return (byte)((_bitfield >> 1) & 0x1u);
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set
             {
-                _bitfield = (c_uint8)((_bitfield & ~(0x1u << 1)) | ((value & 0x1u) << 1));
+                _bitfield = (byte)((_bitfield & ~(0x1u << 1)) | ((value & 0x1u) << 1));
             }
         }
 
         [NativeTypeName("int32_t")]
-        public c_int32 outline_stroke_width;
+        public int outline_stroke_width;
 
         [NativeTypeName("__AnonymousRecord_lv_font_L73_C5")]
         public _gid_e__Union gid;
@@ -71,7 +78,7 @@ namespace LVGLSharp.Interop
         {
             [FieldOffset(0)]
             [NativeTypeName("uint32_t")]
-            public c_uint32 index;
+            public uint index;
 
             [FieldOffset(0)]
             [NativeTypeName("const void *")]

@@ -6,10 +6,10 @@ namespace LVGLSharp.Interop
         public _lv_array_t array;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 head;
+        public uint head;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 tail;
+        public uint tail;
 
         [NativeTypeName("bool")]
         public c_bool1 inner_alloc;

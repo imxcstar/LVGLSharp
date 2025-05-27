@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace LVGLSharp.Interop
@@ -8,13 +9,13 @@ namespace LVGLSharp.Interop
         public lv_point_t point;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 key;
+        public uint key;
 
         [NativeTypeName("uint32_t")]
-        public c_uint32 btn_id;
+        public uint btn_id;
 
         [NativeTypeName("int16_t")]
-        public c_int16 enc_diff;
+        public short enc_diff;
 
         public lv_indev_state_t state;
 
@@ -38,12 +39,14 @@ namespace LVGLSharp.Interop
 
             public ref lv_indev_gesture_type_t this[int index]
             {
+                [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 get
                 {
                     return ref AsSpan()[index];
                 }
             }
 
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             public Span<lv_indev_gesture_type_t> AsSpan() => MemoryMarshal.CreateSpan(ref e0, 6);
         }
 
@@ -58,6 +61,7 @@ namespace LVGLSharp.Interop
 
             public ref void* this[int index]
             {
+                [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 get
                 {
                     fixed (void** pThis = &e0)
