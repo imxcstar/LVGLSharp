@@ -145,7 +145,7 @@ unsafe class Program
             cbWndExtra = 0,
             hInstance = Win32.GetModuleHandle(null),
             hIcon = IntPtr.Zero,
-            hCursor = IntPtr.Zero,
+            hCursor = Win32.LoadCursor(IntPtr.Zero, (IntPtr)32512),
             hbrBackground = IntPtr.Zero,
             lpszMenuName = null,
             lpszClassName = "LVGLSharpWin",
@@ -256,6 +256,9 @@ class Win32
 {
     public const int WS_OVERLAPPEDWINDOW = 0xcf0000;
     public const int WM_DESTROY = 0x0002;
+
+    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+    public static extern IntPtr LoadCursor(IntPtr hInstance, IntPtr lpCursorName);
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate IntPtr WndProcDelegate(IntPtr hWnd, uint msg, UIntPtr wParam, IntPtr lParam);
