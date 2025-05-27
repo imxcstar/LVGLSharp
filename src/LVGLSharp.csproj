@@ -11,19 +11,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="lvgl\**" />
-		<EmbeddedResource Remove="lvgl\**" />
-		<None Remove="lvgl\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Remove="build_lvgl.txt" />
-		<None Remove="lvgl.rsp" />
-		<None Remove="lvglsharp.h" />
-		<None Remove="lv_conf.h" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<DirectPInvoke Include="lvgl" />
 		<NativeLibrary Include="lvgl.lib" />
 	</ItemGroup>
