@@ -8,7 +8,7 @@ namespace LVGLSharp.Interop
         public void* user_data;
 
         [NativeTypeName("lv_anim_path_cb_t")]
-        public delegate* unmanaged[Cdecl]<_lv_anim_t*, int> path_xcb;
+        public delegate* unmanaged[Cdecl]<lv_anim_t*, int> path_xcb;
 
         [NativeTypeName("uint32_t")]
         public uint time;

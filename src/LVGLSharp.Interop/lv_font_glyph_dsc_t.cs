@@ -6,7 +6,7 @@ namespace LVGLSharp.Interop
     public unsafe partial struct lv_font_glyph_dsc_t
     {
         [NativeTypeName("const lv_font_t *")]
-        public _lv_font_t* resolved_font;
+        public lv_font_t* resolved_font;
 
         [NativeTypeName("uint16_t")]
         public ushort adv_w;
@@ -70,8 +70,7 @@ namespace LVGLSharp.Interop
         [NativeTypeName("__AnonymousRecord_lv_font_L73_C5")]
         public _gid_e__Union gid;
 
-        [NativeTypeName("lv_cache_entry_t *")]
-        public _lv_cache_entry_t* entry;
+        public lv_cache_entry_t* entry;
 
         [StructLayout(LayoutKind.Explicit)]
         public unsafe partial struct _gid_e__Union

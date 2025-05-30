@@ -1,13 +1,80 @@
-﻿global using static LVGLSharp.Interop.lv_buttonmatrix_ctrl_t;
+﻿global using static LVGLSharp.Interop.lv_align_t;
+global using static LVGLSharp.Interop.lv_animimg_part_t;
+global using static LVGLSharp.Interop.lv_arc_mode_t;
+global using static LVGLSharp.Interop.lv_bar_mode_t;
+global using static LVGLSharp.Interop.lv_bar_orientation_t;
+global using static LVGLSharp.Interop.lv_base_dir_t;
+global using static LVGLSharp.Interop.lv_blend_mode_t;
+global using static LVGLSharp.Interop.lv_border_side_t;
+global using static LVGLSharp.Interop.lv_buttonmatrix_ctrl_t;
+global using static LVGLSharp.Interop.lv_cache_reserve_cond_res_t;
+global using static LVGLSharp.Interop.lv_chart_axis_t;
+global using static LVGLSharp.Interop.lv_chart_type_t;
+global using static LVGLSharp.Interop.lv_chart_update_mode_t;
+global using static LVGLSharp.Interop.lv_color_format_t;
+global using static LVGLSharp.Interop.lv_cover_res_t;
+global using static LVGLSharp.Interop.lv_dir_t;
 global using static LVGLSharp.Interop.lv_display_render_mode_t;
 global using static LVGLSharp.Interop.lv_display_rotation_t;
 global using static LVGLSharp.Interop.lv_event_code_t;
+global using static LVGLSharp.Interop.lv_flex_align_t;
+global using static LVGLSharp.Interop.lv_flex_flow_t;
+global using static LVGLSharp.Interop.lv_font_fmt_txt_bitmap_format_t;
+global using static LVGLSharp.Interop.lv_font_fmt_txt_cmap_type_t;
+global using static LVGLSharp.Interop.lv_font_glyph_format_t;
+global using static LVGLSharp.Interop.lv_font_kerning_t;
+global using static LVGLSharp.Interop.lv_font_subpx_t;
+global using static LVGLSharp.Interop.lv_fs_mode_t;
+global using static LVGLSharp.Interop.lv_fs_res_t;
+global using static LVGLSharp.Interop.lv_fs_whence_t;
+global using static LVGLSharp.Interop.lv_grad_dir_t;
+global using static LVGLSharp.Interop.lv_grad_extend_t;
+global using static LVGLSharp.Interop.lv_grid_align_t;
+global using static LVGLSharp.Interop.lv_group_refocus_policy_t;
 global using static LVGLSharp.Interop.lv_imagebutton_state_t;
+global using static LVGLSharp.Interop.lv_image_align_t;
+global using static LVGLSharp.Interop.lv_image_compress_t;
+global using static LVGLSharp.Interop.lv_image_src_t;
+global using static LVGLSharp.Interop.lv_indev_gesture_type_t;
+global using static LVGLSharp.Interop.lv_indev_mode_t;
 global using static LVGLSharp.Interop.lv_indev_state_t;
+global using static LVGLSharp.Interop.lv_indev_type_t;
+global using static LVGLSharp.Interop.lv_keyboard_mode_t;
+global using static LVGLSharp.Interop.lv_key_t;
 global using static LVGLSharp.Interop.lv_label_long_mode_t;
+global using static LVGLSharp.Interop.lv_layer_type_t;
+global using static LVGLSharp.Interop.lv_layout_t;
+global using static LVGLSharp.Interop.lv_menu_mode_header_t;
+global using static LVGLSharp.Interop.lv_menu_mode_root_back_button_t;
+global using static LVGLSharp.Interop.lv_obj_class_editable_t;
+global using static LVGLSharp.Interop.lv_obj_class_group_def_t;
+global using static LVGLSharp.Interop.lv_obj_class_theme_inheritable_t;
+global using static LVGLSharp.Interop.lv_obj_flag_t;
+global using static LVGLSharp.Interop.lv_obj_point_transform_flag_t;
+global using static LVGLSharp.Interop.lv_obj_tree_walk_res_t;
+global using static LVGLSharp.Interop.lv_palette_t;
+global using static LVGLSharp.Interop.lv_rb_color_t;
 global using static LVGLSharp.Interop.lv_result_t;
+global using static LVGLSharp.Interop.lv_roller_mode_t;
+global using static LVGLSharp.Interop.lv_screen_load_anim_t;
+global using static LVGLSharp.Interop.lv_scrollbar_mode_t;
+global using static LVGLSharp.Interop.lv_scroll_snap_t;
+global using static LVGLSharp.Interop.lv_slider_mode_t;
+global using static LVGLSharp.Interop.lv_slider_orientation_t;
+global using static LVGLSharp.Interop.lv_span_mode_t;
+global using static LVGLSharp.Interop.lv_span_overflow_t;
 global using static LVGLSharp.Interop.lv_style_res_t;
+global using static LVGLSharp.Interop.lv_style_state_cmp_t;
+global using static LVGLSharp.Interop.lv_subject_type_t;
+global using static LVGLSharp.Interop.lv_switch_orientation_t;
+global using static LVGLSharp.Interop.lv_table_cell_ctrl_t;
+global using static LVGLSharp.Interop.lv_text_align_t;
+global using static LVGLSharp.Interop.lv_text_cmd_state_t;
+global using static LVGLSharp.Interop.lv_text_decor_t;
+global using static LVGLSharp.Interop.lv_text_flag_t;
+global using static LVGLSharp.Interop.lv_thread_prio_t;
 global using static LVGLSharp.Interop.LVGL;
+global using lv_style_prop_t = byte;
 
 using System;
 using System.Collections.Generic;
@@ -77,9 +144,9 @@ namespace LVGLSharp.Interop
             return (ushort)(selector & 0xFFFF);
         }
 
-        public static void lv_obj_move_foreground([NativeTypeName("lv_obj_t *")] _lv_obj_t* obj)
+        public static void lv_obj_move_foreground([NativeTypeName("lv_obj_t *")] lv_obj_t* obj)
         {
-            _lv_obj_t* parent = lv_obj_get_parent(obj);
+            lv_obj_t* parent = lv_obj_get_parent(obj);
 
             if (parent == null)
             {
@@ -96,7 +163,7 @@ namespace LVGLSharp.Interop
         }
 
         [return: NativeTypeName("int32_t")]
-        public static int lv_obj_get_style_space_left([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        public static int lv_obj_get_style_space_left([NativeTypeName("const lv_obj_t *")] lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
             int padding = lv_obj_get_style_pad_left(obj, part);
             int border_width = lv_obj_get_style_border_width(obj, part);
@@ -106,7 +173,7 @@ namespace LVGLSharp.Interop
         }
 
         [return: NativeTypeName("int32_t")]
-        public static int lv_obj_get_style_space_right([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        public static int lv_obj_get_style_space_right([NativeTypeName("const lv_obj_t *")] lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
             int padding = lv_obj_get_style_pad_right(obj, part);
             int border_width = lv_obj_get_style_border_width(obj, part);
@@ -116,7 +183,7 @@ namespace LVGLSharp.Interop
         }
 
         [return: NativeTypeName("int32_t")]
-        public static int lv_obj_get_style_space_top([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        public static int lv_obj_get_style_space_top([NativeTypeName("const lv_obj_t *")] lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
             int padding = lv_obj_get_style_pad_top(obj, part);
             int border_width = lv_obj_get_style_border_width(obj, part);
@@ -126,7 +193,7 @@ namespace LVGLSharp.Interop
         }
 
         [return: NativeTypeName("int32_t")]
-        public static int lv_obj_get_style_space_bottom([NativeTypeName("const lv_obj_t *")] _lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
+        public static int lv_obj_get_style_space_bottom([NativeTypeName("const lv_obj_t *")] lv_obj_t* obj, [NativeTypeName("lv_part_t")] uint part)
         {
             int padding = lv_obj_get_style_pad_bottom(obj, part);
             int border_width = lv_obj_get_style_border_width(obj, part);
@@ -136,7 +203,7 @@ namespace LVGLSharp.Interop
         }
 
         [DllImport("lvgl", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void lv_span_set_text_static([NativeTypeName("lv_span_t *")] _lv_span_t* span, [NativeTypeName("const char *")] sbyte* text);
+        public static extern void lv_span_set_text_static([NativeTypeName("lv_span_t *")] lv_span_t* span, [NativeTypeName("const char *")] sbyte* text);
 
 
         [NativeTypeName("#define LV_ANIM_OFF false")]

@@ -12,11 +12,11 @@ unsafe class Program
     const int Width = 480;
     const int Height = 320;
     static IntPtr g_hwnd;
-    static _lv_display_t* g_display;
+    static lv_display_t* g_display;
     static IntPtr g_lvbuf;
     static uint g_bufSize = Width * Height * 4;
     static bool g_running = true;
-    static _lv_obj_t* label;
+    static lv_obj_t* label;
     static int startTick;
     static int mouseX = 0, mouseY = 0;
     static bool mousePressed = false;
@@ -51,7 +51,7 @@ unsafe class Program
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
-    static unsafe void FlushCb(_lv_display_t* disp_drv, lv_area_t* area, byte* color_p)
+    static unsafe void FlushCb(lv_display_t* disp_drv, lv_area_t* area, byte* color_p)
     {
         int width = area->x2 - area->x1 + 1;
         int height = area->y2 - area->y1 + 1;
@@ -77,14 +77,15 @@ unsafe class Program
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
-    static unsafe void buttonClick(_lv_event_t* obj)
+    static unsafe void buttonClick(lv_event_t* obj)
     {
-        string now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-        int len = Encoding.ASCII.GetBytes(now, 0, now.Length, _timeBuf, 0);
-        _timeBuf[len] = 0;
-        fixed (byte* p = _timeBuf)
+        lv_event_code_t code = lv_event_get_code(obj);
+        if (code == lv_event_code_t.LV_EVENT_CLICKED)
         {
-            lv_label_set_text(label, (sbyte*)p);
+            string now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            int len = Encoding.ASCII.GetBytes(now, 0, now.Length, _timeBuf, 0);
+            _timeBuf[len] = 0;
+            lv_label_set_text(label, _timeBuf);
         }
     }
 
@@ -95,7 +96,7 @@ unsafe class Program
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
-    static unsafe void MouseReadCb(_lv_indev_t* indev_drv, lv_indev_data_t* data)
+    static unsafe void MouseReadCb(lv_indev_t* indev_drv, lv_indev_data_t* data)
     {
         data->point.x = mouseX;
         data->point.y = mouseY;
@@ -127,7 +128,6 @@ unsafe class Program
         }
         return Win32.DefWindowProc(hWnd, msg, wParam, lParam);
     }
-
 
     static void Main(string[] args)
     {
@@ -169,7 +169,7 @@ unsafe class Program
 
         g_display = lv_display_create(Width, Height);
 
-        _lv_indev_t* indev = lv_indev_create();
+        lv_indev_t* indev = lv_indev_create();
         lv_indev_set_type(indev, lv_indev_type_t.LV_INDEV_TYPE_POINTER);
         lv_indev_set_read_cb(indev, &MouseReadCb);
 
@@ -180,25 +180,19 @@ unsafe class Program
         var scr = lv_scr_act();
         label = lv_label_create(scr);
 
-        fixed (byte* value = Encoding.ASCII.GetBytes($"Hello LVGL!\0"))
-        {
-            lv_label_set_text(label, (sbyte*)value);
-        }
+        lv_label_set_text(label, Encoding.ASCII.GetBytes($"Hello LVGL!\0"));
 
         var button = lv_button_create(scr);
         lv_obj_set_pos(button, 50, 30);
         lv_obj_set_size(button, 120, 50);
         var buttonLabel = lv_label_create(button);
-        fixed (byte* value = Encoding.ASCII.GetBytes("Click\0"))
-        {
-            lv_label_set_text(buttonLabel, (sbyte*)value);
-        }
+        lv_label_set_text(buttonLabel, Encoding.ASCII.GetBytes("Click\0"));
         lv_obj_center(buttonLabel);
 
-        lv_obj_add_event_cb(button, &buttonClick, lv_event_code_t.LV_EVENT_CLICKED, null);
+        lv_obj_add_event_cb(button, &buttonClick, lv_event_code_t.LV_EVENT_ALL, null);
 
 
-        _lv_obj_t* slider = lv_slider_create(lv_screen_active());
+        lv_obj_t* slider = lv_slider_create(lv_screen_active());
         lv_slider_set_value(slider, 70, LV_ANIM_OFF);
         lv_obj_set_size(slider, 300, 20);
         lv_obj_center(slider);

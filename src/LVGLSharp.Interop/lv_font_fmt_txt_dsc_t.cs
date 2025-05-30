@@ -5,7 +5,7 @@ namespace LVGLSharp.Interop
     public unsafe partial struct lv_font_fmt_txt_dsc_t
     {
         [NativeTypeName("const uint8_t *")]
-        public byte* glyph_bitmap;
+        public byte[] glyph_bitmap;
 
         [NativeTypeName("const lv_font_fmt_txt_glyph_dsc_t *")]
         public lv_font_fmt_txt_glyph_dsc_t* glyph_dsc;

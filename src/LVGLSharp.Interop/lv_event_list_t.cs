@@ -4,8 +4,7 @@ namespace LVGLSharp.Interop
 {
     public partial struct lv_event_list_t
     {
-        [NativeTypeName("lv_array_t")]
-        public _lv_array_t array;
+        public lv_array_t array;
 
         [NativeBitfield("is_traversing", offset: 0, length: 1)]
         [NativeBitfield("has_marked_deleting", offset: 1, length: 1)]

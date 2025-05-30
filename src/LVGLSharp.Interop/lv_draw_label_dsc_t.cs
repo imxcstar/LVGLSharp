@@ -7,12 +7,12 @@ namespace LVGLSharp.Interop
         public lv_draw_dsc_base_t @base;
 
         [NativeTypeName("const char *")]
-        public sbyte* text;
+        public byte[] text;
 
         public lv_point_t text_size;
 
         [NativeTypeName("const lv_font_t *")]
-        public _lv_font_t* font;
+        public lv_font_t* font;
 
         public lv_color_t color;
 
@@ -138,8 +138,7 @@ namespace LVGLSharp.Interop
             }
         }
 
-        [NativeTypeName("lv_draw_label_hint_t *")]
-        public _lv_draw_label_hint_t* hint;
+        public lv_draw_label_hint_t* hint;
 
         [NativeTypeName("lv_opa_t")]
         public byte outline_stroke_opa;

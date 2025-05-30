@@ -10,7 +10,7 @@ namespace LVGLSharp.Interop
         public uint unicode;
 
         [NativeTypeName("const lv_font_t *")]
-        public _lv_font_t* font;
+        public lv_font_t* font;
 
         public lv_color_t color;
 

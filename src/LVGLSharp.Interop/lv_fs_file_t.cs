@@ -4,10 +4,8 @@ namespace LVGLSharp.Interop
     {
         public void* file_d;
 
-        [NativeTypeName("lv_fs_drv_t *")]
-        public _lv_fs_drv_t* drv;
+        public lv_fs_drv_t* drv;
 
-        [NativeTypeName("lv_fs_file_cache_t *")]
-        public _lv_fs_file_cache_t* cache;
+        public lv_fs_file_cache_t* cache;
     }
 }

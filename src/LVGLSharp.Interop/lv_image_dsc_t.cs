@@ -8,7 +8,7 @@ namespace LVGLSharp.Interop
         public uint data_size;
 
         [NativeTypeName("const uint8_t *")]
-        public byte* data;
+        public byte[] data;
 
         [NativeTypeName("const void *")]
         public void* reserved;
